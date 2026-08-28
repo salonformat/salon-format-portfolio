@@ -1,0 +1,83 @@
+---
+import '@fontsource/della-respira';
+import '@fontsource/josefin-sans/400.css';
+import '@fontsource/josefin-sans/500.css';
+import '../../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Into the Infinite — an interactive Salon Format concept inspired by repetition and perception." />
+    <link rel="icon" type="image/png" href={`${base}brand/salon-format-mark.png`} />
+    <title>Into the Infinite — Salon Format</title>
+  </head>
+  <body class="case-page kusama-case">
+    <header class="case-header">
+      <a href={base} aria-label="Back to Salon Format"><img src={`${base}brand/salon-format-mark.png`} alt="" /></a>
+      <a href={`${base}#projects`}>All projects</a>
+    </header>
+
+    <main>
+      <section class="case-hero">
+        <div class="case-hero-copy">
+          <p class="project-status">Working prototype</p>
+          <h1>Into<br /><em>the Infinite</em></h1>
+          <p class="case-deck">A small interactive homage to Yayoi Kusama, built around repetition, sound and personal response.</p>
+        </div>
+        <div class="kusama-case-art" aria-hidden="true">
+          <span class="case-dot case-dot-one"></span>
+          <span class="case-dot case-dot-two"></span>
+          <span class="case-dot case-dot-three"></span>
+          <img src={`${base}images/kusama/figure.png`} alt="" />
+        </div>
+      </section>
+
+      <section class="case-intro">
+        <p class="case-number">The idea</p>
+        <h2>What does repetition feel like when you create it yourself?</h2>
+        <p>Visitors place coloured dots in an open field. Each dot adds a short sound, and the growing pattern slowly changes the space. The simple action leaves room to notice rhythm, scale and the urge to continue.</p>
+      </section>
+
+      <section class="case-process kusama-process">
+        <div class="process-heading">
+          <p class="case-number">Experience flow</p>
+          <h2>Place.<br />Listen.<br />Notice.</h2>
+        </div>
+        <ol class="journey-list">
+          <li><span>Enter</span><p>Meet the idea of repetition through a short visual introduction.</p></li>
+          <li><span>Place a dot</span><p>Tap the field and add one mark at a time.</p></li>
+          <li><span>Hear it grow</span><p>Each colour produces a different note.</p></li>
+          <li><span>Watch the pattern</span><p>Spacing, colour and accumulation change with every choice.</p></li>
+          <li><span>Reflect</span><p>Choose the sentence that best describes the experience.</p></li>
+          <li><span>Keep a trace</span><p>Download the finished field as a personal poster.</p></li>
+        </ol>
+      </section>
+
+      <section class="decision-section kusama-decisions">
+        <p class="case-number">Design choices</p>
+        <div class="decision-grid">
+          <article><h3>One clear action</h3><p>The experience begins with a tap, so the idea is understood through doing.</p></article>
+          <article><h3>Sound as feedback</h3><p>Three colours create three related notes and make accumulation audible.</p></article>
+          <article><h3>Open composition</h3><p>Visitors decide where each dot belongs and when the field feels complete.</p></article>
+          <article><h3>A personal ending</h3><p>The final poster records both the pattern and a short reflection.</p></article>
+        </div>
+      </section>
+
+      <section class="case-role kusama-role">
+        <p class="case-number">Role and contribution</p>
+        <h2>Learning Experience Design · Concept · Interaction Design · Visual Direction · Writing · Prototyping</h2>
+        <p>This is an independent concept prototype and a personal homage. The illustration was created with AI assistance and is labelled accordingly inside the experience.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Project navigation">
+        <p>Next case study</p>
+        <a href={`${base}projects/learning-differently`}>Learning, Differently <span aria-hidden="true">→</span></a>
+      </nav>
+    </main>
+  </body>
+</html>
