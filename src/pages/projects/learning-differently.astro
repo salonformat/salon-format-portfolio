@@ -3,6 +3,8 @@ import '@fontsource/della-respira';
 import '@fontsource/josefin-sans/400.css';
 import '@fontsource/josefin-sans/500.css';
 import '../../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -11,13 +13,13 @@ import '../../styles/global.css';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Learning, Differently — a Salon Format inclusive learning design case study." />
-    <link rel="icon" type="image/png" href="/brand/salon-format-mark.png" />
+    <link rel="icon" type="image/png" href={`${base}brand/salon-format-mark.png`} />
     <title>Learning, Differently — Salon Format</title>
   </head>
   <body class="case-page learning-case">
     <header class="case-header">
-      <a href="/" aria-label="Back to Salon Format"><img src="/brand/salon-format-mark.png" alt="" /></a>
-      <a href="/#projects">All projects</a>
+      <a href={base} aria-label="Back to Salon Format"><img src={`${base}brand/salon-format-mark.png`} alt="" /></a>
+      <a href={`${base}#projects`}>All projects</a>
     </header>
 
     <main>
@@ -28,7 +30,7 @@ import '../../styles/global.css';
           <p class="case-deck">An interactive exploration of inclusive learning design grounded in one learner’s real context.</p>
         </div>
         <div class="learning-case-preview">
-          <img src="/images/learning-differently-preview.png" alt="Learning, Differently interface showing Anna's train journey" />
+          <img src={`${base}images/learning-differently-preview.png`} alt="Learning, Differently interface showing Anna's train journey" />
         </div>
       </section>
 
@@ -69,7 +71,7 @@ import '../../styles/global.css';
 
       <nav class="case-next" aria-label="Project navigation">
         <p>Next case study</p>
-        <a href="/projects/emilie-floege">Emilie Flöge: Movement Through Fabric <span aria-hidden="true">→</span></a>
+        <a href={`${base}projects/emilie-floege`}>Emilie Flöge: Movement Through Fabric <span aria-hidden="true">→</span></a>
       </nav>
     </main>
   </body>

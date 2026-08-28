@@ -3,6 +3,8 @@ import '@fontsource/della-respira';
 import '@fontsource/josefin-sans/400.css';
 import '@fontsource/josefin-sans/500.css';
 import '../../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -11,13 +13,13 @@ import '../../styles/global.css';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Emilie Flöge: Movement Through Fabric — a Salon Format learning experience case study." />
-    <link rel="icon" type="image/png" href="/brand/salon-format-mark.png" />
+    <link rel="icon" type="image/png" href={`${base}brand/salon-format-mark.png`} />
     <title>Emilie Flöge: Movement Through Fabric — Salon Format</title>
   </head>
   <body class="case-page emilie-case">
     <header class="case-header">
-      <a href="/" aria-label="Back to Salon Format"><img src="/brand/salon-format-mark.png" alt="" /></a>
-      <a href="/#projects">All projects</a>
+      <a href={base} aria-label="Back to Salon Format"><img src={`${base}brand/salon-format-mark.png`} alt="" /></a>
+      <a href={`${base}#projects`}>All projects</a>
     </header>
 
     <main>
@@ -32,7 +34,7 @@ import '../../styles/global.css';
         </div>
         <div class="case-hero-art" aria-hidden="true">
           <span></span>
-          <img src="/images/emilie/figure.png" alt="" />
+          <img src={`${base}images/emilie/figure.png`} alt="" />
         </div>
       </section>
 
@@ -59,7 +61,7 @@ import '../../styles/global.css';
 
       <section class="case-image-section">
         <figure class="historical-figure">
-          <img src="/images/emilie/historical-photo.jpg" alt="Emilie Flöge and Gustav Klimt at Lake Attersee in 1909" />
+          <img src={`${base}images/emilie/historical-photo.jpg`} alt="Emilie Flöge and Gustav Klimt at Lake Attersee in 1909" />
           <figcaption>Historical source material becomes context—not decoration. Photograph: Wien Museum, CC0.</figcaption>
         </figure>
         <div class="case-image-copy">
@@ -87,7 +89,7 @@ import '../../styles/global.css';
 
       <nav class="case-next" aria-label="Project navigation">
         <p>Next case study</p>
-        <a href="/projects/learning-differently">Learning, Differently <span aria-hidden="true">→</span></a>
+        <a href={`${base}projects/learning-differently`}>Learning, Differently <span aria-hidden="true">→</span></a>
       </nav>
     </main>
   </body>
