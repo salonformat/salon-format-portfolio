@@ -72,17 +72,18 @@ a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 6px; }
   pointer-events: none;
 }
 .learning-motion svg { display: block; width: 100%; height: auto; overflow: visible; }
-.motion-shape { transform-box: fill-box; transform-origin: center; }
-.motion-shape-one { fill: var(--pink); animation: shape-one 7.5s cubic-bezier(.16, 1, .3, 1) infinite alternate; }
-.motion-shape-two { fill: var(--coral); animation: shape-two 7.5s cubic-bezier(.16, 1, .3, 1) infinite alternate; }
-.motion-shape-three { fill: var(--yellow); animation: shape-three 7.5s cubic-bezier(.16, 1, .3, 1) infinite alternate; }
-.motion-mark { transform-box: fill-box; transform-origin: center; animation: mark-awaken 7.5s cubic-bezier(.16, 1, .3, 1) infinite alternate; }
+.motion-shape { transform-box: fill-box; transform-origin: center; will-change: transform; }
+.motion-shape-one { fill: var(--pink); animation: shape-one 12s linear infinite; }
+.motion-shape-two { fill: var(--coral); animation: shape-two 12s linear infinite; }
+.motion-shape-three { fill: var(--yellow); animation: shape-three 12s linear infinite; }
+.motion-mark { transform-box: fill-box; transform-origin: center; will-change: transform, opacity; animation: mark-awaken 12s linear infinite; }
 .motion-title {
   fill: var(--cream);
   font-family: var(--display);
   font-size: 52px;
   letter-spacing: -.025em;
-  animation: title-reveal 7.5s cubic-bezier(.16, 1, .3, 1) infinite alternate;
+  will-change: transform, opacity;
+  animation: title-reveal 12s linear infinite;
 }
 .motion-subtitle {
   fill: var(--cream);
@@ -90,29 +91,37 @@ a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 6px; }
   font-size: 20px;
   font-weight: 500;
   letter-spacing: .02em;
-  animation: title-reveal 7.5s cubic-bezier(.16, 1, .3, 1) infinite alternate;
+  will-change: transform, opacity;
+  animation: title-reveal 12s linear infinite;
 }
 .learning-motion[data-paused] * { animation-play-state: paused; }
 
 @keyframes shape-one {
-  0%, 16% { transform: translate(-58px, -38px) rotate(-7deg) scale(.72); }
-  64%, 100% { transform: translate(112px, 82px) rotate(3deg) scale(.96); }
+  0%, 100% { transform: translate(-58px, -38px) rotate(-7deg) scale(.72); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  43% { transform: translate(112px, 82px) rotate(3deg) scale(.96); animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
+  57% { transform: translate(112px, 82px) rotate(3deg) scale(.96); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
 }
 @keyframes shape-two {
-  0%, 16% { transform: translate(58px, -42px) rotate(8deg) scale(.7); }
-  64%, 100% { transform: translate(-112px, 84px) rotate(-3deg) scale(.96); }
+  0%, 100% { transform: translate(58px, -42px) rotate(8deg) scale(.7); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  43% { transform: translate(-112px, 84px) rotate(-3deg) scale(.96); animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
+  57% { transform: translate(-112px, 84px) rotate(-3deg) scale(.96); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
 }
 @keyframes shape-three {
-  0%, 16% { transform: translate(0, 70px) rotate(5deg) scale(.7); }
-  64%, 100% { transform: translate(0, -82px) rotate(-3deg) scale(.96); }
+  0%, 100% { transform: translate(0, 70px) rotate(5deg) scale(.7); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  43% { transform: translate(0, -82px) rotate(-3deg) scale(.96); animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
+  57% { transform: translate(0, -82px) rotate(-3deg) scale(.96); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
 }
 @keyframes mark-awaken {
-  0%, 46% { transform: rotate(-7deg) scale(.55); opacity: 0; }
-  72%, 100% { transform: rotate(0) scale(1); opacity: 1; }
+  0%, 31%, 100% { transform: rotate(-5deg) scale(.72); opacity: 0; }
+  44% { transform: rotate(0) scale(1); opacity: 1; animation-timing-function: cubic-bezier(.16, 1, .3, 1); }
+  61% { transform: rotate(0) scale(1); opacity: 1; }
+  76% { transform: rotate(4deg) scale(.82); opacity: 0; }
 }
 @keyframes title-reveal {
-  0%, 57% { opacity: 0; transform: translateY(14px); }
-  80%, 100% { opacity: 1; transform: translateY(0); }
+  0%, 34%, 100% { opacity: 0; transform: translateY(10px); }
+  47% { opacity: 1; transform: translateY(0); }
+  62% { opacity: 1; transform: translateY(0); }
+  76% { opacity: 0; transform: translateY(-7px); }
 }
 .scroll-cue { position: absolute; z-index: 4; left: 50%; bottom: 20vh; width: 2rem; height: 3.5rem; color: var(--cream); transform: translateX(-50%); }
 .scroll-cue span,
