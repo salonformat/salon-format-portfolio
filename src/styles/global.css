@@ -293,6 +293,11 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .kusama-decisions { background: #f7f2e9; }
 .case-role h2 { max-width: 22ch; margin: 0; font-size: clamp(2.7rem, 4.6vw, 4.8rem); line-height: 1; }
 .case-role > p:last-child { grid-column: 2; max-width: 42rem; margin: 2rem 0 0; font-size: 1.15rem; }
+.case-notice { padding: clamp(4.5rem, 7vw, 7rem) var(--gutter); background: #f7f2e9; color: #11100d; display: grid; grid-template-columns: .45fr 1.55fr; gap: clamp(3rem, 7vw, 8rem); }
+.case-notice h2 { margin: 0; font-size: clamp(2.1rem, 3.5vw, 3.5rem); line-height: 1; }
+.case-notice > div { max-width: 48rem; }
+.case-notice p { margin: 0; font-size: 1rem; line-height: 1.65; }
+.case-notice p + p { margin-top: 1.25rem; }
 .case-next { min-height: 62svh; padding: clamp(5rem, 9vw, 9rem) var(--gutter); background: var(--blue); color: var(--cream); display: flex; flex-direction: column; justify-content: center; }
 .case-next p { margin: 0 0 1.5rem; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; }
 .case-next a { max-width: 17ch; font-family: var(--display); font-size: clamp(3rem, 6vw, 6rem); line-height: .95; text-decoration-thickness: 2px; }
@@ -320,7 +325,7 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   .about { min-height: auto; }
   .contact { grid-template-columns: 1fr; }
   .contact > img { width: 7rem; }
-  .case-hero, .case-intro, .case-process, .case-image-section, .case-role { grid-template-columns: 1fr; }
+  .case-hero, .case-intro, .case-process, .case-image-section, .case-role, .case-notice { grid-template-columns: 1fr; }
   .case-hero { min-height: auto; padding-top: 8rem; }
   .case-hero-art, .kusama-case-art { min-height: 34rem; }
   .learning-case-preview { margin-top: 2rem; }
