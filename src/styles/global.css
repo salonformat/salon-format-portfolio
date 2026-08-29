@@ -57,7 +57,7 @@ a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 6px; }
   max-width: none;
   margin: 0;
   font-family: var(--sans);
-  font-size: clamp(1.5rem, 1.85vw, 2.15rem);
+  font-size: clamp(1.4rem, 1.55vw, 1.8rem);
   font-weight: 400;
   line-height: 1.08;
   letter-spacing: -.02em;
