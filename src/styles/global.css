@@ -55,7 +55,7 @@ a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 6px; }
 .wordmark { display: block; width: min(31rem, 100%); height: auto; margin: 0 0 .55rem; }
 .hero h1 {
   max-width: none;
-  margin: 0;
+  margin: 0 0 0 clamp(.7rem, 1.2vw, .95rem);
   font-family: var(--sans);
   font-size: clamp(1.4rem, 1.55vw, 1.8rem);
   font-weight: 400;
@@ -138,11 +138,30 @@ a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 6px; }
 .scroll-cue span { top: 0; width: 2px; height: 2.75rem; }
 .scroll-cue::after { bottom: .25rem; width: 1rem; height: 1rem; border: solid currentColor; border-width: 0 2px 2px 0; background: transparent; transform: translateX(-45%) rotate(45deg); }
 
+.projects-intro,
+.practice-transition {
+  min-height: 30svh;
+  padding: clamp(3.5rem, 6vw, 6rem) var(--gutter);
+  background: var(--cream);
+  color: var(--ink);
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: clamp(3rem, 8vw, 9rem);
+  align-items: center;
+}
+.projects-intro h2,
+.practice-transition h2 { margin: 0; font-size: clamp(3.8rem, 7vw, 7rem); line-height: .9; }
+.projects-intro p,
+.practice-transition p { max-width: 34rem; margin: 0; font-size: clamp(1.25rem, 2vw, 1.8rem); line-height: 1.4; }
+.practice-transition { min-height: 58svh; padding-block: clamp(4.5rem, 7vw, 7rem); background: var(--blue); color: var(--cream); }
+.practice-transition h2 { color: var(--cream); font-size: clamp(4.5rem, 9vw, 9rem); }
+.practice-transition p { align-self: end; padding-bottom: .75rem; }
+
 .featured {
   position: relative;
   z-index: 3;
   min-height: 105svh;
-  margin-top: -18vh;
+  margin-top: 0;
   padding: clamp(4rem, 9vw, 9rem) var(--gutter);
   background: var(--yellow);
   color: var(--ink);
@@ -208,24 +227,26 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .dot-two { width: 17%; aspect-ratio: 1; right: 2%; top: 31%; background: var(--blue); }
 .dot-three { width: 11%; aspect-ratio: 1; left: 5%; bottom: 8%; background: #11100d; }
 
-.practice { background: var(--blue); color: var(--cream); padding: clamp(5rem, 10vw, 11rem) var(--gutter); }
-.practice-intro { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; margin-bottom: clamp(4rem, 8vw, 8rem); }
-.practice h2 { max-width: 16ch; margin: 0; font-size: clamp(3rem, 6vw, 6rem); line-height: .98; }
-.practice-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-.practice-item { min-height: 25rem; padding: 2.5rem; color: var(--ink); display: flex; flex-direction: column; justify-content: space-between; }
-.practice-item h3 { margin: 0; font-size: clamp(2.7rem, 5vw, 5rem); }
+.practice { background: var(--cream); color: var(--ink); padding: clamp(4rem, 6vw, 6rem) var(--gutter); }
+.practice-intro { display: grid; grid-template-columns: .35fr 1.65fr; gap: 3rem; margin-bottom: clamp(3rem, 5vw, 5rem); }
+.practice h2 { max-width: none; margin: 0; font-size: clamp(2.6rem, 3.7vw, 3.8rem); line-height: .98; white-space: nowrap; }
+.practice-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.practice-item { min-height: 13rem; padding: 2rem; color: var(--ink); display: flex; flex-direction: column; justify-content: space-between; }
+.practice-item h3 { margin: 0; font-size: clamp(2.7rem, 4vw, 4rem); }
 .practice-item p { max-width: 24ch; margin: 0; }
-.practice-item.learning { background: var(--yellow); transform: rotate(-.8deg); }
-.practice-item.design { background: var(--coral); transform: translateY(1.2rem) rotate(.6deg); }
-.practice-item.experience { background: var(--pink); transform: rotate(-.35deg); }
+.practice-item + .practice-item { border-left: 1px solid var(--ink); }
+.practice-item.learning,
+.practice-item.design,
+.practice-item.experience { background: transparent; transform: none; }
+.practice-item h3 { color: var(--blue); }
 
-.about { background: var(--cream); color: var(--ink); min-height: 90svh; padding: clamp(5rem, 10vw, 11rem) var(--gutter); display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(3rem, 10vw, 10rem); align-items: center; }
-.about h2 { margin: 0; font-size: clamp(3.5rem, 6.5vw, 7rem); line-height: .96; }
-.about-copy { max-width: 32rem; font-size: clamp(1.3rem, 2vw, 2rem); }
+.about { background: var(--cream); color: var(--ink); min-height: 60svh; padding: clamp(4.5rem, 7vw, 7rem) var(--gutter); border-top: 1px solid var(--ink); display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(3rem, 10vw, 10rem); align-items: center; }
+.about h2 { margin: 0; font-size: clamp(3.2rem, 5vw, 5rem); line-height: .96; }
+.about-copy { max-width: 32rem; font-size: clamp(1.2rem, 1.6vw, 1.55rem); }
 
-.contact { min-height: 80svh; padding: clamp(5rem, 10vw, 11rem) var(--gutter); display: grid; grid-template-columns: .35fr 1.65fr; gap: 4rem; align-items: center; }
-.contact > img { width: min(15rem, 100%); }
-.contact h2 { max-width: 13ch; margin: 0; font-size: clamp(4rem, 8vw, 8rem); line-height: .93; }
+.contact { min-height: 46svh; padding: clamp(3.5rem, 5vw, 5rem) var(--gutter); background: var(--blue); color: var(--cream); display: grid; grid-template-columns: .25fr 1.75fr; gap: 4rem; align-items: center; }
+.contact > img { width: min(9rem, 100%); }
+.contact h2 { max-width: 13ch; margin: 0; font-size: clamp(3.5rem, 6vw, 5.8rem); line-height: .93; }
 
 /* Case studies */
 .case-page { background: var(--cream); color: var(--ink); }
@@ -308,10 +329,11 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   .hero { min-height: 100svh; grid-template-columns: 1fr; align-items: start; padding-top: 8rem; padding-bottom: 32vh; }
   .wordmark { width: min(24rem, 88%); }
   .hero h1 { max-width: 15ch; }
-  .hero h1 { white-space: normal; }
+  .hero h1 { margin-left: .7rem; white-space: normal; }
   .learning-motion { width: 115vw; right: -32vw; bottom: 22vh; }
   .scroll-cue { bottom: 15vh; }
-  .featured { margin-top: -13vh; grid-template-columns: 1fr; min-height: auto; }
+  .projects-intro, .practice-transition { min-height: auto; grid-template-columns: 1fr; }
+  .featured { margin-top: 0; grid-template-columns: 1fr; min-height: auto; }
   .featured-preview { margin-top: 1rem; }
   .emilie-project, .kusama-project { min-height: auto; grid-template-columns: 1fr; }
   .emilie-visual { min-height: 34rem; }
@@ -319,7 +341,9 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   .kusama-visual { min-height: 34rem; }
   .kusama-visual img { width: min(78%, 27rem); }
   .practice-intro, .about { grid-template-columns: 1fr; }
-  .practice-grid { grid-template-columns: 1fr; gap: .6rem; }
+  .practice h2 { white-space: normal; }
+  .practice-grid { grid-template-columns: 1fr; gap: 0; }
+  .practice-item + .practice-item { border-top: 1px solid var(--ink); border-left: 0; }
   .practice-item { min-height: 19rem; }
   .practice-item.design { transform: rotate(.5deg); }
   .about { min-height: auto; }
