@@ -178,6 +178,28 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .text-link { display: inline-block; font-weight: 500; text-decoration-thickness: 2px; }
 .featured-preview img { display: block; width: 100%; height: auto; }
 
+.elio-project {
+  position: relative;
+  min-height: 114svh;
+  overflow: hidden;
+  padding: clamp(6rem, 10vw, 10rem) var(--gutter);
+  background: #062c49;
+  color: #f4efe2;
+  display: grid;
+  grid-template-columns: minmax(20rem, .9fr) minmax(26rem, 1.1fr);
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: center;
+}
+.elio-copy { position: relative; z-index: 3; }
+.elio-project .project-status { color: #91d8df; }
+.elio-project h2 { max-width: 11ch; margin: 0; font-size: clamp(3.8rem, 6.7vw, 6.7rem); line-height: .89; }
+.elio-project h2 em { color: #f29b6f; font-style: normal; }
+.elio-description { max-width: 35rem; margin: 2rem 0; color: #d5edf0; font-size: clamp(1.15rem, 1.7vw, 1.55rem); }
+.elio-visual { position: relative; min-height: min(79svh, 53rem); display: grid; place-items: center; isolation: isolate; }
+.elio-ocean-backdrop { position: absolute; inset: 5% -10%; width: calc(100% + 20%); height: 90%; z-index: -3; object-fit: cover; opacity: .38; mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 82%, transparent); }
+.elio-visual span { position: absolute; width: 76%; aspect-ratio: 1.25; z-index: -1; border: 1px solid rgba(145,216,223,.65); border-radius: 50%; transform: rotate(-8deg); }
+.elio-visual > img:last-child { width: min(91%, 38rem); max-height: 72svh; object-fit: contain; filter: drop-shadow(0 2rem 2rem rgba(0,16,28,.35)); transform: rotate(-2deg); }
+
 .emilie-project {
   position: relative;
   min-height: 110svh;
@@ -255,16 +277,19 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .case-header a:last-child { text-decoration: none; }
 .emilie-case .case-header { color: #f2eee5; }
 .kusama-case .case-header { color: #11100d; }
+.elio-case .case-header { color: #f4efe2; }
 .kusama-case .project-status { color: #6d281f; }
 .case-hero { position: relative; min-height: 100svh; overflow: hidden; padding: clamp(8rem, 12vw, 11rem) var(--gutter) clamp(5rem, 8vw, 8rem); display: grid; grid-template-columns: minmax(22rem, 1fr) minmax(25rem, .9fr); gap: clamp(3rem, 7vw, 8rem); align-items: center; }
 .emilie-case .case-hero { background: #17100e; color: #f2eee5; }
 .learning-case .case-hero { background: var(--yellow); color: var(--ink); }
 .kusama-case .case-hero { background: #f7f2e9; color: #11100d; }
+.elio-case .case-hero { background: #062c49; color: #f4efe2; }
 .case-hero-copy { position: relative; z-index: 2; }
 .case-hero h1 { max-width: 11ch; margin: 0; font-family: var(--display); font-size: clamp(4rem, 7.8vw, 6rem); font-weight: 400; letter-spacing: -.035em; line-height: .88; }
 .case-hero h1 em { color: #d19a68; font-style: normal; }
 .learning-case .case-hero h1 em { color: var(--blue); }
 .kusama-case .case-hero h1 em { color: #ed1c24; }
+.elio-case .case-hero h1 em { color: #f29b6f; }
 .case-deck { max-width: 35rem; margin: 2rem 0 0; font-size: clamp(1.2rem, 1.8vw, 1.6rem); }
 .case-actions { margin-top: 2rem; }
 .case-button { display: inline-flex; gap: .8rem; align-items: center; padding: .95rem 1.2rem; border: 1px solid currentColor; text-decoration: none; font-size: .8rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; transition: background .25s, color .25s; }
@@ -277,6 +302,10 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .learning-case-preview img { display: block; width: 100%; border: 1px solid var(--ink); }
 .kusama-case-art { position: relative; min-height: 72svh; display: grid; place-items: center; isolation: isolate; }
 .kusama-case-art img { width: min(75%, 31rem); max-height: 74svh; position: relative; z-index: 2; object-fit: contain; box-shadow: 0 2rem 4rem rgba(23,23,23,.14); transform: rotate(1deg); }
+.elio-case-art { position: relative; min-height: 72svh; display: grid; place-items: center; isolation: isolate; }
+.elio-case-art .elio-ocean-backdrop { inset: 3% -12%; width: calc(100% + 24%); height: 94%; opacity: .42; mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 84%, transparent); }
+.elio-case-art span { position: absolute; width: 78%; aspect-ratio: 1.28; z-index: -1; border: 1px solid rgba(145,216,223,.7); border-radius: 50%; transform: rotate(-7deg); }
+.elio-case-art > img:last-child { width: min(94%, 39rem); max-height: 70svh; object-fit: contain; filter: drop-shadow(0 2rem 2rem rgba(0,16,28,.4)); transform: rotate(-2deg); }
 .case-dot { position: absolute; z-index: 1; border-radius: 50%; }
 .case-dot-one { width: 27%; aspect-ratio: 1; left: 0; top: 10%; background: var(--yellow); }
 .case-dot-two { width: 18%; aspect-ratio: 1; right: 0; top: 34%; background: var(--blue); }
@@ -289,6 +318,7 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .dark-section { background: #17100e; color: #f2eee5; }
 .learning-process { background: var(--blue); color: var(--cream); }
 .kusama-process { background: #11100d; color: #f7f2e9; }
+.elio-process { background: #063f5f; color: #f4efe2; }
 .process-heading h2 { margin: 0; font-size: clamp(3.6rem, 6vw, 6rem); line-height: .92; }
 .journey-list { margin: 0; padding: 0; list-style: none; counter-reset: journey; }
 .journey-list li { min-height: 7.5rem; display: grid; grid-template-columns: 3rem .7fr 1.3fr; gap: 2rem; align-items: baseline; padding: 1.5rem 0; border-top: 1px solid currentColor; counter-increment: journey; }
@@ -299,6 +329,8 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .historical-figure { margin: 0; }
 .historical-figure img { display: block; width: 100%; max-height: 74svh; object-fit: cover; object-position: center 26%; filter: sepia(.18) contrast(1.05); }
 .historical-figure figcaption { max-width: 55ch; margin-top: .9rem; font-size: .7rem; letter-spacing: .05em; line-height: 1.55; }
+.elio-image-section { background: #8bc7c9; color: #062c49; }
+.elio-image-section .historical-figure img { object-position: center; filter: none; }
 .case-image-copy h2 { margin: 0; font-size: clamp(3rem, 5vw, 5rem); line-height: .98; }
 .case-image-copy > p:last-child { max-width: 34rem; font-size: 1.15rem; }
 .decision-section { padding: clamp(6rem, 10vw, 10rem) var(--gutter); background: var(--cream); }
@@ -312,6 +344,8 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .emilie-case .case-role { background: #bd744b; color: #17100e; }
 .kusama-role { background: var(--yellow); color: #11100d; }
 .kusama-decisions { background: #f7f2e9; }
+.elio-decisions { background: #f4efe2; color: #062c49; }
+.elio-role { background: #f29b6f; color: #062c49; }
 .case-role h2 { max-width: 22ch; margin: 0; font-size: clamp(2.7rem, 4.6vw, 4.8rem); line-height: 1; }
 .case-role > p:last-child { grid-column: 2; max-width: 42rem; margin: 2rem 0 0; font-size: 1.15rem; }
 .case-notice { padding: clamp(4.5rem, 7vw, 7rem) var(--gutter); background: #f7f2e9; color: #11100d; display: grid; grid-template-columns: .45fr 1.55fr; gap: clamp(3rem, 7vw, 8rem); }
@@ -335,11 +369,12 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   .projects-intro, .practice-transition { min-height: auto; grid-template-columns: 1fr; }
   .featured { margin-top: 0; grid-template-columns: 1fr; min-height: auto; }
   .featured-preview { margin-top: 1rem; }
-  .emilie-project, .kusama-project { min-height: auto; grid-template-columns: 1fr; }
+  .emilie-project, .kusama-project, .elio-project { min-height: auto; grid-template-columns: 1fr; }
   .emilie-visual { min-height: 34rem; }
   .emilie-visual p { right: 0; }
   .kusama-visual { min-height: 34rem; }
   .kusama-visual img { width: min(78%, 27rem); }
+  .elio-visual { min-height: 32rem; }
   .practice-intro, .about { grid-template-columns: 1fr; }
   .practice h2 { white-space: normal; }
   .practice-grid { grid-template-columns: 1fr; gap: 0; }
@@ -351,7 +386,7 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   .contact > img { width: 7rem; }
   .case-hero, .case-intro, .case-process, .case-image-section, .case-role, .case-notice { grid-template-columns: 1fr; }
   .case-hero { min-height: auto; padding-top: 8rem; }
-  .case-hero-art, .kusama-case-art { min-height: 34rem; }
+  .case-hero-art, .kusama-case-art, .elio-case-art { min-height: 34rem; }
   .learning-case-preview { margin-top: 2rem; }
   .case-intro { min-height: auto; }
   .case-intro > p:last-child, .case-role > p:last-child { grid-column: 1; }

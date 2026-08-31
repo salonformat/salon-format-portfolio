@@ -1,0 +1,97 @@
+---
+import '@fontsource/della-respira';
+import '@fontsource/josefin-sans/400.css';
+import '@fontsource/josefin-sans/500.css';
+import '../../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Elio’s Ocean Investigation — an illustrated Salon Format learning experience case study." />
+    <link rel="icon" type="image/png" href={`${base}brand/salon-format-mark.png`} />
+    <title>Elio’s Ocean Investigation — Salon Format</title>
+  </head>
+  <body class="case-page elio-case">
+    <header class="case-header">
+      <a href={base} aria-label="Back to Salon Format"><img src={`${base}brand/salon-format-mark.png`} alt="" /></a>
+      <a href={`${base}#projects`}>All projects</a>
+    </header>
+
+    <main>
+      <section class="case-hero">
+        <div class="case-hero-copy">
+          <p class="project-status">Interactive learning experience</p>
+          <h1>Elio’s Ocean<br /><em>Investigation</em></h1>
+          <p class="case-deck">A child’s drawing becomes a journey through ocean habitats, animal senses and food.</p>
+          <div class="case-actions">
+            <a class="case-button" href="https://salonformat.github.io/elios-ocean-investigation/" target="_blank" rel="noreferrer">Open the experience <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="elio-case-art" aria-hidden="true">
+          <img class="elio-ocean-backdrop" src={`${base}images/elio/ocean-collage.png`} alt="" />
+          <span></span>
+          <img src={`${base}images/elio/elios-wesen.png`} alt="" />
+        </div>
+      </section>
+
+      <section class="case-intro">
+        <p class="case-number">The starting point</p>
+        <h2>Could this creature really live in the ocean?</h2>
+        <p>Elio was four when he drew an imaginary creature and decided it lived in the ocean. The experience takes that idea seriously and turns it into a question learners can investigate.</p>
+      </section>
+
+      <section class="case-process elio-process">
+        <div class="process-heading">
+          <p class="case-number">Experience flow</p>
+          <h2>Explore.<br />Investigate.<br />Create.</h2>
+        </div>
+        <ol class="journey-list">
+          <li><span>Enter the ocean</span><p>Move through an illustrated underwater environment and notice what changes with depth.</p></li>
+          <li><span>Meet the question</span><p>Use Elio’s creature as the starting point for a real investigation.</p></li>
+          <li><span>Look for clues</span><p>Consider habitat, senses and food to decide what an ocean animal needs.</p></li>
+          <li><span>Test the creature</span><p>Connect each observation back to the original drawing.</p></li>
+          <li><span>Draw your own</span><p>Create a new creature and give it features that suit its ocean home.</p></li>
+          <li><span>Run an ocean check</span><p>Review the design through the same questions used during the journey.</p></li>
+        </ol>
+      </section>
+
+      <section class="case-image-section elio-image-section">
+        <figure class="historical-figure">
+          <img src={`${base}images/elio/twilight-world.png`} alt="Illustrated twilight ocean habitat from Elio’s Ocean Investigation" />
+          <figcaption>One of the illustrated ocean environments explored during the investigation.</figcaption>
+        </figure>
+        <div class="case-image-copy">
+          <p class="case-number">The learning environment</p>
+          <h2>Science begins with curiosity.</h2>
+          <p>The visual world makes the ocean feel worth exploring, while the questions give learners a clear way to examine what they see.</p>
+        </div>
+      </section>
+
+      <section class="decision-section elio-decisions">
+        <p class="case-number">Design choices</p>
+        <div class="decision-grid">
+          <article><h3>A real drawing</h3><p>Elio’s original creature remains at the centre, so the learning begins with a child’s own idea.</p></article>
+          <article><h3>Questions before answers</h3><p>The experience invites learners to notice, compare and decide before explaining the science.</p></article>
+          <article><h3>An illustrated journey</h3><p>Layered ocean scenes turn movement through depth into part of the learning experience.</p></article>
+          <article><h3>Room to participate</h3><p>The final drawing and ocean check let learners apply the investigation to a creature of their own.</p></article>
+        </div>
+      </section>
+
+      <section class="case-role elio-role">
+        <p class="case-number">Role and contribution</p>
+        <h2>Learning Experience Design · Concept · Writing · Visual Direction · Interaction Design · Prototyping</h2>
+        <p>I developed the learning journey, narrative, visual direction and interactions around Elio’s original drawing. The public version is available in German, English and French, with controls for sound and motion.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Project navigation">
+        <p>Next case study</p>
+        <a href={`${base}projects/into-the-infinite`}>Into the Infinite <span aria-hidden="true">→</span></a>
+      </nav>
+    </main>
+  </body>
+</html>
