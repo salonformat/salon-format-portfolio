@@ -42,8 +42,8 @@ const base = import.meta.env.BASE_URL;
           <img class="wordmark" src={`${base}brand/salon-format-wordmark-only.png`} alt="Salon Format" />
           <h1 id="hero-title">Learning through design, story and play.</h1>
         </div>
-        <div class="learning-motion" aria-hidden="true">
-          <svg viewBox="0 0 760 620" role="presentation">
+        <div class="learning-motion" role="button" tabindex="0" aria-label="Bring the shapes together">
+          <svg viewBox="0 0 760 620" role="presentation" aria-hidden="true">
             <path class="motion-shape motion-shape-one" d="M93 119C143 53 258 56 291 126C323 195 268 275 183 271C95 267 42 187 93 119Z" />
             <path class="motion-shape motion-shape-two" d="M443 81C523 45 622 91 636 174C649 253 572 301 497 267C424 233 367 116 443 81Z" />
             <path class="motion-shape motion-shape-three" d="M288 345C346 297 441 318 471 380C502 446 449 523 363 515C278 508 229 394 288 345Z" />
@@ -59,7 +59,7 @@ const base = import.meta.env.BASE_URL;
 
       <section class="projects-intro" id="projects" aria-labelledby="projects-title">
         <h2 id="projects-title">Projects</h2>
-        <p>Four interactive learning experiences shaped through design, storytelling and participation.</p>
+        <p>A selection of projects across interactive learning, art, culture and education.</p>
       </section>
 
       <section class="elio-project" aria-labelledby="elio-title">
@@ -202,6 +202,57 @@ const base = import.meta.env.BASE_URL;
         const observer = new IntersectionObserver(([entry]) => updateMotion(entry.isIntersecting && !document.hidden), { threshold: 0.15 });
         observer.observe(motion);
         document.addEventListener('visibilitychange', () => updateMotion(!document.hidden));
+
+        let gathering = false;
+        const gatherIdea = () => {
+          if (gathering || motion.hasAttribute('data-paused')) return;
+          gathering = true;
+          motion.setAttribute('data-gathering', '');
+
+          const shapes = [
+            [motion.querySelector('.motion-shape-one'), 'translate(108px, 78px) rotate(3deg) scale(.96)'],
+            [motion.querySelector('.motion-shape-two'), 'translate(-108px, 80px) rotate(-2deg) scale(.96)'],
+            [motion.querySelector('.motion-shape-three'), 'translate(0, -78px) rotate(-2deg) scale(.96)']
+          ];
+          const animations = shapes.map(([shape, target]) => {
+            const start = getComputedStyle(shape).transform;
+            return shape.animate(
+              [
+                { transform: start, offset: 0 },
+                { transform: target, offset: .3 },
+                { transform: target, offset: .68 },
+                { transform: start, offset: 1 }
+              ],
+              { duration: 4200, easing: 'cubic-bezier(.45, 0, .2, 1)' }
+            );
+          });
+
+          const reveal = (element, transform = 'translateY(0)') => element.animate(
+            [
+              { opacity: 0, transform, offset: 0 },
+              { opacity: 1, transform, offset: .3 },
+              { opacity: 1, transform, offset: .68 },
+              { opacity: 0, transform, offset: 1 }
+            ],
+            { duration: 4200, easing: 'cubic-bezier(.45, 0, .2, 1)' }
+          );
+          animations.push(reveal(motion.querySelector('.motion-mark'), 'scale(.92)'));
+          animations.push(reveal(motion.querySelector('.motion-title'), 'translateY(0)'));
+          animations.push(reveal(motion.querySelector('.motion-subtitle'), 'translateY(0)'));
+
+          window.setTimeout(() => {
+            motion.removeAttribute('data-gathering');
+            gathering = false;
+          }, 4200);
+        };
+
+        motion.addEventListener('click', gatherIdea);
+        motion.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            gatherIdea();
+          }
+        });
       }
     </script>
   </body>
