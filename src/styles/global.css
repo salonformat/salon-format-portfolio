@@ -44,12 +44,12 @@ a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 6px; }
 
 .hero {
   position: relative;
-  min-height: 100svh;
+  min-height: 94svh;
   display: grid;
   grid-template-columns: minmax(18rem, .9fr) minmax(26rem, 1.25fr);
   align-items: center;
   overflow: hidden;
-  padding: 7rem var(--gutter) 22vh;
+  padding: 7rem var(--gutter) 16vh;
 }
 .hero-copy { position: relative; z-index: 2; max-width: 42rem; }
 .wordmark { display: block; width: min(31rem, 100%); height: auto; margin: 0 0 .55rem; }
@@ -68,22 +68,22 @@ a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 6px; }
   z-index: 1;
   width: min(53vw, 58rem);
   right: 1vw;
-  bottom: 24vh;
+  bottom: 15vh;
   pointer-events: none;
 }
 .learning-motion svg { display: block; width: 100%; height: auto; overflow: visible; }
 .motion-shape { transform-box: fill-box; transform-origin: center; will-change: transform; }
-.motion-shape-one { fill: var(--pink); animation: shape-one 20s linear infinite; }
-.motion-shape-two { fill: var(--coral); animation: shape-two 20s linear infinite; }
-.motion-shape-three { fill: var(--yellow); animation: shape-three 20s linear infinite; }
-.motion-mark { transform-box: fill-box; transform-origin: center; will-change: transform, opacity; animation: mark-awaken 20s linear infinite; }
+.motion-shape-one { fill: var(--pink); animation: shape-one 30s infinite; }
+.motion-shape-two { fill: var(--coral); animation: shape-two 30s infinite; }
+.motion-shape-three { fill: var(--yellow); animation: shape-three 30s infinite; }
+.motion-mark { transform-box: fill-box; transform-origin: center; will-change: transform, opacity; animation: mark-awaken 30s infinite; }
 .motion-title {
   fill: var(--cream);
   font-family: var(--display);
   font-size: 52px;
   letter-spacing: -.025em;
   will-change: transform, opacity;
-  animation: title-reveal 20s linear infinite;
+  animation: title-reveal 30s infinite;
 }
 .motion-subtitle {
   fill: var(--cream);
@@ -92,47 +92,53 @@ a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 6px; }
   font-weight: 500;
   letter-spacing: .02em;
   will-change: transform, opacity;
-  animation: title-reveal 20s linear infinite;
+  animation: title-reveal 30s infinite;
 }
 .learning-motion[data-paused] * { animation-play-state: paused; }
 
 @keyframes shape-one {
-  0%, 100% { transform: translate(-74px, -32px) rotate(-8deg) scale(.72); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  17% { transform: translate(-35px, -66px) rotate(-3deg) scale(.76); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  36% { transform: translate(108px, 78px) rotate(2deg) scale(.95); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  47% { transform: translate(116px, 86px) rotate(4deg) scale(.97); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  65% { transform: translate(-20px, 116px) rotate(8deg) scale(.78); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  82% { transform: translate(-92px, 48px) rotate(-5deg) scale(.74); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  0%, 100% { transform: translate(-122px, -62px) rotate(-9deg) scale(.66); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  13% { transform: translate(-56px, -112px) rotate(-4deg) scale(.72); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  26% { transform: translate(44px, -70px) rotate(1deg) scale(.8); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  39% { transform: translate(108px, 78px) rotate(3deg) scale(.96); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  51% { transform: translate(116px, 86px) rotate(4deg) scale(.98); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  64% { transform: translate(8px, 144px) rotate(9deg) scale(.76); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  77% { transform: translate(-116px, 92px) rotate(1deg) scale(.69); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  89% { transform: translate(-154px, 12px) rotate(-6deg) scale(.64); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
 }
 @keyframes shape-two {
-  0%, 100% { transform: translate(72px, -42px) rotate(8deg) scale(.7); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  17% { transform: translate(102px, 6px) rotate(3deg) scale(.75); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  36% { transform: translate(-108px, 80px) rotate(-2deg) scale(.95); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  47% { transform: translate(-116px, 88px) rotate(-4deg) scale(.97); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  65% { transform: translate(24px, 128px) rotate(-8deg) scale(.77); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  82% { transform: translate(108px, 35px) rotate(5deg) scale(.73); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  0%, 100% { transform: translate(126px, -76px) rotate(9deg) scale(.65); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  13% { transform: translate(158px, 10px) rotate(6deg) scale(.68); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  26% { transform: translate(70px, 88px) rotate(1deg) scale(.8); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  39% { transform: translate(-108px, 80px) rotate(-2deg) scale(.96); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  51% { transform: translate(-116px, 88px) rotate(-4deg) scale(.98); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  64% { transform: translate(-24px, 154px) rotate(-9deg) scale(.75); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  77% { transform: translate(116px, 112px) rotate(-1deg) scale(.7); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  89% { transform: translate(166px, 6px) rotate(7deg) scale(.63); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
 }
 @keyframes shape-three {
-  0%, 100% { transform: translate(0, 82px) rotate(5deg) scale(.7); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  17% { transform: translate(-42px, 108px) rotate(-4deg) scale(.74); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  36% { transform: translate(0, -78px) rotate(-2deg) scale(.95); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  47% { transform: translate(4px, -88px) rotate(3deg) scale(.97); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  65% { transform: translate(96px, 34px) rotate(8deg) scale(.76); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
-  82% { transform: translate(34px, 100px) rotate(-3deg) scale(.72); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  0%, 100% { transform: translate(-18px, 138px) rotate(6deg) scale(.64); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  13% { transform: translate(-104px, 122px) rotate(-2deg) scale(.68); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  26% { transform: translate(-82px, 18px) rotate(-5deg) scale(.8); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  39% { transform: translate(0, -78px) rotate(-2deg) scale(.96); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  51% { transform: translate(4px, -88px) rotate(3deg) scale(.98); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  64% { transform: translate(124px, 8px) rotate(9deg) scale(.74); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  77% { transform: translate(102px, 116px) rotate(2deg) scale(.68); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+  89% { transform: translate(20px, 166px) rotate(-4deg) scale(.62); animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
 }
 @keyframes mark-awaken {
-  0%, 27%, 100% { transform: rotate(-5deg) scale(.72); opacity: 0; }
-  38% { transform: rotate(-1deg) scale(.97); opacity: 1; }
-  48% { transform: rotate(1deg) scale(1.02); opacity: 1; }
-  59% { transform: rotate(4deg) scale(.82); opacity: 0; }
+  0%, 30%, 100% { transform: rotate(-5deg) scale(.72); opacity: 0; }
+  40% { transform: rotate(-1deg) scale(.97); opacity: 1; }
+  52% { transform: rotate(1deg) scale(1.02); opacity: 1; }
+  62% { transform: rotate(4deg) scale(.82); opacity: 0; }
 }
 @keyframes title-reveal {
-  0%, 30%, 100% { opacity: 0; transform: translateY(10px); }
-  40% { opacity: 1; transform: translateY(1px); }
-  49% { opacity: 1; transform: translateY(-1px); }
-  59% { opacity: 0; transform: translateY(-8px); }
+  0%, 32%, 100% { opacity: 0; transform: translateY(10px); }
+  42% { opacity: 1; transform: translateY(1px); }
+  53% { opacity: 1; transform: translateY(-1px); }
+  63% { opacity: 0; transform: translateY(-8px); }
 }
-.scroll-cue { position: absolute; z-index: 4; left: 50%; bottom: 20vh; width: 2rem; height: 3.5rem; color: var(--cream); transform: translateX(-50%); }
+.scroll-cue { position: absolute; z-index: 4; left: 50%; bottom: 7vh; width: 2rem; height: 3.5rem; color: var(--cream); transform: translateX(-50%); }
 .scroll-cue span,
 .scroll-cue::after { content: ''; position: absolute; left: 50%; background: currentColor; }
 .scroll-cue span { top: 0; width: 2px; height: 2.75rem; }
@@ -266,8 +272,11 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .practice-item.experience { background: transparent; transform: none; }
 .practice-item h3 { color: var(--blue); }
 
-.about { background: var(--cream); color: var(--ink); min-height: 60svh; padding: clamp(4.5rem, 7vw, 7rem) var(--gutter); border-top: 1px solid var(--ink); display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(3rem, 10vw, 10rem); align-items: center; }
+.about { background: var(--cream); color: var(--ink); min-height: 70svh; padding: clamp(4.5rem, 7vw, 7rem) var(--gutter); border-top: 1px solid var(--ink); display: grid; grid-template-columns: 1.05fr .55fr .8fr; gap: clamp(2.5rem, 6vw, 7rem); align-items: center; }
 .about h2 { margin: 0; font-size: clamp(3.2rem, 5vw, 5rem); line-height: .96; }
+.about-portrait { position: relative; width: min(100%, 19rem); margin: 0; justify-self: center; }
+.about-portrait::before { content: ''; position: absolute; width: 96%; aspect-ratio: 1; right: -8%; bottom: -7%; z-index: 0; border-radius: 50%; background: var(--pink); }
+.about-portrait img { position: relative; z-index: 1; display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 1px solid var(--ink); transform: rotate(-1.5deg); }
 .about-copy { max-width: 32rem; font-size: clamp(1.2rem, 1.6vw, 1.55rem); }
 
 .contact { min-height: 46svh; padding: clamp(3.5rem, 5vw, 5rem) var(--gutter); background: var(--blue); color: var(--cream); display: grid; grid-template-columns: .25fr 1.75fr; gap: 4rem; align-items: center; }
@@ -365,12 +374,12 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 @media (max-width: 800px) {
   .site-header { position: absolute; }
   .site-header nav a:nth-child(1) { display: none; }
-  .hero { min-height: 100svh; grid-template-columns: 1fr; align-items: start; padding-top: 8rem; padding-bottom: 32vh; }
+  .hero { min-height: 96svh; grid-template-columns: 1fr; align-items: start; padding-top: 8rem; padding-bottom: 27vh; }
   .wordmark { width: min(24rem, 88%); }
   .hero h1 { max-width: 15ch; }
   .hero h1 { margin-left: .7rem; white-space: normal; }
-  .learning-motion { width: 115vw; right: -32vw; bottom: 22vh; }
-  .scroll-cue { bottom: 15vh; }
+  .learning-motion { width: 115vw; right: -32vw; bottom: 14vh; }
+  .scroll-cue { bottom: 4vh; }
   .projects-intro, .practice-transition { min-height: auto; grid-template-columns: 1fr; }
   .featured { margin-top: 0; grid-template-columns: 1fr; min-height: auto; }
   .featured-preview { margin-top: 1rem; }
@@ -387,6 +396,7 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   .practice-item { min-height: 19rem; }
   .practice-item.design { transform: rotate(.5deg); }
   .about { min-height: auto; }
+  .about-portrait { width: min(74vw, 18rem); margin-block: 1rem; justify-self: start; }
   .contact { grid-template-columns: 1fr; }
   .contact > img { width: 7rem; }
   .case-hero, .case-intro, .case-process, .case-image-section, .case-role, .case-notice { grid-template-columns: 1fr; }
