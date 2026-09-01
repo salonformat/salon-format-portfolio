@@ -163,16 +163,26 @@ const base = import.meta.env.BASE_URL;
       </section>
 
       <section class="about" id="about" aria-labelledby="about-title">
-        <div>
-          <p class="section-label">About</p>
-          <h2 id="about-title">Graphic designer.<br />Art teacher.<br />Learning Experience Designer.</h2>
+        <div class="about-heading">
+          <h2 id="about-title">About</h2>
+          <p>I’m Isabella, a designer, art educator and learning experience designer based in Vienna.</p>
         </div>
         <figure class="about-portrait">
           <img src={`${base}images/about/isabella-kohout.jpg`} alt="Portrait of Isabella Kohout" />
         </figure>
         <div class="about-copy">
-          <p>I started in graphic design, then spent several years teaching art and design. Today I use both backgrounds in Learning Experience Design.</p>
-          <p>Salon Format is the place where I develop interactive courses, museum experiences and visual learning materials.</p>
+          <div class="about-story">
+            <p>I studied photography at die Graphische and Art Education at the University of Applied Arts Vienna. Along the way, I worked in film, architecture and editorial design, lived and worked in Austria and France, and eventually spent several years teaching art and design.</p>
+            <p>Teaching changed the way I think about design. It made me interested in what happens after something looks good: whether people understand it, want to explore it, remember it, or feel invited to take part.</p>
+            <p>Today, my work brings together graphic design, illustration, art, education, storytelling and digital interaction. I’m particularly interested in creating learning experiences that feel intuitive, visual and engaging — experiences people actually want to spend time with.</p>
+          </div>
+          <div class="about-salon">
+            <h3>Salon Format</h3>
+            <p>Salon Format is my independent practice for learning and experience design.</p>
+            <p>I develop interactive courses, digital experiences, museum and cultural projects, and visual learning materials for adults and young people.</p>
+            <p>The projects can take very different forms, but they share the same approach: making ideas easier to explore and understand through thoughtful design, interaction and storytelling.</p>
+            <p>Salon Format is also a space for experimentation — bringing together illustration, technology, sound, movement and whatever else helps an idea come to life.</p>
+          </div>
         </div>
       </section>
 
@@ -181,7 +191,7 @@ const base = import.meta.env.BASE_URL;
         <div>
           <p class="section-label">Start a conversation</p>
           <h2 id="contact-title">Would you like to work together?</h2>
-          <p>Contact details coming soon.</p>
+          <a class="contact-email" href="mailto:bellakohout@gmail.com">bellakohout@gmail.com</a>
         </div>
       </section>
     </main>

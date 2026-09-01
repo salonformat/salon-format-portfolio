@@ -272,16 +272,25 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .practice-item.experience { background: transparent; transform: none; }
 .practice-item h3 { color: var(--blue); }
 
-.about { background: var(--cream); color: var(--ink); min-height: 70svh; padding: clamp(4.5rem, 7vw, 7rem) var(--gutter); border-top: 1px solid var(--ink); display: grid; grid-template-columns: 1.05fr .55fr .8fr; gap: clamp(2.5rem, 6vw, 7rem); align-items: center; }
-.about h2 { margin: 0; font-size: clamp(3.2rem, 5vw, 5rem); line-height: .96; }
-.about-portrait { position: relative; width: min(100%, 19rem); margin: 0; justify-self: center; }
+.about { background: var(--cream); color: var(--ink); padding: clamp(5rem, 9vw, 9rem) var(--gutter); border-top: 1px solid var(--ink); display: grid; grid-template-columns: minmax(15rem, .55fr) minmax(0, 1.45fr); grid-template-areas: "heading copy" "portrait copy"; column-gap: clamp(4rem, 8vw, 9rem); row-gap: 3rem; align-items: start; }
+.about-heading { grid-area: heading; }
+.about h2 { margin: 0; font-size: clamp(4.5rem, 7vw, 6rem); line-height: .9; }
+.about-heading p { max-width: 22rem; margin: 2rem 0 0; font-size: clamp(1.25rem, 1.6vw, 1.55rem); }
+.about-portrait { grid-area: portrait; position: relative; width: min(100%, 17rem); margin: 0; justify-self: start; }
 .about-portrait::before { content: ''; position: absolute; width: 96%; aspect-ratio: 1; right: -8%; bottom: -7%; z-index: 0; border-radius: 50%; background: var(--pink); }
 .about-portrait img { position: relative; z-index: 1; display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 1px solid var(--ink); transform: rotate(-1.5deg); }
-.about-copy { max-width: 32rem; font-size: clamp(1.2rem, 1.6vw, 1.55rem); }
+.about-copy { grid-area: copy; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(3rem, 5vw, 6rem); max-width: 72rem; }
+.about-story { font-size: clamp(1.18rem, 1.45vw, 1.45rem); }
+.about-copy p { max-width: 65ch; }
+.about-copy p:first-child { margin-top: 0; }
+.about-copy p + p { margin-top: 1.4rem; }
+.about-salon { padding-left: clamp(2rem, 3vw, 3.5rem); border-left: 1px solid var(--ink); }
+.about-salon h3 { margin: 0 0 1.6rem; color: var(--blue); font-size: clamp(2.8rem, 4vw, 4.5rem); line-height: .95; }
 
 .contact { min-height: 46svh; padding: clamp(3.5rem, 5vw, 5rem) var(--gutter); background: var(--blue); color: var(--cream); display: grid; grid-template-columns: .25fr 1.75fr; gap: 4rem; align-items: center; }
 .contact > img { width: min(9rem, 100%); }
 .contact h2 { max-width: 13ch; margin: 0; font-size: clamp(3.5rem, 6vw, 5.8rem); line-height: .93; }
+.contact-email { display: inline-block; margin-top: 2rem; color: var(--yellow); font-size: clamp(1.15rem, 1.8vw, 1.55rem); text-underline-offset: .3em; text-decoration-thickness: 1px; }
 
 /* Case studies */
 .case-page { background: var(--cream); color: var(--ink); }
@@ -373,7 +382,6 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 
 @media (max-width: 800px) {
   .site-header { position: absolute; }
-  .site-header nav a:nth-child(1) { display: none; }
   .hero { min-height: 96svh; grid-template-columns: 1fr; align-items: start; padding-top: 8rem; padding-bottom: 27vh; }
   .wordmark { width: min(24rem, 88%); }
   .hero h1 { max-width: 15ch; }
@@ -395,8 +403,11 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   .practice-item + .practice-item { border-top: 1px solid var(--ink); border-left: 0; }
   .practice-item { min-height: 19rem; }
   .practice-item.design { transform: rotate(.5deg); }
-  .about { min-height: auto; }
+  .about { grid-template-areas: "heading" "portrait" "copy"; }
+  .about-heading { position: static; }
   .about-portrait { width: min(74vw, 18rem); margin-block: 1rem; justify-self: start; }
+  .about-copy { grid-template-columns: 1fr; }
+  .about-salon { margin-top: 2rem; padding: 2.5rem 0 0; border-top: 1px solid var(--ink); border-left: 0; }
   .contact { grid-template-columns: 1fr; }
   .contact > img { width: 7rem; }
   .case-hero, .case-intro, .case-process, .case-image-section, .case-role, .case-notice { grid-template-columns: 1fr; }
