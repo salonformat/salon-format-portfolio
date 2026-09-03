@@ -41,149 +41,96 @@ const base = import.meta.env.BASE_URL;
         <div class="hero-copy">
           <img class="wordmark" src={`${base}brand/salon-format-wordmark-only.png`} alt="Salon Format" />
           <h1 id="hero-title">Learning through design, story and play.</h1>
+          <a class="hero-project-link" href="#projects">View projects <span aria-hidden="true">↓</span></a>
         </div>
-        <div class="learning-motion" role="button" tabindex="0" aria-label="Bring the shapes together">
-          <svg viewBox="0 0 760 620" role="presentation" aria-hidden="true">
-            <path class="motion-shape motion-shape-one" d="M93 119C143 53 258 56 291 126C323 195 268 275 183 271C95 267 42 187 93 119Z" />
-            <path class="motion-shape motion-shape-two" d="M443 81C523 45 622 91 636 174C649 253 572 301 497 267C424 233 367 116 443 81Z" />
-            <path class="motion-shape motion-shape-three" d="M288 345C346 297 441 318 471 380C502 446 449 523 363 515C278 508 229 394 288 345Z" />
-            <image class="motion-mark" href={`${base}brand/salon-format-mark.png`} x="312" y="218" width="138" height="138" />
-            <text class="motion-title" x="380" y="520" text-anchor="middle">An idea</text>
-            <text class="motion-subtitle" x="380" y="553" text-anchor="middle">takes shape.</text>
-          </svg>
-        </div>
-        <a class="scroll-cue" href="#projects" aria-label="Continue to featured project">
-          <span></span>
-        </a>
-      </section>
-
-      <section class="projects-intro" id="projects" aria-labelledby="projects-title">
-        <h2 id="projects-title">Projects</h2>
-        <p>A selection of projects across interactive learning, art, culture and education.</p>
-      </section>
-
-      <section class="elio-project" aria-labelledby="elio-title">
-        <div class="elio-copy">
-          <p class="section-label">Featured project · 01</p>
-          <p class="project-status">Interactive learning experience</p>
-          <h2 id="elio-title">Elio’s Ocean<br /><em>Investigation</em></h2>
-          <p class="elio-description">A child’s drawing becomes an illustrated investigation into how creatures live in the ocean.</p>
-          <p class="project-meta">Inquiry-led learning · Visual storytelling · Ocean science</p>
-          <div class="project-actions">
-            <a class="text-link" href={`${base}projects/elio`}>View case study <span class="ui-arrow" aria-hidden="true"></span></a>
-            <a class="text-link" href="https://ocean.salonformat.com/en/" target="_blank" rel="noreferrer">Open the experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
+        <div class="scratch-reveal" role="button" tabindex="0" aria-label="Scratch to reveal what Salon Format brings together">
+          <div class="scratch-underlay" aria-hidden="true">
+            <span>Learning</span>
+            <span>Design</span>
+            <span>Interaction</span>
           </div>
-        </div>
-        <div class="elio-visual" aria-hidden="true">
-          <img class="elio-ocean-backdrop" src={`${base}images/elio/ocean-collage.png`} alt="" />
-          <span></span>
-          <img src={`${base}images/elio/elios-wesen.png`} alt="" />
+          <canvas class="scratch-canvas" aria-hidden="true"></canvas>
+          <p class="scratch-prompt">Scratch to reveal</p>
         </div>
       </section>
 
-      <section class="kusama-project" aria-labelledby="kusama-title">
-        <div class="kusama-copy">
-          <p class="section-label">Project 02</p>
-          <p class="project-status">Working prototype</p>
-          <h2 id="kusama-title">Into<br /><em>the Infinite</em></h2>
-          <p class="kusama-description">A small interactive homage to Yayoi Kusama, built around repetition, sound and personal response.</p>
-          <p class="project-meta">Cultural learning · Interaction · Reflection</p>
-          <div class="project-actions">
-            <a class="text-link" href={`${base}projects/infinite`}>View case study <span class="ui-arrow" aria-hidden="true"></span></a>
-            <a class="text-link" href="https://infinite.salonformat.com/" target="_blank" rel="noreferrer">Open the experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
-          </div>
-        </div>
-        <div class="kusama-visual" aria-hidden="true">
-          <span class="kusama-dot dot-one"></span>
-          <span class="kusama-dot dot-two"></span>
-          <span class="kusama-dot dot-three"></span>
-          <img src={`${base}images/kusama/figure.png`} alt="" />
-        </div>
-      </section>
+      <section class="project-index" id="projects" aria-labelledby="projects-title">
+        <header class="project-index-heading">
+          <h2 id="projects-title">Projects</h2>
+          <p>Interactive learning across art, culture, education and everyday life.</p>
+        </header>
 
-      <section class="emilie-project" aria-labelledby="emilie-title">
-        <div class="emilie-copy">
-          <p class="section-label">Project 03</p>
-          <p class="project-status">Work in progress · Working prototype</p>
-          <h2 id="emilie-title">Emilie Flöge:<br /><em>Movement Through Fabric</em></h2>
-          <p class="emilie-description">A digital museum prototype about clothing, movement and Emilie Flöge’s work.</p>
-          <p class="project-meta">Cultural learning · Interactive storytelling · Experience design</p>
-          <div class="project-actions">
-            <a class="text-link" href={`${base}projects/emilie`}>View case study <span class="ui-arrow" aria-hidden="true"></span></a>
-            <a class="text-link subtle-link" href="https://emilie.salonformat.com/?lang=en" target="_blank" rel="noreferrer">Experience the prototype <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
-          </div>
-        </div>
-        <div class="emilie-visual" aria-hidden="true">
-          <span class="emilie-orbit"></span>
-          <img src={`${base}images/emilie/figure.png`} alt="" />
-          <p>How much space does your clothing allow?</p>
-        </div>
-      </section>
-
-      <section class="first-aid-project" aria-labelledby="first-aid-title">
-        <div class="first-aid-copy">
-          <p class="section-label">Project 04</p>
-          <p class="project-status">Interactive learning experience</p>
-          <h2 id="first-aid-title">What if I<br /><em>get it wrong?</em></h2>
-          <p class="first-aid-description">The first ten minutes of a first-aid course — a bilingual learning experience about entering practical training with uncertainty.</p>
-          <p class="project-meta">Medical education context · Learning logic · Feedback · Voice-over</p>
-          <div class="project-actions">
-            <a class="text-link" href={`${base}projects/first-aid`}>View case study <span class="ui-arrow" aria-hidden="true"></span></a>
-            <a class="text-link" href="https://firstaid.salonformat.com/" target="_blank" rel="noreferrer">Open the experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
-          </div>
-        </div>
-        <div class="first-aid-preview">
-          <div class="experience-browser" aria-hidden="true">
-            <span></span><span></span><span></span>
-            <img src={`${base}images/first-aid/experience-preview.png`} alt="" loading="lazy" />
-          </div>
-        </div>
-      </section>
-
-      <section class="featured" aria-labelledby="featured-title">
-        <div class="featured-copy">
-          <p class="section-label">Project 05</p>
-          <h2 id="featured-title">Learning,<br />Differently</h2>
-          <p class="featured-description">A short interactive course about designing for a learner’s real situation.</p>
-          <p class="project-meta">Inclusive learning · Learner context · Accessibility</p>
-          <div class="project-actions">
-            <a class="text-link" href={`${base}projects/learning`}>View case study <span class="ui-arrow" aria-hidden="true"></span></a>
-            <a class="text-link" href="https://getlarge.github.io/learning-differently/" target="_blank" rel="noreferrer">Open the experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
-          </div>
-        </div>
-        <div class="featured-preview" id="project-preview">
-          <img src={`${base}images/learning-differently-preview.png`} alt="Learning, Differently interface showing Anna's train journey" />
-        </div>
-      </section>
-
-      <section class="practice-transition" aria-labelledby="practice-transition-title">
-        <h2 id="practice-transition-title">About<br />Salon Format</h2>
-        <p>Salon Format brings together learning design, visual communication and playful interaction.</p>
-      </section>
-
-      <section class="practice" aria-labelledby="practice-title">
-        <div class="practice-intro">
-          <p class="section-label">What we do</p>
-          <h2 id="practice-title">Learning, design and interaction.</h2>
-        </div>
-        <div class="practice-grid">
-          <article class="practice-item learning">
-            <h3>Learning</h3>
-            <p>Learning experiences shaped around people, context and access.</p>
+        <div class="project-mosaic">
+          <article class="project-tile project-tile--elio">
+            <div class="tile-copy">
+              <p class="tile-number">01 · Inquiry-led learning</p>
+              <h3><a class="tile-main-link" href={`${base}projects/elio`}>Elio’s Ocean<br /><em>Investigation</em></a></h3>
+              <p>A child’s drawing becomes an ocean investigation.</p>
+            </div>
+            <div class="tile-art" aria-hidden="true">
+              <img class="elio-tile-ocean" src={`${base}images/elio/ocean-collage.png`} alt="" />
+              <img class="elio-tile-creature" src={`${base}images/elio/elios-wesen.png`} alt="" />
+            </div>
+            <a class="tile-experience" href="https://ocean.salonformat.com/en/" target="_blank" rel="noreferrer">Experience <span aria-hidden="true">↗</span></a>
           </article>
-          <article class="practice-item design">
-            <h3>Design</h3>
-            <p>Visual systems and illustration that help explain and organise ideas.</p>
+
+          <article class="project-tile project-tile--infinite">
+            <div class="tile-copy">
+              <p class="tile-number">02 · Cultural learning</p>
+              <h3><a class="tile-main-link" href={`${base}projects/infinite`}>Into the <em>Infinite</em></a></h3>
+              <p>An interactive introduction to repetition, perception and Yayoi Kusama’s artistic world.</p>
+            </div>
+            <div class="tile-art" aria-hidden="true"><img src={`${base}images/kusama/figure.png`} alt="" /></div>
+            <a class="tile-experience" href="https://infinite.salonformat.com/" target="_blank" rel="noreferrer">Experience <span aria-hidden="true">↗</span></a>
           </article>
-          <article class="practice-item experience">
-            <h3>Experience</h3>
-            <p>Interaction that gives people something useful to try, notice or change.</p>
+
+          <article class="project-tile project-tile--first-aid">
+            <div class="tile-copy">
+              <p class="tile-number">03 · Medical education</p>
+              <h3><a class="tile-main-link" href={`${base}projects/first-aid`}>What if I <em>get it wrong?</em></a></h3>
+              <p>A bilingual first-aid experience that makes room for uncertainty before practical training.</p>
+            </div>
+            <div class="tile-art" aria-hidden="true"><img src={`${base}images/first-aid/experience-preview.png`} alt="" /></div>
+            <a class="tile-experience" href="https://firstaid.salonformat.com/" target="_blank" rel="noreferrer">Experience <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="project-tile project-tile--emilie">
+            <div class="tile-copy">
+              <p class="tile-number">04 · Museum prototype</p>
+              <h3><a class="tile-main-link" href={`${base}projects/emilie`}>Emilie Flöge:<br /><em>Movement Through Fabric</em></a></h3>
+              <p>A digital museum experience about clothing, movement and creative freedom.</p>
+            </div>
+            <div class="tile-art" aria-hidden="true"><img src={`${base}images/emilie/figure.png`} alt="" /></div>
+            <a class="tile-experience" href="https://emilie.salonformat.com/?lang=en" target="_blank" rel="noreferrer">Experience <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="project-tile project-tile--learning">
+            <div class="tile-copy">
+              <p class="tile-number">05 · Inclusive design</p>
+              <h3><a class="tile-main-link" href={`${base}projects/learning`}>Learning,<br /><em>Differently</em></a></h3>
+              <p>A short course for designing around a learner’s real situation.</p>
+            </div>
+            <div class="tile-art" aria-hidden="true"><img src={`${base}images/learning-differently-preview.png`} alt="" /></div>
+            <a class="tile-experience" href="https://getlarge.github.io/learning-differently/" target="_blank" rel="noreferrer">Experience <span aria-hidden="true">↗</span></a>
           </article>
         </div>
+
+        <aside class="capabilities" aria-labelledby="capabilities-title">
+          <h3 id="capabilities-title">What we do</h3>
+          <ul>
+            <li>Learning experience design</li>
+            <li>Interactive courses</li>
+            <li>Professional learning &amp; development</li>
+            <li>Learning for young audiences</li>
+            <li>Museum &amp; cultural experiences</li>
+            <li>Illustration &amp; visual storytelling</li>
+          </ul>
+        </aside>
       </section>
 
       <section class="about" id="about" aria-labelledby="about-title">
         <div class="about-heading">
+          <p class="section-label">Studio &amp; practice</p>
           <h2 id="about-title">About</h2>
           <p>I’m Isabella, a designer, art educator and learning experience designer based in Vienna.</p>
         </div>
@@ -198,7 +145,7 @@ const base = import.meta.env.BASE_URL;
           </div>
           <div class="about-salon">
             <h3>Salon Format</h3>
-            <p>Salon Format is my independent practice for learning and experience design.</p>
+            <p class="about-salon-intro">Learning, visual communication and playful interaction come together in my independent practice.</p>
             <p>I develop interactive courses, digital experiences, museum and cultural projects, and visual learning materials for adults and young people.</p>
             <p>The projects can take very different forms, but they share the same approach: making ideas easier to explore and understand through thoughtful design, interaction and storytelling.</p>
             <p>Salon Format is also a space for experimentation — bringing together illustration, technology, sound, movement and whatever else helps an idea come to life.</p>
@@ -216,63 +163,53 @@ const base = import.meta.env.BASE_URL;
       </section>
     </main>
     <script>
-      const motion = document.querySelector('.learning-motion');
-      if (motion) {
-        const updateMotion = (active) => motion.toggleAttribute('data-paused', !active);
-        const observer = new IntersectionObserver(([entry]) => updateMotion(entry.isIntersecting && !document.hidden), { threshold: 0.15 });
-        observer.observe(motion);
-        document.addEventListener('visibilitychange', () => updateMotion(!document.hidden));
+      const scratch = document.querySelector('.scratch-reveal');
+      const canvas = scratch?.querySelector('.scratch-canvas');
+      if (scratch instanceof HTMLElement && canvas instanceof HTMLCanvasElement) {
+        const context = canvas.getContext('2d');
+        let drawing = false;
 
-        let gathering = false;
-        const gatherIdea = () => {
-          if (gathering || motion.hasAttribute('data-paused')) return;
-          gathering = true;
-          motion.setAttribute('data-gathering', '');
-
-          const shapes = [
-            [motion.querySelector('.motion-shape-one'), 'translate(108px, 78px) rotate(3deg) scale(.96)'],
-            [motion.querySelector('.motion-shape-two'), 'translate(-108px, 80px) rotate(-2deg) scale(.96)'],
-            [motion.querySelector('.motion-shape-three'), 'translate(0, -78px) rotate(-2deg) scale(.96)']
-          ];
-          const animations = shapes.map(([shape, target]) => {
-            const start = getComputedStyle(shape).transform;
-            return shape.animate(
-              [
-                { transform: start, offset: 0 },
-                { transform: target, offset: .3 },
-                { transform: target, offset: .68 },
-                { transform: start, offset: 1 }
-              ],
-              { duration: 4200, easing: 'cubic-bezier(.45, 0, .2, 1)' }
-            );
-          });
-
-          const reveal = (element, transform = 'translateY(0)') => element.animate(
-            [
-              { opacity: 0, transform, offset: 0 },
-              { opacity: 1, transform, offset: .3 },
-              { opacity: 1, transform, offset: .68 },
-              { opacity: 0, transform, offset: 1 }
-            ],
-            { duration: 4200, easing: 'cubic-bezier(.45, 0, .2, 1)' }
-          );
-          animations.push(reveal(motion.querySelector('.motion-mark'), 'scale(.92)'));
-          animations.push(reveal(motion.querySelector('.motion-title'), 'translateY(0)'));
-          animations.push(reveal(motion.querySelector('.motion-subtitle'), 'translateY(0)'));
-
-          window.setTimeout(() => {
-            motion.removeAttribute('data-gathering');
-            gathering = false;
-          }, 4200);
+        const prepareCanvas = () => {
+          const rect = scratch.getBoundingClientRect();
+          const ratio = Math.min(window.devicePixelRatio || 1, 2);
+          canvas.width = Math.round(rect.width * ratio);
+          canvas.height = Math.round(rect.height * ratio);
+          canvas.style.width = `${rect.width}px`;
+          canvas.style.height = `${rect.height}px`;
+          context?.setTransform(ratio, 0, 0, ratio, 0, 0);
+          if (context) {
+            context.globalCompositeOperation = 'source-over';
+            context.fillStyle = '#2823e8';
+            context.fillRect(0, 0, rect.width, rect.height);
+          }
         };
 
-        motion.addEventListener('click', gatherIdea);
-        motion.addEventListener('keydown', (event) => {
+        const scratchAt = (event) => {
+          if (!context) return;
+          const rect = canvas.getBoundingClientRect();
+          context.globalCompositeOperation = 'destination-out';
+          context.beginPath();
+          context.arc(event.clientX - rect.left, event.clientY - rect.top, Math.max(28, rect.width * .07), 0, Math.PI * 2);
+          context.fill();
+          scratch.classList.add('is-started');
+        };
+
+        canvas.addEventListener('pointerdown', (event) => {
+          drawing = true;
+          canvas.setPointerCapture(event.pointerId);
+          scratchAt(event);
+        });
+        canvas.addEventListener('pointermove', (event) => drawing && scratchAt(event));
+        canvas.addEventListener('pointerup', () => { drawing = false; });
+        canvas.addEventListener('pointercancel', () => { drawing = false; });
+        scratch.addEventListener('keydown', (event) => {
           if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
-            gatherIdea();
+            scratch.classList.add('is-revealed', 'is-started');
           }
         });
+        prepareCanvas();
+        window.addEventListener('resize', prepareCanvas, { passive: true });
       }
     </script>
   </body>
