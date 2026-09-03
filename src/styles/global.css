@@ -191,6 +191,30 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .ui-arrow-external { transform: rotate(-45deg); }
 .featured-preview img { display: block; width: 100%; height: auto; }
 
+.first-aid-project {
+  min-height: 108svh;
+  overflow: hidden;
+  padding: clamp(6rem, 10vw, 10rem) var(--gutter);
+  background: #b8cac5;
+  color: #17201f;
+  display: grid;
+  grid-template-columns: minmax(20rem, .88fr) minmax(27rem, 1.12fr);
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: center;
+}
+.first-aid-copy { position: relative; z-index: 2; }
+.first-aid-project .project-status { color: #a92e25; }
+.first-aid-project h2 { max-width: 10ch; margin: 0; font-size: clamp(3.8rem, 6.7vw, 6.7rem); line-height: .89; }
+.first-aid-project h2 em { color: #d84638; font-style: normal; }
+.first-aid-description { max-width: 35rem; margin: 2rem 0; font-size: clamp(1.15rem, 1.7vw, 1.55rem); }
+.first-aid-preview, .first-aid-case-preview { min-width: 0; }
+.experience-browser { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid #17201f; border-radius: 1.25rem; background: #f3f0e8; box-shadow: 1.2rem 1.2rem 0 rgba(216,70,56,.72); }
+.experience-browser > span { position: absolute; z-index: 2; top: .8rem; width: .48rem; aspect-ratio: 1; border-radius: 50%; background: #d84638; }
+.experience-browser > span:nth-child(1) { left: 1rem; }
+.experience-browser > span:nth-child(2) { left: 1.8rem; background: #e5ef73; }
+.experience-browser > span:nth-child(3) { left: 2.6rem; background: #b8cac5; border: 1px solid #17201f; }
+.experience-browser iframe { width: 200%; height: 200%; border: 0; transform: scale(.5); transform-origin: top left; pointer-events: none; }
+
 .elio-project {
   position: relative;
   min-height: 114svh;
@@ -308,12 +332,14 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .case-hero { position: relative; min-height: 100svh; overflow: hidden; padding: clamp(8rem, 12vw, 11rem) var(--gutter) clamp(5rem, 8vw, 8rem); display: grid; grid-template-columns: minmax(22rem, 1fr) minmax(25rem, .9fr); gap: clamp(3rem, 7vw, 8rem); align-items: center; }
 .emilie-case .case-hero { background: #17100e; color: #f2eee5; }
 .learning-case .case-hero { background: var(--yellow); color: var(--ink); }
+.first-aid-case .case-hero { background: #b8cac5; color: #17201f; }
 .kusama-case .case-hero { background: #f7f2e9; color: #11100d; }
 .elio-case .case-hero { background: #062c49; color: #f4efe2; }
 .case-hero-copy { position: relative; z-index: 2; }
 .case-hero h1 { max-width: 11ch; margin: 0; font-family: var(--display); font-size: clamp(4rem, 7.8vw, 6rem); font-weight: 400; letter-spacing: -.035em; line-height: .88; }
 .case-hero h1 em { color: #d19a68; font-style: normal; }
 .learning-case .case-hero h1 em { color: var(--blue); }
+.first-aid-case .case-hero h1 em { color: #d84638; }
 .kusama-case .case-hero h1 em { color: #ed1c24; }
 .elio-case .case-hero h1 em { color: #f29b6f; }
 .case-deck { max-width: 35rem; margin: 2rem 0 0; font-size: clamp(1.2rem, 1.8vw, 1.6rem); }
@@ -343,6 +369,9 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .case-process { padding: clamp(6rem, 10vw, 10rem) var(--gutter); display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(4rem, 8vw, 9rem); }
 .dark-section { background: #17100e; color: #f2eee5; }
 .learning-process { background: var(--blue); color: var(--cream); }
+.first-aid-process { background: #17201f; color: #fffef9; }
+.first-aid-decisions { background: #f3f0e8; color: #17201f; }
+.first-aid-role { background: #d84638; color: #fffef9; }
 .kusama-process { background: #11100d; color: #f7f2e9; }
 .elio-process { background: #063f5f; color: #f4efe2; }
 .process-heading h2 { margin: 0; font-size: clamp(3.6rem, 6vw, 6rem); line-height: .92; }
@@ -393,8 +422,9 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   .learning-motion { width: 115vw; right: -32vw; bottom: 14vh; }
   .scroll-cue { bottom: 4vh; }
   .projects-intro, .practice-transition { min-height: auto; grid-template-columns: 1fr; }
-  .featured { margin-top: 0; grid-template-columns: 1fr; min-height: auto; }
+  .featured, .first-aid-project { margin-top: 0; grid-template-columns: 1fr; min-height: auto; }
   .featured-preview { margin-top: 1rem; }
+  .first-aid-preview { margin-top: 1rem; }
   .emilie-project, .kusama-project, .elio-project { min-height: auto; grid-template-columns: 1fr; }
   .emilie-visual { min-height: 34rem; }
   .emilie-visual p { right: 0; }

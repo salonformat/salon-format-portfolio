@@ -1,0 +1,84 @@
+---
+import '@fontsource/della-respira';
+import '@fontsource/josefin-sans/400.css';
+import '@fontsource/josefin-sans/500.css';
+import '../../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="What if I get it wrong? — a Salon Format learning experience for the first ten minutes of a first-aid course." />
+    <link rel="icon" type="image/png" href={`${base}brand/salon-format-mark.png`} />
+    <title>What if I get it wrong? — Salon Format</title>
+  </head>
+  <body class="case-page first-aid-case">
+    <header class="case-header">
+      <a class="case-home" href="https://salonformat.com/" aria-label="Back to Salon Format home"><img src={`${base}brand/salon-format-mark.png`} alt="" /><span>Salon Format</span></a>
+      <a href={`${base}#projects`}>All projects</a>
+    </header>
+
+    <main>
+      <section class="case-hero">
+        <div class="case-hero-copy">
+          <p class="project-status">Interactive learning experience · English / German</p>
+          <h1>What if I<br /><em>get it wrong?</em></h1>
+          <p class="case-deck">A short learning experience about the moment before practical training begins — and how a learner can move from uncertainty into participation.</p>
+          <div class="case-actions">
+            <a class="case-button" href="https://salonformat.github.io/learning-experience-medizin/" target="_blank" rel="noreferrer">Open the experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
+          </div>
+        </div>
+        <div class="first-aid-case-preview">
+          <div class="experience-browser" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <iframe src="https://salonformat.github.io/learning-experience-medizin/" title="What if I get it wrong? preview" tabindex="-1"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-intro">
+        <p class="case-number">The learning problem</p>
+        <h2>How can practical learning begin before someone feels fully confident?</h2>
+        <p>The experience does not teach medical procedures. It focuses on a familiar barrier in practical courses: the fear of getting something wrong in front of others. The learner leaves with a concrete way to enter practice safely and deliberately.</p>
+      </section>
+
+      <section class="case-process first-aid-process">
+        <div class="process-heading">
+          <p class="case-number">Learning journey</p>
+          <h2>Orient.<br />Choose.<br />Try.<br />Review.</h2>
+        </div>
+        <ol class="journey-list">
+          <li><span>Orient</span><p>Make the sequence, format and available support visible.</p></li>
+          <li><span>Choose a level</span><p>Select the smallest form of participation that still creates real practice.</p></li>
+          <li><span>Try</span><p>Take one manageable attempt instead of waiting for complete confidence.</p></li>
+          <li><span>Use feedback</span><p>Identify what worked and one specific action for the next attempt.</p></li>
+        </ol>
+      </section>
+
+      <section class="decision-section first-aid-decisions">
+        <p class="case-number">Key design decisions</p>
+        <div class="decision-grid">
+          <article><h3>Learning, not interpretation</h3><p>Flip cards introduce the model. Retrieval questions and scenarios then ask learners to recognise and apply it.</p></article>
+          <article><h3>Clear right and wrong</h3><p>Feedback explains each choice, and progression remains locked until the learning goal has been met.</p></article>
+          <article><h3>Professional calm</h3><p>Sage, warm white and precise red accents create a medical association without imitating clinical software.</p></article>
+          <article><h3>Accessible entry</h3><p>English and German versions, optional voice-over, keyboard support and responsive layouts offer more than one way in.</p></article>
+        </div>
+      </section>
+
+      <section class="case-role first-aid-role">
+        <p class="case-number">Role and contribution</p>
+        <h2>Learning Experience Design · Concept · Writing · Learning Logic · Visual Direction · Interaction Design · Voice-over Direction · Prototyping</h2>
+        <p>A self-initiated portfolio prototype exploring how learning design can support participation in professional training without claiming subject-matter expertise in medical procedures.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Project navigation">
+        <p>Next case study</p>
+        <a href={`${base}projects/learning`}>Learning, Differently <span class="ui-arrow" aria-hidden="true"></span></a>
+      </nav>
+    </main>
+  </body>
+</html>
