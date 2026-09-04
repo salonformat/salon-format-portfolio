@@ -552,9 +552,9 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   .hero-intro-statement { max-width: 24ch; font-size: clamp(1.75rem, 7.5vw, 2.35rem); line-height: 1.16; }
   .projects-intro, .practice-transition { min-height: auto; grid-template-columns: 1fr; }
   .project-index { padding-top: 3.75rem; padding-bottom: 5rem; }
-  .project-index-heading { grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: 1rem; align-items: end; }
+  .project-index-heading { grid-template-columns: 1fr; gap: 1rem; align-items: start; }
   .project-index-heading h2 { font-size: clamp(2.75rem, 13vw, 4rem); }
-  .project-index-heading p { padding-bottom: .18rem; font-size: clamp(.78rem, 3.5vw, 1rem); line-height: 1.35; }
+  .project-index-heading p { max-width: 29ch; padding-bottom: 0; font-size: clamp(.82rem, 3.5vw, 1rem); line-height: 1.4; }
   .project-mosaic { grid-template-columns: 1fr; grid-template-rows: none; }
   .project-tile--elio, .project-tile--infinite, .project-tile--first-aid, .project-tile--emilie, .project-tile--learning { grid-column: 1; grid-row: auto; min-height: 23rem; }
   .project-tile--elio { min-height: 33rem; }
