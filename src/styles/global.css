@@ -301,6 +301,7 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
 .ui-arrow::before { content: ''; position: absolute; left: 0; top: calc(50% - .5px); width: 100%; height: 1px; background: currentColor; }
 .ui-arrow::after { content: ''; position: absolute; right: 0; top: calc(50% - .25rem); width: .45rem; height: .45rem; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
 .ui-arrow-external { transform: rotate(-45deg); }
+.ui-arrow-down { transform: rotate(90deg); }
 .featured-preview img { display: block; width: 100%; height: auto; }
 
 .first-aid-project {
