@@ -241,8 +241,6 @@ def sound(path):
     for note in (349.23, 523.25, 698.46):
         pluck(21.15, note, amp=.07, length=1.5)
 
-    t = np.arange(len(audio)) / rate
-    audio *= np.clip((duration - t) / 1.45, 0, 1)[:, None]
     peak = max(np.max(np.abs(audio)), 1e-6)
     audio *= min(1, .78 / peak)
     pcm = np.int16(np.clip(audio, -1, 1) * 32767)
@@ -306,7 +304,7 @@ def main():
         sound(wav)
         run("-f", "concat", "-safe", "0", "-i", concat, "-i", wav,
             "-map", "0:v", "-map", "1:a", "-c:v", "copy",
-            "-af", "loudnorm=I=-19:TP=-2.0:LRA=10",
+            "-af", "loudnorm=I=-19:TP=-2.0:LRA=10,afade=t=out:st=21:d=4",
             "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
             "-shortest", OUTPUT)
     print(OUTPUT)
