@@ -36,17 +36,42 @@ def font(size, display=False):
     return ImageFont.truetype(str(FONT_DISPLAY if display else FONT_SANS), size)
 
 
-def text_png(path, label, word, color):
+def text_png(path, key, label, word):
     im = Image.new("RGBA", SIZE, (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    if label:
-        d.text((70, 305), label.upper(), font=font(27), fill=color, stroke_width=0)
-        d.line((70, 345, 170, 345), fill=color, width=3)
-    if word:
-        # The message stays in the middle safe area; the source work remains visible.
-        word_x = 235 if label == "INTO THE INFINITE" else 70
-        d.text((word_x, 832), word, font=font(92, True), fill=color,
-               stroke_width=2, stroke_fill=(18, 18, 18, 95))
+    ink = (23, 23, 23, 255)
+    cream = (247, 241, 229, 255)
+    yellow = (255, 227, 59, 255)
+    blue = (40, 35, 232, 255)
+    coral = (255, 95, 87, 255)
+
+    def plate(x, y, width, height, fill):
+        # A single slightly imperfect color strip, drawn in the project's palette.
+        d.polygon(((x, y + 5), (x + width - 4, y), (x + width, y + height - 5),
+                   (x + 4, y + height)), fill=fill)
+
+    if key == "elio":
+        # The source reel already has interface labels. Keep the ocean and Elio's
+        # creature clear, and give the one added verb its own space.
+        plate(380, 520, 284, 110, yellow)
+        d.text((400, 534), word, font=font(63, True), fill=ink)
+    elif key == "kusama":
+        plate(42, 235, 364, 76, cream)
+        d.text((62, 257), label, font=font(27), fill=ink)
+        plate(222, 830, 435, 137, cream)
+        d.text((244, 842), word, font=font(75, True), fill=ink)
+    elif key == "emilie":
+        # Emilie's own footage already names the experience at the top.
+        plate(42, 555, 250, 107, coral)
+        d.text((62, 565), word, font=font(72, True), fill=ink)
+    elif key == "firstaid":
+        plate(40, 240, 595, 76, coral)
+        d.text((58, 261), label, font=font(25), fill=cream)
+    elif key == "learning":
+        plate(40, 185, 455, 71, blue)
+        d.text((58, 205), label, font=font(26), fill=cream)
+        plate(40, 270, 240, 88, coral)
+        d.text((58, 275), word, font=font(61, True), fill=ink)
     im.save(path)
 
 
@@ -167,15 +192,15 @@ def main():
         temp = Path(temp)
         overlays = {}
         specs = [
-            ("elio", "ELIO’S OCEAN INVESTIGATION", "Explore.", (247, 241, 229, 255)),
-            ("kusama", "INTO THE INFINITE", "Discover.", (23, 23, 23, 255)),
-            ("emilie", "EMILIE FLÖGE", "Move.", (23, 23, 23, 255)),
-            ("firstaid", "WHAT IF I GET IT WRONG?", "", (23, 23, 23, 255)),
-            ("learning", "LEARNING, DIFFERENTLY", "", (23, 23, 23, 255)),
+            ("elio", "ELIO’S OCEAN INVESTIGATION", "Explore."),
+            ("kusama", "INTO THE INFINITE", "Discover."),
+            ("emilie", "EMILIE FLÖGE", "Move."),
+            ("firstaid", "WHAT IF I GET IT WRONG?", ""),
+            ("learning", "LEARNING, DIFFERENTLY", "Learn."),
         ]
-        for key, label, word, color in specs:
+        for key, label, word in specs:
             overlays[key] = temp / f"{key}-text.png"
-            text_png(overlays[key], label, word, color)
+            text_png(overlays[key], key, label, word)
 
         kusama = temp / "kusama-frame.jpg"
         firstaid = temp / "firstaid-frame.jpg"
