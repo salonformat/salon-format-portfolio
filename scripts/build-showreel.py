@@ -53,27 +53,27 @@ def text_png(path, key, label, word):
     if key == "elio":
         # The source reel already has interface labels. Keep the ocean and Elio's
         # creature clear, and give the one added verb its own space.
-        plate(380, 520, 284, 110, yellow)
-        d.text((400, 534), word, font=font(63, True), fill=ink)
+        plate(340, 520, 325, 132, yellow)
+        d.text((362, 529), word, font=font(75, True), fill=ink)
     elif key == "kusama":
-        plate(42, 235, 364, 76, cream)
-        d.text((62, 257), label, font=font(27), fill=ink)
-        plate(222, 830, 435, 137, cream)
-        d.text((244, 842), word, font=font(75, True), fill=ink)
+        plate(42, 225, 412, 88, cream)
+        d.text((62, 248), label, font=font(31), fill=ink)
+        plate(184, 820, 475, 157, cream)
+        d.text((205, 831), word, font=font(84, True), fill=ink)
     elif key == "emilie":
         # Emilie's own footage already names the experience at the top.
-        plate(42, 555, 250, 107, coral)
-        d.text((62, 565), word, font=font(72, True), fill=ink)
+        plate(42, 545, 310, 128, coral)
+        d.text((62, 551), word, font=font(88, True), fill=ink)
     elif key == "firstaid":
-        plate(40, 170, 595, 110, coral)
-        d.text((58, 187), label, font=font(25), fill=cream)
-        d.text((58, 237), "INTERACTIVE PROFESSIONAL TRAINING", font=font(19), fill=cream)
-        plate(40, 290, 240, 90, cream)
-        d.text((58, 296), word, font=font(61, True), fill=ink)
+        plate(40, 168, 625, 114, coral)
+        d.text((58, 183), label, font=font(30), fill=cream)
+        d.text((58, 239), "INTERACTIVE PROFESSIONAL TRAINING", font=font(23), fill=cream)
+        plate(40, 290, 283, 92, cream)
+        d.text((58, 294), word, font=font(77, True), fill=ink)
     elif key == "learning":
-        plate(40, 205, 455, 113, blue)
-        d.text((58, 220), label, font=font(26), fill=cream)
-        d.text((58, 272), "INCLUSIVE COURSE DESIGN", font=font(19), fill=cream)
+        plate(40, 198, 540, 132, blue)
+        d.text((58, 210), label, font=font(31), fill=cream)
+        d.text((58, 274), "INCLUSIVE COURSE DESIGN", font=font(24), fill=cream)
     im.save(path)
 
 
@@ -141,7 +141,7 @@ def video_segment(source, start, duration, overlay, output, show_after=0):
 def still_segment(source, duration, overlay, output, motion=True):
     if motion:
         # One restrained camera move on a genuine project visual, not a fake UI action.
-        vf = "[0:v]scale=780:1387,zoompan=z='min(zoom+0.0006,1.065)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=720x1280:fps=24[scene];"
+        vf = "[0:v]scale=780:1387,zoompan=z='min(zoom+0.0021,1.16)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=720x1280:fps=24[scene];"
     else:
         vf = "[0:v]scale=720:1280[scene];"
     run("-loop", "1", "-framerate", FPS, "-i", source,
@@ -186,11 +186,12 @@ def sound(path):
     # Four-chord music bed. The score changes color with each experience, while
     # its tempo stays steady enough for the edit to feel like one studio.
     chords = [
-        (0, 5, (146.83, 220.0, 293.66)),
-        (5, 9, (174.61, 261.63, 349.23)),
-        (9, 13, (196.0, 293.66, 392.0)),
-        (13, 17, (146.83, 220.0, 293.66)),
-        (17, 21, (233.08, 349.23, 466.16)),
+        (0, 4, (146.83, 220.0, 293.66)),
+        (4, 7, (174.61, 261.63, 349.23)),
+        (7, 11, (196.0, 293.66, 392.0)),
+        (11, 14, (146.83, 220.0, 293.66)),
+        (14, 17, (233.08, 349.23, 466.16)),
+        (17, 21, (196.0, 293.66, 392.0)),
         (21, 25, (174.61, 261.63, 349.23)),
     ]
     pulse = 60 / 104
@@ -215,27 +216,32 @@ def sound(path):
 
     # Project-specific interaction sounds, all synthesized for this reel.
     # Elio: ascending underwater bubbles and a quiet wash.
-    for i, at in enumerate((.34, .86, 1.45, 2.25, 3.35, 4.28)):
+    for i, at in enumerate((.34, .86, 1.45, 2.25, 3.35)):
         t = np.arange(round(.22 * rate)) / rate
         bubble = np.sin(2 * np.pi * (330 + 470 * t) * t) * np.exp(-16 * t)
         add(at, bubble, .065, pan=(-.45 + i * .17))
-    soft_noise(1.0, 3.8, .48, pan=-.2, fade=1)
+    soft_noise(1.0, 2.8, .48, pan=-.2, fade=1)
 
     # Infinite: small dots appear in the same rhythm as the visual field.
-    for i, at in enumerate((5.3, 5.75, 6.5, 7.25, 8.1, 8.65)):
+    for i, at in enumerate((4.25, 4.65, 5.25, 5.9, 6.5)):
         pluck(at, (880, 988, 1175)[i % 3], amp=.04, pan=(-.5 + i * .2), length=.2)
 
     # Emilie: fabric moving through air, never a generic transition whoosh.
-    for i, at in enumerate((9.4, 10.45, 11.35, 12.15)):
+    for i, at in enumerate((7.35, 8.2, 9.15, 10.15)):
         soft_noise(at, .58, .9, pan=(-.45 if i % 2 else .45), fade=5)
 
     # First Aid: two restrained heart-like pairs; Learning: card-turn taps.
-    for at in (13.4, 13.68, 15.1, 15.38):
+    for at in (11.35, 11.63, 12.75, 13.03):
         t = np.arange(round(.15 * rate)) / rate
         beat = np.sin(2 * np.pi * 88 * t) * np.exp(-27 * t)
         add(at, beat, .11)
-    for i, at in enumerate((17.3, 18.45, 19.5, 20.45)):
+    for i, at in enumerate((14.25, 15.2, 16.15, 16.7)):
         soft_noise(at, .12, .9, pan=(-.35 + i * .24), fade=24)
+
+    # Four quick detail cuts add a final rhythmic lift before the close.
+    for i, at in enumerate((17.0, 18.0, 19.0, 20.0)):
+        soft_noise(at, .12, 1.0, pan=(-.5 + i / 3), fade=24)
+        pluck(at + .08, (523.25, 587.33, 698.46, 783.99)[i], amp=.045, length=.25)
 
     # A simple resolved note gives the URL card an ending.
     for note in (349.23, 523.25, 698.46):
@@ -270,6 +276,8 @@ def main():
         kusama = temp / "kusama-frame.jpg"
         firstaid = temp / "firstaid-frame.jpg"
         learning = temp / "learning-frame.jpg"
+        firstaid_detail = temp / "firstaid-detail.jpg"
+        learning_detail = temp / "learning-detail.jpg"
         end = temp / "end-frame.jpg"
         cover_png(kusama, ROOT / "public" / "images" / "kusama" / "figure.png")
         detail_png(
@@ -286,17 +294,40 @@ def main():
             [((970, 90, 1615, 530), (60, 365, 600, 410)),
              ((970, 565, 1615, 1000), (60, 790, 600, 410))],
         )
+        detail_png(
+            firstaid_detail,
+            ROOT / "public" / "images" / "first-aid" / "experience-preview.png",
+            (184, 202, 197, 255),
+            [((820, 142, 1275, 640), (60, 255, 600, 760))],
+        )
+        detail_png(
+            learning_detail,
+            ROOT / "public" / "images" / "learning-differently-preview.png",
+            (255, 242, 142, 255),
+            [((1645, 90, 2290, 530), (60, 335, 600, 410)),
+             ((1645, 565, 2290, 1000), (60, 765, 600, 410))],
+        )
         end_png(end)
         transparent = temp / "transparent.png"
         Image.new("RGBA", SIZE, (0, 0, 0, 0)).save(transparent)
 
-        segments = [temp / f"chapter-{i}.mp4" for i in range(6)]
-        video_segment(ELIO_REEL, 0, 5, overlays["elio"], segments[0], show_after=2)
-        still_segment(kusama, 4, overlays["kusama"], segments[1])
+        segments = [temp / f"chapter-{i}.mp4" for i in range(7)]
+        video_segment(ELIO_REEL, 0, 4, overlays["elio"], segments[0], show_after=2)
+        still_segment(kusama, 3, overlays["kusama"], segments[1])
         video_segment(EMILIE_REEL, 1.55, 4, overlays["emilie"], segments[2])
-        still_segment(firstaid, 4, overlays["firstaid"], segments[3])
-        still_segment(learning, 4, overlays["learning"], segments[4])
-        still_segment(end, 4, transparent, segments[5], motion=False)
+        still_segment(firstaid, 3, overlays["firstaid"], segments[3])
+        still_segment(learning, 3, overlays["learning"], segments[4])
+        # A four-shot coda uses different moments/details from the same genuine
+        # experiences, not stock imagery or an invented UI action.
+        details = [temp / f"detail-{i}.mp4" for i in range(4)]
+        video_segment(ELIO_REEL, 7.6, 1, transparent, details[0])
+        video_segment(EMILIE_REEL, 9.5, 1, transparent, details[1])
+        still_segment(firstaid_detail, 1, transparent, details[2], motion=False)
+        still_segment(learning_detail, 1, transparent, details[3], motion=False)
+        detail_list = temp / "details.txt"
+        detail_list.write_text("".join(f"file '{part}'\n" for part in details))
+        run("-f", "concat", "-safe", "0", "-i", detail_list, "-c", "copy", segments[5])
+        still_segment(end, 4, transparent, segments[6], motion=False)
 
         concat = temp / "chapters.txt"
         concat.write_text("".join(f"file '{part}'\n" for part in segments))
@@ -305,7 +336,7 @@ def main():
         run("-f", "concat", "-safe", "0", "-i", concat, "-i", wav,
             "-map", "0:v", "-map", "1:a", "-c:v", "copy",
             "-af", "loudnorm=I=-19:TP=-2.0:LRA=10,afade=t=out:st=21:d=4",
-            "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
+            "-c:a", "aac", "-ar", "48000", "-b:a", "192k", "-movflags", "+faststart",
             "-shortest", OUTPUT)
     print(OUTPUT)
 
