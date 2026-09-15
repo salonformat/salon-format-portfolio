@@ -1,0 +1,90 @@
+---
+import '@fontsource/della-respira';
+import '@fontsource/josefin-sans/400.css';
+import '@fontsource/josefin-sans/500.css';
+import '../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+const video = `${base}showreel/salon-format-showreel.mp4`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="A short showreel of Salon Format's interactive learning experiences." />
+    <link rel="icon" type="image/png" href={`${base}brand/salon-format-mark.png`} />
+    <title>Showreel — Salon Format</title>
+  </head>
+  <body class="showreel-page">
+    <!--
+    THESIS: The work leads; this is a watchable showcase, not another portfolio grid.
+    OWN-WORLD: Salon Format cobalt, cream, Della Respira, Josefin Sans, and restrained editorial spacing.
+    STORY: Watch five real experiences in 25 seconds, then explore the projects or get in touch.
+    FIRST VIEWPORT: Small brand navigation; video is the dominant vertical object, title and actions sit beside it on desktop and below on mobile.
+    FORM: A focused extension of the existing Salon Format site, precisely specified by the user.
+    FINISH: Review the video and page at desktop and mobile, including silent playback and direct navigation.
+    -->
+    <header class="reel-header">
+      <a href={base} aria-label="Salon Format home"><img src={`${base}brand/salon-format-mark.png`} alt="" /></a>
+      <nav aria-label="Primary navigation">
+        <a href={`${base}#projects`}>Projects</a>
+        <a href={`${base}#about`}>About</a>
+        <a href={`${base}#contact`}>Contact</a>
+      </nav>
+    </header>
+
+    <main class="reel-main">
+      <div class="reel-copy">
+        <p class="eyebrow">Salon Format / Showreel</p>
+        <h1>Learning in<br />motion.</h1>
+        <p>Five projects, one short look at how design, story and interaction can make learning worth exploring.</p>
+        <div class="reel-actions">
+          <a href={`${base}#projects`}>Explore the projects <span aria-hidden="true">→</span></a>
+          <a href={video} download="Salon-Format-Showreel.mp4">Download the video <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="reel-note">25 seconds · Vertical 9:16 · Sound optional</p>
+      </div>
+      <div class="reel-player">
+        <video controls playsinline preload="metadata" poster={`${base}showreel/showreel-cover.jpg`} aria-label="Salon Format 25-second showreel featuring five learning experiences">
+          <source src={video} type="video/mp4" />
+          Your browser does not support video playback. <a href={video}>Download the showreel.</a>
+        </video>
+      </div>
+    </main>
+    <footer class="reel-footer"><a href={base}>Salon Format</a><span>Learning through design, story and play.</span><a href="mailto:bellakohout@gmail.com">Get in touch</a></footer>
+  </body>
+</html>
+
+<style>
+  :global(body.showreel-page) { background: var(--cream); color: var(--ink); }
+  .reel-header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem var(--gutter); border-bottom: 1px solid currentColor; }
+  .reel-header img { display: block; width: 2.5rem; height: 2.5rem; object-fit: contain; }
+  .reel-header nav { display: flex; gap: clamp(1rem, 3vw, 3rem); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+  .reel-header nav a { text-decoration: none; }
+  .reel-header nav a:hover { text-decoration: underline; }
+  .reel-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 420px); align-items: center; gap: clamp(2rem, 7vw, 8rem); width: min(100%, 1400px); margin-inline: auto; padding: clamp(2rem, 5vw, 5rem) var(--gutter); }
+  .eyebrow { margin: 0 0 2rem; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; }
+  h1 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(3.5rem, 7vw, 7.5rem); line-height: .98; letter-spacing: -.035em; }
+  .reel-copy > p:not(.eyebrow, .reel-note) { max-width: 37ch; margin: 2.2rem 0; font-size: clamp(1.15rem, 1.6vw, 1.5rem); line-height: 1.45; }
+  .reel-actions { display: flex; flex-wrap: wrap; gap: .7rem 2rem; }
+  .reel-actions a { display: inline-flex; justify-content: space-between; gap: 1.5rem; min-width: 12rem; padding: .65rem 0; border-bottom: 1px solid currentColor; text-decoration: none; font-size: .95rem; }
+  .reel-actions a:hover { color: var(--blue); }
+  .reel-note { margin: 3rem 0 0; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
+  .reel-player { width: min(100%, 420px); justify-self: end; background: var(--blue); }
+  video { display: block; width: 100%; aspect-ratio: 9 / 16; background: var(--blue); }
+  .reel-footer { display: flex; justify-content: space-between; gap: 2rem; padding: 1.25rem var(--gutter); border-top: 1px solid currentColor; font-size: .8rem; }
+  .reel-footer a { text-decoration: none; }
+  @media (max-width: 760px) {
+    .reel-header { padding-block: 1rem; }
+    .reel-header nav { gap: 1rem; font-size: .65rem; }
+    .reel-main { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 2.5rem 3rem; }
+    h1 { font-size: clamp(3.25rem, 15vw, 5rem); }
+    .reel-copy > p:not(.eyebrow, .reel-note) { margin: 1.4rem 0; }
+    .reel-note { margin-top: 1.6rem; }
+    .reel-player { justify-self: center; width: min(100%, 420px); }
+    .reel-footer { flex-wrap: wrap; }
+    .reel-footer span { display: none; }
+  }
+</style>
