@@ -65,13 +65,15 @@ def text_png(path, key, label, word):
         plate(42, 555, 250, 107, coral)
         d.text((62, 565), word, font=font(72, True), fill=ink)
     elif key == "firstaid":
-        plate(40, 185, 595, 76, coral)
-        d.text((58, 206), label, font=font(25), fill=cream)
-        plate(40, 278, 240, 90, cream)
-        d.text((58, 284), word, font=font(61, True), fill=ink)
+        plate(40, 170, 595, 110, coral)
+        d.text((58, 187), label, font=font(25), fill=cream)
+        d.text((58, 237), "INTERACTIVE PROFESSIONAL TRAINING", font=font(19), fill=cream)
+        plate(40, 290, 240, 90, cream)
+        d.text((58, 296), word, font=font(61, True), fill=ink)
     elif key == "learning":
-        plate(40, 235, 455, 71, blue)
-        d.text((58, 255), label, font=font(26), fill=cream)
+        plate(40, 205, 455, 113, blue)
+        d.text((58, 220), label, font=font(26), fill=cream)
+        d.text((58, 272), "INCLUSIVE COURSE DESIGN", font=font(19), fill=cream)
     im.save(path)
 
 
