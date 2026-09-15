@@ -65,13 +65,13 @@ def text_png(path, key, label, word):
         plate(42, 555, 250, 107, coral)
         d.text((62, 565), word, font=font(72, True), fill=ink)
     elif key == "firstaid":
-        plate(40, 240, 595, 76, coral)
-        d.text((58, 261), label, font=font(25), fill=cream)
+        plate(40, 185, 595, 76, coral)
+        d.text((58, 206), label, font=font(25), fill=cream)
+        plate(40, 278, 240, 90, cream)
+        d.text((58, 284), word, font=font(61, True), fill=ink)
     elif key == "learning":
-        plate(40, 185, 455, 71, blue)
-        d.text((58, 205), label, font=font(26), fill=cream)
-        plate(40, 270, 240, 88, coral)
-        d.text((58, 275), word, font=font(61, True), fill=ink)
+        plate(40, 235, 455, 71, blue)
+        d.text((58, 255), label, font=font(26), fill=cream)
     im.save(path)
 
 
@@ -150,37 +150,102 @@ def still_segment(source, duration, overlay, output, motion=True):
 
 
 def sound(path):
-    """Original low-key pluck rhythm and short interaction clicks, 25 seconds."""
+    """Original 25-second score: soft pulse, melodic plucks and chapter foley."""
     rate = 48000
     duration = 25
-    audio = np.zeros(rate * duration, dtype=np.float64)
+    audio = np.zeros((rate * duration, 2), dtype=np.float64)
+    rng = np.random.default_rng(26)
+
+    def add(at, signal, amp=.1, pan=0):
+        start = round(at * rate)
+        if start < 0 or start >= len(audio):
+            return
+        n = min(len(signal), len(audio) - start)
+        left = math.sqrt((1 - pan) / 2)
+        right = math.sqrt((1 + pan) / 2)
+        audio[start:start + n, 0] += amp * left * signal[:n]
+        audio[start:start + n, 1] += amp * right * signal[:n]
+
+    def pluck(at, freq, amp=.10, pan=0, length=.62):
+        t = np.arange(round(length * rate)) / rate
+        envelope = (1 - np.exp(-100 * t)) * np.exp(-5.6 * t)
+        signal = (np.sin(2 * np.pi * freq * t) + .28 * np.sin(2 * np.pi * freq * 2 * t)
+                  + .09 * np.sin(2 * np.pi * freq * 3 * t)) * envelope
+        add(at, signal, amp, pan)
+
+    def soft_noise(at, length, amp, pan=0, fade=14):
+        t = np.arange(round(length * rate)) / rate
+        noise = rng.normal(0, 1, len(t))
+        # The running average removes the harsh high end of synthetic noise.
+        smooth = np.convolve(noise, np.ones(110) / 110, mode="same")
+        envelope = np.sin(np.pi * np.minimum(t / length, 1)) ** 2 * np.exp(-fade * t / 8)
+        add(at, smooth * envelope, amp, pan)
+
+    # Four-chord music bed. The score changes color with each experience, while
+    # its tempo stays steady enough for the edit to feel like one studio.
+    chords = [
+        (0, 5, (146.83, 220.0, 293.66)),
+        (5, 9, (174.61, 261.63, 349.23)),
+        (9, 13, (196.0, 293.66, 392.0)),
+        (13, 17, (146.83, 220.0, 293.66)),
+        (17, 21, (233.08, 349.23, 466.16)),
+        (21, 25, (174.61, 261.63, 349.23)),
+    ]
     pulse = 60 / 104
-    notes = [196.0, 293.66, 246.94, 329.63, 220.0, 392.0]
     for beat in range(math.ceil(duration / pulse)):
         at = beat * pulse
-        start = round(at * rate)
-        length = min(round(.42 * rate), len(audio) - start)
-        if length <= 0:
-            continue
-        t = np.arange(length) / rate
-        freq = notes[(beat // 4) % len(notes)]
-        env = np.exp(-10 * t)
-        pluck = (np.sin(2 * np.pi * freq * t) + .25 * np.sin(2 * np.pi * 2 * freq * t)) * env
-        audio[start:start + length] += (.042 if beat % 4 else .07) * pluck
-    rng = np.random.default_rng(26)
-    for at in [0.15, 2.0, 5.0, 9.0, 13.0, 17.0, 21.0, 24.0]:
-        start = round(at * rate)
-        length = min(round(.08 * rate), len(audio) - start)
-        t = np.arange(length) / rate
-        click = rng.normal(0, 1, length) * np.exp(-60 * t)
-        audio[start:start + length] += .045 * click
-    # A subtle continuous, warm bed lets the visuals breathe between pulses.
+        chord = next(notes for start, end, notes in chords if start <= at < end)
+        freq = chord[(beat // 2) % 3] * (2 if beat % 4 == 3 else 1)
+        pluck(at, freq, amp=.075 if beat % 4 else .11, pan=(-.28 if beat % 2 else .28))
+        if beat % 2 == 0:
+            # A muted pulse rather than a dance kick.
+            t = np.arange(round(.20 * rate)) / rate
+            low = np.sin(2 * np.pi * (62 - 18 * t) * t) * np.exp(-24 * t)
+            add(at, low, .16)
+        else:
+            soft_noise(at, .09, .75, pan=(-.18 if beat % 4 else .18), fade=20)
+
+    for start, end, notes in chords:
+        t = np.arange(round((end - start) * rate)) / rate
+        pad = sum(np.sin(2 * np.pi * note * t + i * .5) for i, note in enumerate(notes)) / 3
+        pad *= np.sin(np.pi * np.minimum(t / (end - start), 1)) ** 2
+        add(start, pad, .035)
+
+    # Project-specific interaction sounds, all synthesized for this reel.
+    # Elio: ascending underwater bubbles and a quiet wash.
+    for i, at in enumerate((.34, .86, 1.45, 2.25, 3.35, 4.28)):
+        t = np.arange(round(.22 * rate)) / rate
+        bubble = np.sin(2 * np.pi * (330 + 470 * t) * t) * np.exp(-16 * t)
+        add(at, bubble, .065, pan=(-.45 + i * .17))
+    soft_noise(1.0, 3.8, .48, pan=-.2, fade=1)
+
+    # Infinite: small dots appear in the same rhythm as the visual field.
+    for i, at in enumerate((5.3, 5.75, 6.5, 7.25, 8.1, 8.65)):
+        pluck(at, (880, 988, 1175)[i % 3], amp=.04, pan=(-.5 + i * .2), length=.2)
+
+    # Emilie: fabric moving through air, never a generic transition whoosh.
+    for i, at in enumerate((9.4, 10.45, 11.35, 12.15)):
+        soft_noise(at, .58, .9, pan=(-.45 if i % 2 else .45), fade=5)
+
+    # First Aid: two restrained heart-like pairs; Learning: card-turn taps.
+    for at in (13.4, 13.68, 15.1, 15.38):
+        t = np.arange(round(.15 * rate)) / rate
+        beat = np.sin(2 * np.pi * 88 * t) * np.exp(-27 * t)
+        add(at, beat, .11)
+    for i, at in enumerate((17.3, 18.45, 19.5, 20.45)):
+        soft_noise(at, .12, .9, pan=(-.35 + i * .24), fade=24)
+
+    # A simple resolved note gives the URL card an ending.
+    for note in (349.23, 523.25, 698.46):
+        pluck(21.15, note, amp=.07, length=1.5)
+
     t = np.arange(len(audio)) / rate
-    audio += .012 * np.sin(2 * np.pi * 98 * t) * np.sin(np.pi * t / duration) ** 2
-    audio *= min(1, .72 / max(np.max(np.abs(audio)), 1e-6))
+    audio *= np.clip((duration - t) / 1.45, 0, 1)[:, None]
+    peak = max(np.max(np.abs(audio)), 1e-6)
+    audio *= min(1, .78 / peak)
     pcm = np.int16(np.clip(audio, -1, 1) * 32767)
     with wave.open(str(path), "wb") as wav:
-        wav.setnchannels(1)
+        wav.setnchannels(2)
         wav.setsampwidth(2)
         wav.setframerate(rate)
         wav.writeframes(pcm.tobytes())
@@ -195,8 +260,8 @@ def main():
             ("elio", "ELIO’S OCEAN INVESTIGATION", "Explore."),
             ("kusama", "INTO THE INFINITE", "Discover."),
             ("emilie", "EMILIE FLÖGE", "Move."),
-            ("firstaid", "WHAT IF I GET IT WRONG?", ""),
-            ("learning", "LEARNING, DIFFERENTLY", "Learn."),
+            ("firstaid", "WHAT IF I GET IT WRONG?", "Learn."),
+            ("learning", "LEARNING, DIFFERENTLY", ""),
         ]
         for key, label, word in specs:
             overlays[key] = temp / f"{key}-text.png"
@@ -239,7 +304,8 @@ def main():
         sound(wav)
         run("-f", "concat", "-safe", "0", "-i", concat, "-i", wav,
             "-map", "0:v", "-map", "1:a", "-c:v", "copy",
-            "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart",
+            "-af", "loudnorm=I=-19:TP=-2.0:LRA=10",
+            "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
             "-shortest", OUTPUT)
     print(OUTPUT)
 
