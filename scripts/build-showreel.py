@@ -152,7 +152,7 @@ def still_segment(source, duration, overlay, output, motion=True):
 
 
 def sound(path):
-    """Original 25-second score: soft pulse, melodic plucks and chapter foley."""
+    """Minimal sound design only: no music, melody, chords, or stock audio."""
     rate = 48000
     duration = 25
     audio = np.zeros((rate * duration, 2), dtype=np.float64)
@@ -168,84 +168,66 @@ def sound(path):
         audio[start:start + n, 0] += amp * left * signal[:n]
         audio[start:start + n, 1] += amp * right * signal[:n]
 
-    def pluck(at, freq, amp=.10, pan=0, length=.62):
-        t = np.arange(round(length * rate)) / rate
-        envelope = (1 - np.exp(-100 * t)) * np.exp(-5.6 * t)
-        signal = (np.sin(2 * np.pi * freq * t) + .28 * np.sin(2 * np.pi * freq * 2 * t)
-                  + .09 * np.sin(2 * np.pi * freq * 3 * t)) * envelope
-        add(at, signal, amp, pan)
-
-    def soft_noise(at, length, amp, pan=0, fade=14):
+    def soft_noise(at, length, amp, pan=0, fade=14, smooth_by=110):
         t = np.arange(round(length * rate)) / rate
         noise = rng.normal(0, 1, len(t))
-        # The running average removes the harsh high end of synthetic noise.
-        smooth = np.convolve(noise, np.ones(110) / 110, mode="same")
+        smooth = np.convolve(noise, np.ones(smooth_by) / smooth_by, mode="same")
         envelope = np.sin(np.pi * np.minimum(t / length, 1)) ** 2 * np.exp(-fade * t / 8)
         add(at, smooth * envelope, amp, pan)
 
-    # Four-chord music bed. The score changes color with each experience, while
-    # its tempo stays steady enough for the edit to feel like one studio.
-    chords = [
-        (0, 4, (146.83, 220.0, 293.66)),
-        (4, 7, (174.61, 261.63, 349.23)),
-        (7, 11, (196.0, 293.66, 392.0)),
-        (11, 14, (146.83, 220.0, 293.66)),
-        (14, 17, (233.08, 349.23, 466.16)),
-        (17, 21, (196.0, 293.66, 392.0)),
-        (21, 25, (174.61, 261.63, 349.23)),
-    ]
-    pulse = 60 / 104
-    for beat in range(math.ceil(duration / pulse)):
-        at = beat * pulse
-        chord = next(notes for start, end, notes in chords if start <= at < end)
-        freq = chord[(beat // 2) % 3] * (2 if beat % 4 == 3 else 1)
-        pluck(at, freq, amp=.075 if beat % 4 else .11, pan=(-.28 if beat % 2 else .28))
-        if beat % 2 == 0:
-            # A muted pulse rather than a dance kick.
-            t = np.arange(round(.20 * rate)) / rate
-            low = np.sin(2 * np.pi * (62 - 18 * t) * t) * np.exp(-24 * t)
-            add(at, low, .16)
-        else:
-            soft_noise(at, .09, .75, pan=(-.18 if beat % 4 else .18), fade=20)
+    def dry_click(at, amp=.12, pan=0):
+        t = np.arange(round(.045 * rate)) / rate
+        click = rng.normal(0, 1, len(t)) * np.exp(-105 * t)
+        add(at, click, amp, pan)
 
-    for start, end, notes in chords:
-        t = np.arange(round((end - start) * rate)) / rate
-        pad = sum(np.sin(2 * np.pi * note * t + i * .5) for i, note in enumerate(notes)) / 3
-        pad *= np.sin(np.pi * np.minimum(t / (end - start), 1)) ** 2
-        add(start, pad, .035)
+    def transition(at, pan=0):
+        # Short paper-like sweep, deliberately dry rather than cinematic.
+        t = np.arange(round(.22 * rate)) / rate
+        noise = rng.normal(0, 1, len(t))
+        smooth = np.convolve(noise, np.ones(35) / 35, mode="same")
+        envelope = np.sin(np.pi * t / .22) ** 2
+        add(at, smooth * envelope, .42, pan)
 
-    # Project-specific interaction sounds, all synthesized for this reel.
-    # Elio: ascending underwater bubbles and a quiet wash.
+    # Elio: a quiet underwater wash and sparse bubbles.
+    soft_noise(0, 4, .48, pan=-.15, fade=.2, smooth_by=260)
     for i, at in enumerate((.34, .86, 1.45, 2.25, 3.35)):
         t = np.arange(round(.22 * rate)) / rate
         bubble = np.sin(2 * np.pi * (330 + 470 * t) * t) * np.exp(-16 * t)
-        add(at, bubble, .065, pan=(-.45 + i * .17))
-    soft_noise(1.0, 2.8, .48, pan=-.2, fade=1)
+        add(at, bubble, .045, pan=(-.45 + i * .17))
 
-    # Infinite: small dots appear in the same rhythm as the visual field.
+    # Infinite: tactile pencil/paper taps, with no pitched notes.
+    transition(3.92, -.3)
     for i, at in enumerate((4.25, 4.65, 5.25, 5.9, 6.5)):
-        pluck(at, (880, 988, 1175)[i % 3], amp=.04, pan=(-.5 + i * .2), length=.2)
+        dry_click(at, .11, pan=(-.5 + i * .2))
 
-    # Emilie: fabric moving through air, never a generic transition whoosh.
+    # Emilie: fabric moving through air.
+    transition(6.92, .25)
     for i, at in enumerate((7.35, 8.2, 9.15, 10.15)):
-        soft_noise(at, .58, .9, pan=(-.45 if i % 2 else .45), fade=5)
+        soft_noise(at, .58, .62, pan=(-.45 if i % 2 else .45), fade=5, smooth_by=75)
 
-    # First Aid: two restrained heart-like pairs; Learning: card-turn taps.
+    # First Aid: two restrained heart-like pairs.
+    transition(10.92, -.15)
     for at in (11.35, 11.63, 12.75, 13.03):
         t = np.arange(round(.15 * rate)) / rate
         beat = np.sin(2 * np.pi * 88 * t) * np.exp(-27 * t)
-        add(at, beat, .11)
+        add(at, beat, .09)
+
+    # Learning, Differently: card-turn taps and soft paper friction.
+    transition(13.92, .2)
     for i, at in enumerate((14.25, 15.2, 16.15, 16.7)):
-        soft_noise(at, .12, .9, pan=(-.35 + i * .24), fade=24)
+        dry_click(at, .12, pan=(-.35 + i * .24))
+        soft_noise(at, .12, .28, pan=(-.35 + i * .24), fade=24, smooth_by=35)
 
-    # Four quick detail cuts add a final rhythmic lift before the close.
+    # Four quick detail cuts: clean editorial ticks, not a musical build.
     for i, at in enumerate((17.0, 18.0, 19.0, 20.0)):
-        soft_noise(at, .12, 1.0, pan=(-.5 + i / 3), fade=24)
-        pluck(at + .08, (523.25, 587.33, 698.46, 783.99)[i], amp=.045, length=.25)
+        transition(at, pan=(-.5 + i / 3))
+        dry_click(at + .08, .14, pan=(-.5 + i / 3))
 
-    # A simple resolved note gives the URL card an ending.
-    for note in (349.23, 523.25, 698.46):
-        pluck(21.15, note, amp=.07, length=1.5)
+    # The end card arrives with one soft physical thump, then air and silence.
+    t = np.arange(round(.32 * rate)) / rate
+    thump = np.sin(2 * np.pi * (72 - 20 * t) * t) * np.exp(-17 * t)
+    add(21.0, thump, .11)
+    soft_noise(21.0, 3.2, .16, fade=1.2, smooth_by=300)
 
     peak = max(np.max(np.abs(audio)), 1e-6)
     audio *= min(1, .78 / peak)
@@ -335,7 +317,7 @@ def main():
         sound(wav)
         run("-f", "concat", "-safe", "0", "-i", concat, "-i", wav,
             "-map", "0:v", "-map", "1:a", "-c:v", "copy",
-            "-af", "loudnorm=I=-19:TP=-2.0:LRA=10,afade=t=out:st=21:d=4",
+            "-af", "loudnorm=I=-23:TP=-4.0:LRA=8,afade=t=out:st=21:d=4",
             "-c:a", "aac", "-ar", "48000", "-b:a", "192k", "-movflags", "+faststart",
             "-shortest", OUTPUT)
     print(OUTPUT)
