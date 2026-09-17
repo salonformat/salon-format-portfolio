@@ -1,0 +1,79 @@
+---
+import '@fontsource/della-respira';
+import '@fontsource/josefin-sans/400.css';
+import '@fontsource/josefin-sans/500.css';
+import '../../styles/global.css';
+const base = import.meta.env.BASE_URL;
+const experience = 'https://salonformat.github.io/formgefuehl/?lang=en';
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="Formgefühl — A Feel for Form. An interactive Wiener Werkstätte experience by Isabella Kohout / Salon Format. Design a pattern and step inside it." />
+  <link rel="canonical" href="https://salonformat.com/projects/formgefuehl/" />
+  <link rel="icon" type="image/png" href={`${base}brand/salon-format-mark.png`} />
+  <meta property="og:title" content="Formgefühl — A Feel for Form" />
+  <meta property="og:description" content="Design a pattern. Step inside it. An independent cultural learning experience by Salon Format." />
+  <meta property="og:image" content="https://salonformat.com/images/formgefuehl/room.png" />
+  <title>Formgefühl — A Feel for Form · Salon Format</title>
+</head>
+<body class="case-page form-case">
+<header class="case-header">
+  <a class="case-home" href={`${base}`} aria-label="Salon Format home"><img src={`${base}brand/salon-format-mark.png`} alt="" /><span>Salon Format</span></a>
+  <a href={`${base}#projects`}>All projects</a>
+</header>
+<main>
+  <section class="case-hero">
+    <div class="case-hero-copy">
+      <h1>Formgefühl.<br /><em>A Feel for Form.</em></h1>
+      <p class="case-deck">Design a pattern. Step inside it.<br />An invitation to discover the Wiener Werkstätte through making.</p>
+      <div class="case-actions"><a class="case-button" href={experience} target="_blank" rel="noreferrer">Open the experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a></div>
+      <p class="form-status">Independent working prototype · German &amp; English</p>
+    </div>
+    <figure class="form-hero-image"><img src={`${base}images/formgefuehl/room.png`} width="1280" height="502" alt="A room filled with hanging fabric and flooring carrying the visitor’s own geometric pattern" /><figcaption>Your pattern becomes the room.</figcaption></figure>
+  </section>
+  <section class="case-intro">
+    <h2>What if you could enter your own drawing?</h2>
+    <p>The Wiener Werkstätte brought artists and craftspeople together in Vienna in 1903. Its work ranged from fabrics and furniture to tableware and entire interiors. I wanted visitors to feel that connection through a small act of making, before introducing the history behind it.</p>
+  </section>
+  <section class="case-process form-process">
+    <div class="process-heading"><h2>A little mark.<br />A room of your own.</h2><p>Each step grows out of something the visitor has just done.</p></div>
+    <ol class="journey-list">
+      <li><span>Draw</span><p>Choose a shape, colour and rotation. Paint across a small grid. The repeated pattern changes immediately.</p></li>
+      <li><span>Enter</span><p>The flat sheet separates into hanging panels as the floor unfolds and a room takes shape.</p></li>
+      <li><span>Feel</span><p>Try paper, fabric and metal. Compare their edges, folds and reflections; change the scale of the pattern.</p></li>
+      <li><span>Connect</span><p>Meet the women who helped shape the workshop and discover the idea of the Gesamtkunstwerk.</p></li>
+      <li><span>Keep</span><p>Download your own pattern as a printable image.</p></li>
+    </ol>
+  </section>
+  <section class="case-image-section form-image-section">
+    <figure class="historical-figure"><img src={`${base}images/formgefuehl/editor.png`} width="1280" height="720" loading="lazy" alt="The pattern editor with a five-by-five drawing grid, four shape tools and a live repeating preview" /><figcaption>The working prototype: a small edit changes the whole pattern.</figcaption></figure>
+    <div class="case-image-copy"><h2>Learning by changing something.</h2><p>The repeated design makes a <em>rapport</em> visible. The room shows how a pattern can connect objects and surfaces. Material changes make the relationship between design and craft easier to notice.</p><p>These are learning intentions, not measured outcomes. The next step is testing the experience with people who have not seen it before.</p></div>
+  </section>
+  <section class="form-context">
+    <div><h2>More than geometry.</h2><p>The grid is a starting point, not a complete portrait of the Wiener Werkstätte. The experience also introduces floral motifs, free forms and the work of Mathilde Flögl, Felice Rix-Ueno and Vally Wieselthier.</p><p>It also makes space for a less comfortable fact: carefully handcrafted objects were often expensive and mostly accessible to wealthy customers.</p></div>
+    <figure><img src={`${base}images/formgefuehl/designer.png`} width="1536" height="1024" loading="lazy" alt="A loose ink-style illustration of a designer sketching beside patterned fabric and ceramics" /><figcaption>An original, AI-assisted illustration; an imagined scene, not a historical portrait.</figcaption></figure>
+  </section>
+  <section class="decision-section">
+    <h2>What shaped the experience</h2>
+    <div class="decision-grid">
+      <article><h3>One personal pattern</h3><p>The visitor’s own design stays present from the drawing grid to the room and the final download. The spatial reveal belongs to something they made.</p></article>
+      <article><h3>Materials that behave differently</h3><p>Paper has curled edges, fabric falls into folds, and metal catches moving light. The difference is visible in shape and surface.</p></article>
+      <article><h3>Space for the experience</h3><p>Controls sit below the room. Desktop screens keep the next action visible; the mobile editor scrolls above its entry button.</p></article>
+      <article><h3>A quieter way through</h3><p>Reduced motion skips the unfolding sequence. Short drawing taps, rustles and metallic resonances respond to the interaction when sound is switched on. The interface is bilingual, and a flat pattern view is available when WebGL cannot run.</p></article>
+    </div>
+  </section>
+  <section class="case-role form-role">
+    <h2>Concept, learning design and visual direction.</h2>
+    <div><p>A self-initiated project by Isabella Kohout / Salon Format, bringing together research, writing, interaction design and an interactive browser prototype.</p><p>Developed with AI-assisted coding and illustration. Original procedural patterns and spaces were created for the experience. Build checks and browser checks covered desktop and mobile viewports; real-device user testing and external historical review remain next steps.</p></div>
+  </section>
+  <section class="case-notice">
+    <h2>A personal project.</h2>
+    <div><p>Formgefühl was created independently by Salon Format, without collaboration with a museum. It is a contemporary interpretation, not a reconstruction of a historical room or artwork.</p><p>Historical sources and design references are documented in the <a href="https://github.com/salonformat/formgefuehl/blob/main/REFERENCES.md">project repository</a>.</p><a class="case-button" href={experience} target="_blank" rel="noreferrer">Try Formgefühl <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a></div>
+  </section>
+  <nav class="case-next" aria-label="Project navigation"><p>Next case study</p><a href={`${base}projects/infinite`}>Into the Infinite <span class="ui-arrow" aria-hidden="true"></span></a></nav>
+</main>
+</body>
+</html>

@@ -609,3 +609,19 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   html { scroll-behavior: auto; }
   .learning-motion * { animation: none !important; }
 }
+
+/* Formgefühl: the experience's vermilion, paper and spatial pattern. */
+.project-tile--form{grid-column:1/-1;grid-row:3;min-height:25rem;background:#b74332;color:#f3efe5}
+.project-tile--form .tile-copy{max-width:50%}.project-tile--form h3{max-width:16ch;font-size:clamp(2.4rem,4vw,4.4rem)}
+.project-tile--form .tile-copy>p:last-child{max-width:34ch}.project-tile--form .tile-art{left:49%;top:0}
+.project-tile--form .tile-art img{width:100%;height:100%;object-fit:cover}.project-tile--form .tile-number{font-size:11pt}
+.form-case .case-hero{background:#b74332;color:#f3efe5;grid-template-columns:1fr 1.1fr;gap:3rem;min-height:85svh;padding-top:5rem;padding-bottom:5rem}
+.form-case .case-hero h1{font-size:clamp(3.1rem,6vw,6rem);line-height:1.05;max-width:13ch}.form-case .case-hero h1 em{color:#f3efe5}
+.form-status{font-size:11pt;margin-top:1.5rem}.form-hero-image{margin:0}.form-hero-image img{display:block;width:100%;min-height:22rem;object-fit:cover}.form-hero-image figcaption{margin-top:1rem;font-size:11pt}
+.form-case .case-intro{grid-template-columns:1.1fr 1fr;min-height:60svh;gap:4rem}.form-case .case-intro>p:last-child{margin:0;align-self:center}
+.form-process{background:#48564c;color:#f3efe5}.form-process .process-heading>p{margin-top:2rem;max-width:30ch}
+.form-image-section{background:#f3efe5;min-height:75svh;grid-template-columns:1.25fr 1fr}.form-image-section img{filter:none;object-fit:contain}
+.form-context{padding:5rem var(--gutter);display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;background:#dfcfac}.form-context h2{font-size:clamp(2.8rem,4vw,4.5rem);line-height:1.05}.form-context p{max-width:48ch}.form-context figure{margin:0}.form-context img{display:block;width:100%;height:auto}
+.form-case figcaption,.form-case .case-button,.form-case .case-header,.form-case .journey-list li::before{font-size:11pt}
+.form-case .decision-section>h2{font-size:clamp(2.8rem,4vw,4.5rem);margin-bottom:2rem}.form-role{background:#b74332;color:#f3efe5;grid-template-columns:1fr 1fr;min-height:65svh}.form-role h2{font-size:clamp(2.8rem,4vw,4.5rem)}.form-role p{max-width:48ch}
+@media(max-width:900px){.project-tile--form{grid-column:1;grid-row:auto;min-height:33rem}.project-tile--form .tile-copy{max-width:none}.project-tile--form .tile-art{left:0;top:52%}.form-case .case-hero,.form-case .case-intro,.form-image-section,.form-context,.form-role{grid-template-columns:1fr;gap:2.5rem}.form-case .case-intro>p:last-child{grid-column:1}.form-hero-image img{min-height:0}.form-case .case-hero{padding-top:3rem}.form-case .case-header{letter-spacing:0}.form-case .case-header img{width:2rem;height:2rem}}
