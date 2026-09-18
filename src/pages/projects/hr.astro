@@ -1,0 +1,111 @@
+---
+import '@fontsource/della-respira';
+import '@fontsource/josefin-sans/400.css';
+import '@fontsource/josefin-sans/500.css';
+import '../../styles/global.css';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="First 100 Days — a role-based onboarding experience by Salon Format." />
+    <link rel="icon" type="image/png" href={`${base}brand/salon-format-mark.png`} />
+    <title>First 100 Days — Salon Format</title>
+  </head>
+  <body class="case-page hr-case">
+    <header class="case-header">
+      <a class="case-home" href="https://salonformat.com/" aria-label="Back to Salon Format home"><img src={`${base}brand/salon-format-mark.png`} alt="" /><span>Salon Format</span></a>
+      <a href={`${base}#projects`}>All projects</a>
+    </header>
+
+    <main>
+      <section class="case-hero">
+        <div class="case-hero-copy">
+          <p class="project-status">Professional learning · Onboarding · English / German / French</p>
+          <h1>First<br /><em>100 Days</em></h1>
+          <p class="case-deck">An adaptable onboarding experience that guides a new colleague through their first 100 days — from the first day to growing confidence and responsibility in the role.</p>
+          <div class="case-actions">
+            <a class="case-button" href="https://hr.salonformat.com/" target="_blank" rel="noreferrer">Open the experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
+          </div>
+        </div>
+        <div class="hr-case-art" aria-hidden="true">
+          <span class="hr-path"></span>
+          <img src={`${base}images/first-100-days/fresh-eyes-ink.png`} alt="" />
+        </div>
+      </section>
+
+      <section class="case-intro">
+        <p class="case-number">What the project is about</p>
+        <h2>Starting a new job means learning far more than one course can hold.</h2>
+        <p>The prototype follows a new Customer Success colleague at the fictional software company DemoCo. Over the first 100 days, the person gets to know the company, the role, the people and the customers. The experience gives this process a clear structure without turning every working day into training.</p>
+      </section>
+
+      <section class="case-process hr-process">
+        <div class="process-heading">
+          <p class="case-number">How the onboarding works</p>
+          <h2>One journey.<br />Five phases.<br />15 missions.</h2>
+        </div>
+        <ol class="journey-list">
+          <li><span>Days 1–10</span><p>Get oriented: understand DemoCo, the Customer Success role and what the first weeks will look like.</p></li>
+          <li><span>Days 11–30</span><p>Meet the people behind the work and prepare useful conversations with a buddy, lead and other teams.</p></li>
+          <li><span>Days 31–60</span><p>Apply what has been learned in real customer situations, with support still close at hand.</p></li>
+          <li><span>Days 61–90</span><p>Recognise risks, make decisions and take on more responsibility step by step.</p></li>
+          <li><span>Days 91–100</span><p>Look back, gather the most important lessons and prepare to manage a small customer portfolio.</p></li>
+        </ol>
+      </section>
+
+      <section class="case-image-section hr-image-section">
+        <figure class="historical-figure">
+          <img src={`${base}images/first-100-days/journey-ink.png`} alt="A hand-painted visual path linking doors, observation, conversation, action and reflection" />
+          <figcaption>The visual path turns onboarding into a connected journey rather than a sequence of disconnected training modules.</figcaption>
+        </figure>
+        <div class="case-image-copy">
+          <p class="case-number">The central principle</p>
+          <h2>100 days of support, not 100 days spent in training.</h2>
+          <p>The experience is most active at the beginning, when everything is new. As the colleague becomes more confident, the extra learning time gradually decreases and the focus shifts towards independent work and reflection.</p>
+        </div>
+      </section>
+
+      <section class="case-adaptable">
+        <p class="case-number">Made to fit the organisation</p>
+        <div>
+          <h2>The structure stays clear. The experience changes with the role.</h2>
+          <p>DemoCo and Customer Success provide one concrete example. For a real organisation, the journey can be adapted to the company, role, teams, language and existing onboarding process.</p>
+          <ul>
+            <li>Company context, culture and tone of voice</li>
+            <li>Role-specific goals, phases and missions</li>
+            <li>Internal people, teams and key conversations</li>
+            <li>Tools, resources and calendar touchpoints</li>
+            <li>Language, visual identity and accessibility needs</li>
+          </ul>
+          <p>The result is not another generic content library. It is a guided journey built around what a new colleague should understand, experience and be able to do in that particular organisation.</p>
+        </div>
+      </section>
+
+      <section class="decision-section hr-decisions">
+        <p class="case-number">Key design decisions</p>
+        <div class="decision-grid">
+          <article><h3>Small missions</h3><p>Each mission asks the new colleague to do something useful: observe a situation, speak to someone, prepare a meeting or reflect on a decision.</p></article>
+          <article><h3>Learning inside the job</h3><p>The platform sends the learner back into the workplace. Conversations and real tasks carry more weight than long pages of information.</p></article>
+          <article><h3>A private notebook</h3><p>Questions, notes and aha moments stay in the person’s own browser. The notebook supports reflection and is not an HR tracking tool.</p></article>
+          <article><h3>Adaptable by design</h3><p>The same structure can support different roles and organisations by changing the missions, people, timing, language and visual identity.</p></article>
+        </div>
+      </section>
+
+      <section class="case-role hr-role">
+        <p class="case-number">Role and contribution</p>
+        <h2>Learning Experience Design · Concept · Learning Journey · Writing · Visual Direction · Interaction Design · Prototyping</h2>
+        <p>I developed the fictional workplace context, the five-phase journey, all 15 missions, the reflection tools, interface and visual system. The working prototype is available in English, German and French.</p>
+      </section>
+
+      <nav class="case-next" aria-label="Project navigation">
+        <p>Next case study</p>
+        <a href={`${base}projects/elio`}>Elio’s Ocean Investigation <span class="ui-arrow" aria-hidden="true"></span></a>
+      </nav>
+    </main>
+  </body>
+</html>
