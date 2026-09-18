@@ -59,7 +59,7 @@ a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 6px; }
 .hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; min-height: 68svh; max-width: 70rem; padding: 8rem var(--gutter) clamp(4rem, 8vh, 6.5rem); background: var(--blue); }
 .wordmark { display: block; width: min(23rem, 78vw); height: auto; margin: 0 0 1rem; }
 .hero h1 {
-  max-width: 25ch;
+  max-width: 42ch;
   margin: 0;
   font-family: var(--sans);
   font-size: clamp(1.25rem, 1.5vw, 1.65rem);
@@ -560,7 +560,7 @@ h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em;
   .hero { min-height: 72svh; }
   .hero-copy { min-height: 72svh; padding: 7rem var(--gutter) 4rem; }
   .wordmark { width: min(21rem, 78vw); }
-  .hero h1 { max-width: 18ch; }
+  .hero h1 { max-width: 28ch; }
   .hero-project-link { margin-top: 2.75rem; }
   .scratch-reveal { right: var(--gutter); top: 5.8rem; bottom: auto; width: min(9.5rem, 37vw); }
   .scratch-underlay { padding: 1rem; }
