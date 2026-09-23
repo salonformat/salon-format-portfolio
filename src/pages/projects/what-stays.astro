@@ -1,0 +1,90 @@
+---
+import '@fontsource/della-respira';
+import '@fontsource/josefin-sans/400.css';
+import '@fontsource/josefin-sans/500.css';
+import '../../styles/global.css';
+import '../../styles/project-system.css';
+import LanguageSwitch from '../../components/LanguageSwitch.astro';
+import I18nRuntime from '../../components/I18nRuntime.astro';
+import type { Language } from '../../i18n/translations';
+
+const base = import.meta.env.BASE_URL;
+const { lang = 'en' } = Astro.props as { lang?: Language };
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="What stays? — a digital museum experience about memory, attention and looking closely." />
+    <link rel="icon" type="image/png" href={`${base}brand/salon-format-mark.png`} />
+    <title>What stays? — Salon Format</title>
+  </head>
+  <body class="case-page memory-case">
+    <header class="case-header">
+      <a class="case-home" href="https://salonformat.com/" aria-label="Back to Salon Format home"><img src={`${base}brand/salon-format-mark.png`} alt="" /><span>Salon Format</span></a>
+      <a href={`${base}#projects`}>All projects</a>
+      <LanguageSwitch lang={lang} />
+    </header>
+
+    <main>
+      <section class="case-hero">
+        <div class="case-hero-copy">
+          <p class="project-status">Independent digital museum prototype · German / English / French</p>
+          <h1>What<br /><em>stays?</em></h1>
+          <p class="case-deck">A four-minute experience about memory, attention and learning to look closely.</p>
+          <div class="case-actions"><a class="case-button" href="https://salonformat.github.io/museumexperience/?lang=en" target="_blank" rel="noreferrer">Open the experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a></div>
+        </div>
+        <div class="memory-case-art" aria-hidden="true"><img src={`${base}images/what-stays/harvesters-met.jpg`} alt="" /></div>
+      </section>
+
+      <section class="case-intro">
+        <p class="case-number">The starting point</p>
+        <h2>What do we notice — and what disappears?</h2>
+        <p>Visitors look at an artwork or object for 30 seconds. Then it disappears and they draw what they remember. The task is not about drawing well. It turns looking into an action and makes personal attention visible.</p>
+      </section>
+
+      <section class="case-process memory-process">
+        <div class="process-heading"><p class="case-number">Experience flow</p><h2>Look.<br />Draw.<br />Compare.</h2></div>
+        <ol class="journey-list">
+          <li><span>Choose a work</span><p>Select one of three open-access artworks and objects.</p></li>
+          <li><span>Look for 30 seconds</span><p>Take in the whole work before the image disappears.</p></li>
+          <li><span>Draw from memory</span><p>Record a shape, movement or detail with simple digital drawing tools.</p></li>
+          <li><span>Reflect on attention</span><p>Answer three short questions about colour, focus and the movement of your eyes.</p></li>
+          <li><span>Bring the original back</span><p>Use a slider to layer the drawing over the artwork and compare them.</p></li>
+          <li><span>Discover and keep</span><p>Open three details, then download a personal record of what stayed.</p></li>
+        </ol>
+      </section>
+
+      <section class="case-image-section memory-image-section">
+        <figure class="historical-figure"><img src={`${base}images/what-stays/moche-vessel-met.jpg`} alt="Moche vessel with a face-shaped neck" /><figcaption>One of three public-domain works used in the prototype. Image: The Metropolitan Museum of Art, Open Access, CC0.</figcaption></figure>
+        <div class="case-image-copy"><p class="case-number">The learning idea</p><h2>Drawing turns looking into action.</h2><p>When the image disappears, visitors have to decide what mattered to them. Comparing memory with the original makes attention tangible without turning the experience into a test.</p></div>
+      </section>
+
+      <section class="decision-section memory-decisions">
+        <p class="case-number">Design choices</p>
+        <div class="decision-grid">
+          <article><h3>A short viewing time</h3><p>Thirty seconds creates focus without demanding prior knowledge.</p></article>
+          <article><h3>No right or wrong</h3><p>The drawing becomes a record of attention, not an assessment of artistic skill.</p></article>
+          <article><h3>Memory over the original</h3><p>The comparison slider shows differences gently and immediately.</p></article>
+          <article><h3>Three ways to enter</h3><p>A painting, a vessel and a mask invite different kinds of looking.</p></article>
+        </div>
+      </section>
+
+      <section class="case-role memory-role">
+        <p class="case-number">Role and contribution</p>
+        <h2>Learning Experience Design · Concept · Writing · Visual Direction · Interaction Design · Prototyping</h2>
+        <p>I developed the learning structure, writing, visual system, drawing interaction and working browser prototype. The experience is available in German, English and French.</p>
+      </section>
+
+      <section class="case-notice">
+        <h2>Project notice</h2>
+        <div><p>This is an independent, self-initiated Salon Format prototype. It was not commissioned by or developed in collaboration with The Metropolitan Museum of Art.</p><p>The three reproduced works are provided by The Metropolitan Museum of Art through its Open Access programme and are marked as Public Domain (CC0). Full object credits appear inside the experience.</p></div>
+      </section>
+
+      <nav class="case-next" aria-label="Project navigation"><p>Next case study</p><a href={`${base}projects/infinite`}>Into the Infinite <span class="ui-arrow" aria-hidden="true"></span></a></nav>
+    </main>
+    <I18nRuntime lang={lang} />
+  </body>
+</html>

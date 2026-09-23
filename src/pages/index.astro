@@ -3,6 +3,7 @@ import '@fontsource/della-respira';
 import '@fontsource/josefin-sans/400.css';
 import '@fontsource/josefin-sans/500.css';
 import '../styles/global.css';
+import '../styles/project-system.css';
 import LanguageSwitch from '../components/LanguageSwitch.astro';
 import I18nRuntime from '../components/I18nRuntime.astro';
 import type { Language } from '../i18n/translations';
@@ -65,18 +66,20 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
           <p>Interactive learning across art, culture, education and everyday life.</p>
         </header>
 
-        <div class="project-mosaic">
-          <article class="project-tile project-tile--elio">
+        <section class="project-group project-group--culture" aria-labelledby="culture-projects">
+          <header class="project-group-heading"><p>01</p><h3 id="culture-projects">Culture &amp; museums</h3><span>4 projects</span></header>
+          <div class="project-mosaic">
+          <article class="project-tile project-tile--memory">
             <div class="tile-copy">
-              <p class="tile-number"><span>01</span><span>Education</span><span>Young audiences</span></p>
-              <h3><a class="tile-main-link" href={`${base}projects/elio`}>Elio’s Ocean<br /><em>Investigation</em></a></h3>
-              <p>A child’s drawing becomes an ocean investigation.</p>
+              <p class="tile-number"><span>01</span><span>Culture</span><span>Visual learning</span></p>
+              <h3><a class="tile-main-link" href={`${base}projects/what-stays`}>What<br /><em>stays?</em></a></h3>
+              <p>Look for 30 seconds, draw from memory, then discover what your eyes held on to.</p>
             </div>
-            <div class="tile-art" aria-hidden="true">
-              <img class="elio-tile-ocean" src={`${base}images/elio/ocean-collage.png`} alt="" />
-              <img class="elio-tile-creature" src={`${base}images/elio/elios-wesen.png`} alt="" />
+            <div class="tile-art memory-tile-art" aria-hidden="true">
+              <img src={`${base}images/what-stays/harvesters-met.jpg`} alt="" />
+              <span></span>
             </div>
-            <a class="tile-experience" href="https://ocean.salonformat.com/en/" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
+            <a class="tile-experience" href="https://salonformat.github.io/museumexperience/?lang=en" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
           </article>
 
           <article class="project-tile project-tile--infinite">
@@ -89,19 +92,9 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
             <a class="tile-experience" href="https://infinite.salonformat.com/" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
           </article>
 
-          <article class="project-tile project-tile--first-aid">
-            <div class="tile-copy">
-              <p class="tile-number"><span>03</span><span>Professional learning</span><span>Education</span></p>
-              <h3><a class="tile-main-link" href={`${base}projects/first-aid`}>What if I <em>get it wrong?</em></a></h3>
-              <p>A bilingual first-aid experience that makes room for uncertainty before practical training.</p>
-            </div>
-            <div class="tile-art" aria-hidden="true"><img src={`${base}images/first-aid/experience-preview.png`} alt="" /></div>
-            <a class="tile-experience" href="https://salonformat.github.io/learning-experience-medizin/" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
-          </article>
-
           <article class="project-tile project-tile--emilie">
             <div class="tile-copy">
-              <p class="tile-number"><span>04</span><span>Culture</span></p>
+              <p class="tile-number"><span>03</span><span>Culture</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/emilie`}>Emilie Flöge:<br /><em>Movement Through Fabric</em></a></h3>
               <p>A digital museum experience about clothing, movement and creative freedom.</p>
             </div>
@@ -109,23 +102,39 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
             <a class="tile-experience" href="https://emilie.salonformat.com/?lang=en" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
           </article>
 
-          <article class="project-tile project-tile--learning">
-            <div class="tile-copy">
-              <p class="tile-number"><span>05</span><span>Professional learning</span><span>Education</span></p>
-              <h3><a class="tile-main-link" href={`${base}projects/learning`}>Learning,<br /><em>Differently</em></a></h3>
-              <p>A short course for designing around a learner’s real situation.</p>
-            </div>
-            <div class="tile-art" aria-hidden="true"><img src={`${base}images/learning-differently-preview.png`} alt="" /></div>
-            <a class="tile-experience" href="https://getlarge.github.io/learning-differently/" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
-          </article>
           <article class="project-tile project-tile--form">
             <div class="tile-copy">
-              <p class="tile-number"><span>06</span><span>Culture</span><span>Interactive learning</span></p>
+              <p class="tile-number"><span>04</span><span>Culture</span><span>Interactive learning</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/formgefuehl`}>Formgefühl.<br /><em>A Feel for Form.</em></a></h3>
               <p>Design a pattern and step inside it. Discover the Wiener Werkstätte through making.</p>
             </div>
             <div class="tile-art" aria-hidden="true"><img src={`${base}images/formgefuehl/room.png`} alt="" width="1280" height="502" decoding="async" /></div>
             <a class="tile-experience" href="https://form.salonformat.com/?lang=en" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
+          </article>
+          </div>
+        </section>
+
+        <section class="project-group project-group--work" aria-labelledby="work-projects">
+          <header class="project-group-heading"><p>02</p><h3 id="work-projects">Learning at work</h3><span>3 projects</span></header>
+          <div class="project-mosaic">
+          <article class="project-tile project-tile--first-aid">
+            <div class="tile-copy">
+              <p class="tile-number"><span>05</span><span>Professional learning</span><span>Education</span></p>
+              <h3><a class="tile-main-link" href={`${base}projects/first-aid`}>What if I <em>get it wrong?</em></a></h3>
+              <p>A bilingual first-aid experience that makes room for uncertainty before practical training.</p>
+            </div>
+            <div class="tile-art" aria-hidden="true"><img src={`${base}images/first-aid/experience-preview.png`} alt="" /></div>
+            <a class="tile-experience" href="https://salonformat.github.io/learning-experience-medizin/" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
+          </article>
+
+          <article class="project-tile project-tile--learning">
+            <div class="tile-copy">
+              <p class="tile-number"><span>06</span><span>Professional learning</span><span>Education</span></p>
+              <h3><a class="tile-main-link" href={`${base}projects/learning`}>Learning,<br /><em>Differently</em></a></h3>
+              <p>A short course for designing around a learner’s real situation.</p>
+            </div>
+            <div class="tile-art" aria-hidden="true"><img src={`${base}images/learning-differently-preview.png`} alt="" /></div>
+            <a class="tile-experience" href="https://getlarge.github.io/learning-differently/" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
           </article>
 
           <article class="project-tile project-tile--hr">
@@ -137,7 +146,26 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
             <div class="tile-art" aria-hidden="true"><img src={`${base}images/first-100-days/journey-ink.png`} alt="" /></div>
             <a class="tile-experience" href="https://hr.salonformat.com/" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
           </article>
-        </div>
+          </div>
+        </section>
+
+        <section class="project-group project-group--young" aria-labelledby="young-projects">
+          <header class="project-group-heading"><p>03</p><h3 id="young-projects">Young audiences</h3><span>1 project</span></header>
+          <div class="project-mosaic">
+          <article class="project-tile project-tile--elio">
+            <div class="tile-copy">
+              <p class="tile-number"><span>08</span><span>Education</span><span>Young audiences</span></p>
+              <h3><a class="tile-main-link" href={`${base}projects/elio`}>Elio’s Ocean<br /><em>Investigation</em></a></h3>
+              <p>A child’s drawing becomes an ocean investigation.</p>
+            </div>
+            <div class="tile-art" aria-hidden="true">
+              <img class="elio-tile-ocean" src={`${base}images/elio/ocean-collage.png`} alt="" />
+              <img class="elio-tile-creature" src={`${base}images/elio/elios-wesen.png`} alt="" />
+            </div>
+            <a class="tile-experience" href="https://ocean.salonformat.com/en/" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
+          </article>
+          </div>
+        </section>
 
         <aside class="capabilities" aria-labelledby="capabilities-title">
           <h3 id="capabilities-title">What we do</h3>

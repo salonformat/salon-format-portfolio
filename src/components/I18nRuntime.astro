@@ -49,6 +49,9 @@ const dictionary = lang === 'en' ? {} : translations[lang];
     if (lang === 'de' && raw.includes('form.salonformat.com/?lang=en')) {
       link.setAttribute('href', 'https://form.salonformat.com/?lang=de');
     }
+    if ((lang === 'de' || lang === 'fr') && raw.includes('salonformat.github.io/museumexperience/?lang=en')) {
+      link.setAttribute('href', `https://salonformat.github.io/museumexperience/?lang=${lang}`);
+    }
   });
   document.querySelectorAll('meta[name="description"]').forEach(meta => {
     const value = meta.getAttribute('content');
