@@ -31,6 +31,7 @@ const dictionary = lang === 'en' ? {} : translations[lang];
   });
   const prefix = `/${lang}`;
   document.querySelectorAll('a[href]').forEach(link => {
+    if (link.closest('.language-switch')) return;
     const raw = link.getAttribute('href');
     if (!raw) return;
     if (raw === '/' || raw === 'https://salonformat.com/' || raw === 'https://www.salonformat.com/') {
