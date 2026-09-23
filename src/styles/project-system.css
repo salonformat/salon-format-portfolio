@@ -1,4 +1,4 @@
-.project-group { margin-top: clamp(4rem, 7vw, 7rem); }
+.project-group { margin-top: clamp(3.5rem, 5vw, 5.5rem); }
 .project-index-heading + .project-group { margin-top: 0; }
 .project-group-heading { display: grid; grid-template-columns: 3rem 1fr auto; gap: 1rem; align-items: baseline; margin-bottom: 1.25rem; padding-bottom: .85rem; border-bottom: 1px solid var(--ink); }
 .project-group-heading p, .project-group-heading span { margin: 0; font-size: .68rem; font-weight: 500; letter-spacing: .09em; text-transform: uppercase; }
@@ -21,7 +21,7 @@
 .project-group--work .project-tile--hr,
 .project-group--young .project-tile--elio {
   grid-column: 1 / -1;
-  aspect-ratio: 2.1 / 1;
+  aspect-ratio: 2.35 / 1;
 }
 
 .project-group .tile-copy { max-width: 72%; padding: clamp(1.15rem, 1.7vw, 1.65rem); padding-bottom: 4.75rem; }
@@ -87,6 +87,13 @@
 .memory-image-section { background: #e4d8c9; }
 .memory-image-section img { object-fit: contain; background: #29231e; }
 .memory-role { background: #29231e; color: #f4f0e7; }
+
+@media (min-width: 1100px) {
+  .project-index {
+    padding-left: max(var(--gutter), calc((100vw - 70rem) / 2));
+    padding-right: max(var(--gutter), calc((100vw - 70rem) / 2));
+  }
+}
 
 @media (max-width: 900px) {
   .project-group-heading { grid-template-columns: 2rem 1fr auto; }
