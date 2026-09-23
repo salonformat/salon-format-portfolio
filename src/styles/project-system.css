@@ -26,7 +26,7 @@
 
 .project-group .tile-copy { max-width: 72%; padding: clamp(1.15rem, 1.7vw, 1.65rem); padding-bottom: 4.75rem; }
 .project-group .project-tile h3 { max-width: 12ch; font-size: clamp(1.9rem, 2.7vw, 3.25rem); line-height: .94; }
-.project-group .tile-copy > p:last-child { max-width: 27ch; margin-top: .72rem; font-size: clamp(.8rem, .88vw, .92rem); line-height: 1.38; }
+.project-group .tile-copy > p:last-child { max-width: 31ch; margin-top: .85rem; font-size: clamp(.98rem, 1.08vw, 1.1rem); line-height: 1.42; }
 .project-group .tile-experience {
   right: 1rem;
   bottom: 1rem;
@@ -53,6 +53,10 @@
 .project-group--culture .project-tile--form .tile-copy,
 .project-group--work .project-tile--hr .tile-copy,
 .project-group--young .project-tile--elio .tile-copy { max-width: 50%; }
+.project-group--culture .project-tile--memory .tile-copy > p:last-child,
+.project-group--culture .project-tile--form .tile-copy > p:last-child,
+.project-group--work .project-tile--hr .tile-copy > p:last-child,
+.project-group--young .project-tile--elio .tile-copy > p:last-child { max-width: 35ch; font-size: clamp(1rem, 1.18vw, 1.18rem); }
 .project-group--culture .project-tile--form .tile-art { left: 48%; top: 0; }
 .project-group--work .project-tile--hr .tile-copy { width: min(50%, 38rem); }
 .project-group--work .project-tile--hr h3 { font-size: clamp(3rem, 5vw, 5.6rem); }
@@ -94,6 +98,7 @@
   .project-group--young .project-tile--elio { grid-column: 1; grid-row: auto; min-height: 0; aspect-ratio: 4 / 3; }
   .project-group--culture .project-tile--memory { aspect-ratio: 1 / 1; }
   .project-group .tile-copy { max-width: none; }
+  .project-group .tile-copy > p:last-child { max-width: 30ch; font-size: 1rem; }
   .memory-tile-art { left: 0; top: 48%; }
   .project-group--culture .project-tile--memory .tile-copy,
   .project-group--culture .project-tile--form .tile-copy,
