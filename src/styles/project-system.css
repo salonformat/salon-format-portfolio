@@ -43,7 +43,7 @@
 .project-tile--memory { background: #e4d8c9; color: #29231e; }
 .project-tile--memory h3 { font-size: clamp(3rem, 5vw, 5.8rem); }
 .project-tile--memory h3 em { color: #92533f; }
-.project-tile--memory .tile-copy > p:last-child { max-width: 24ch; }
+.project-tile--memory .tile-copy > p:last-child { max-width: 22ch; }
 .memory-tile-art { left: 43%; overflow: hidden; background: #29231e; }
 .memory-tile-art img { width: 100%; height: 100%; object-fit: cover; opacity: .9; }
 .memory-tile-art span { position: absolute; inset: 12% 8% 10% 12%; border: .28rem solid rgba(244,240,231,.92); border-radius: 48% 52% 45% 55% / 55% 46% 54% 45%; transform: rotate(-5deg); box-shadow: 0 0 0 .11rem rgba(41,35,30,.5); }
@@ -53,6 +53,7 @@
 .project-group--culture .project-tile--form .tile-copy,
 .project-group--work .project-tile--hr .tile-copy,
 .project-group--young .project-tile--elio .tile-copy { max-width: 50%; }
+.project-group--culture .project-tile--memory .tile-copy { max-width: 40%; }
 .project-group--culture .project-tile--memory .tile-copy > p:last-child,
 .project-group--culture .project-tile--form .tile-copy > p:last-child,
 .project-group--work .project-tile--hr .tile-copy > p:last-child,
@@ -62,6 +63,8 @@
 .project-group--work .project-tile--hr h3 { font-size: clamp(3rem, 5vw, 5.6rem); }
 .project-group--work .project-tile--hr .tile-art { inset: 4% 3% 4% 48%; opacity: .82; }
 .project-group--young .project-tile--elio .tile-art { top: 8%; left: 48%; }
+.project-group--work .project-tile--first-aid .tile-art { height: 33%; }
+.project-group--work .project-tile--learning .tile-art { height: 35%; }
 .project-group--culture .project-tile--form h3,
 .project-group--young .project-tile--elio h3 { font-size: clamp(3rem, 5vw, 5.6rem); }
 
@@ -88,10 +91,10 @@
 .memory-image-section img { object-fit: contain; background: #29231e; }
 .memory-role { background: #29231e; color: #f4f0e7; }
 
-@media (min-width: 1100px) {
+@media (min-width: 901px) {
   .project-index {
-    padding-left: max(var(--gutter), calc((100vw - 58rem) / 2));
-    padding-right: max(var(--gutter), calc((100vw - 58rem) / 2));
+    padding-left: max(var(--gutter), calc((100vw - 50rem) / 2));
+    padding-right: max(var(--gutter), calc((100vw - 50rem) / 2));
   }
   .project-index-heading { margin-bottom: 3rem; }
   .project-index-heading h2 { font-size: clamp(4rem, 5vw, 5.4rem); }
