@@ -21,7 +21,7 @@
 .project-group--work .project-tile--hr,
 .project-group--young .project-tile--elio {
   grid-column: 1 / -1;
-  aspect-ratio: 2.35 / 1;
+  aspect-ratio: 2.7 / 1;
 }
 
 .project-group .tile-copy { max-width: 72%; padding: clamp(1.15rem, 1.7vw, 1.65rem); padding-bottom: 4.75rem; }
@@ -90,9 +90,17 @@
 
 @media (min-width: 1100px) {
   .project-index {
-    padding-left: max(var(--gutter), calc((100vw - 70rem) / 2));
-    padding-right: max(var(--gutter), calc((100vw - 70rem) / 2));
+    padding-left: max(var(--gutter), calc((100vw - 58rem) / 2));
+    padding-right: max(var(--gutter), calc((100vw - 58rem) / 2));
   }
+  .project-index-heading { margin-bottom: 3rem; }
+  .project-index-heading h2 { font-size: clamp(4rem, 5vw, 5.4rem); }
+  .project-index-heading p { max-width: 27rem; font-size: clamp(1.05rem, 1.25vw, 1.25rem); }
+  .project-group .project-tile h3 { font-size: clamp(1.85rem, 2.35vw, 2.85rem); }
+  .project-tile--memory h3,
+  .project-group--culture .project-tile--form h3,
+  .project-group--work .project-tile--hr h3,
+  .project-group--young .project-tile--elio h3 { font-size: clamp(2.7rem, 4vw, 4.4rem); }
 }
 
 @media (max-width: 900px) {
