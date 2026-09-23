@@ -3,12 +3,16 @@ import '@fontsource/della-respira';
 import '@fontsource/josefin-sans/400.css';
 import '@fontsource/josefin-sans/500.css';
 import '../styles/global.css';
+import LanguageSwitch from '../components/LanguageSwitch.astro';
+import I18nRuntime from '../components/I18nRuntime.astro';
+import type { Language } from '../i18n/translations';
 
 const base = import.meta.env.BASE_URL;
+const { lang = 'en' } = Astro.props as { lang?: Language };
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -29,11 +33,12 @@ const base = import.meta.env.BASE_URL;
       <a class="mark-link" href="#top" aria-label="Salon Format home">
         <img src={`${base}brand/salon-format-mark.png`} alt="" />
       </a>
-      <nav aria-label="Primary navigation">
+        <nav aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
-      </nav>
+        </nav>
+        <LanguageSwitch lang={lang} />
     </header>
 
     <main id="top">
@@ -232,5 +237,6 @@ const base = import.meta.env.BASE_URL;
         window.addEventListener('resize', prepareCanvas, { passive: true });
       }
     </script>
+    <I18nRuntime lang={lang} />
   </body>
 </html>

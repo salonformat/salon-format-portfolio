@@ -3,12 +3,16 @@ import '@fontsource/della-respira';
 import '@fontsource/josefin-sans/400.css';
 import '@fontsource/josefin-sans/500.css';
 import '../../styles/global.css';
+import LanguageSwitch from '../../components/LanguageSwitch.astro';
+import I18nRuntime from '../../components/I18nRuntime.astro';
+import type { Language } from '../../i18n/translations';
 
 const base = import.meta.env.BASE_URL;
+const { lang = 'en' } = Astro.props as { lang?: Language };
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -20,6 +24,7 @@ const base = import.meta.env.BASE_URL;
     <header class="case-header">
       <a class="case-home" href="https://salonformat.com/" aria-label="Back to Salon Format home"><img src={`${base}brand/salon-format-mark.png`} alt="" /><span>Salon Format</span></a>
       <a href={`${base}#projects`}>All projects</a>
+      <LanguageSwitch lang={lang} />
     </header>
 
     <main>
@@ -80,5 +85,6 @@ const base = import.meta.env.BASE_URL;
         <a href={`${base}projects/learning`}>Learning, Differently <span class="ui-arrow" aria-hidden="true"></span></a>
       </nav>
     </main>
+    <I18nRuntime lang={lang} />
   </body>
 </html>

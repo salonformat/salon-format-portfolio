@@ -1,0 +1,57 @@
+---
+import { translations, type Language } from '../i18n/translations';
+const { lang = 'en' } = Astro.props as { lang?: Language };
+const dictionary = lang === 'en' ? {} : translations[lang];
+---
+{lang !== 'en' && <script is:inline define:vars={{ dictionary, lang }}>
+  const normalise = value => value.replace(/\s+/g, ' ').trim();
+  const translate = value => dictionary[value] || dictionary[normalise(value)];
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      return parent && !['SCRIPT', 'STYLE'].includes(parent.tagName) && normalise(node.nodeValue || '')
+        ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    const raw = node.nodeValue || '';
+    const key = normalise(raw);
+    const replacement = translate(key) || dictionary[raw.trim()];
+    if (replacement) {
+      const lead = raw.match(/^\s*/)?.[0] || '';
+      const tail = raw.match(/\s*$/)?.[0] || '';
+      node.nodeValue = lead + replacement + tail;
+    }
+  });
+  document.querySelectorAll('[aria-label]').forEach(el => {
+    const value = el.getAttribute('aria-label');
+    if (value && dictionary[value]) el.setAttribute('aria-label', dictionary[value]);
+  });
+  const prefix = `/${lang}`;
+  document.querySelectorAll('a[href]').forEach(link => {
+    const raw = link.getAttribute('href');
+    if (!raw) return;
+    if (raw === '/' || raw === 'https://salonformat.com/' || raw === 'https://www.salonformat.com/') {
+      link.setAttribute('href', `${prefix}/`);
+    } else if (raw === '/#projects') {
+      link.setAttribute('href', `${prefix}/#projects`);
+    } else if (raw.startsWith('/projects/')) {
+      link.setAttribute('href', `${prefix}${raw}`);
+    }
+    if (lang === 'de' && raw === 'https://ocean.salonformat.com/en/') link.setAttribute('href', 'https://ocean.salonformat.com/de/');
+    if (lang === 'fr' && raw === 'https://ocean.salonformat.com/en/') link.setAttribute('href', 'https://ocean.salonformat.com/fr/');
+    if ((lang === 'de' || lang === 'fr') && raw.includes('emilie.salonformat.com/?lang=en')) {
+      link.setAttribute('href', `https://emilie.salonformat.com/?lang=${lang}`);
+    }
+    if (lang === 'de' && raw.includes('form.salonformat.com/?lang=en')) {
+      link.setAttribute('href', 'https://form.salonformat.com/?lang=de');
+    }
+  });
+  document.querySelectorAll('meta[name="description"]').forEach(meta => {
+    const value = meta.getAttribute('content');
+    if (value && dictionary[value]) meta.setAttribute('content', dictionary[value]);
+  });
+  if (dictionary[document.title]) document.title = dictionary[document.title];
+</script>}

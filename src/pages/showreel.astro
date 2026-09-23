@@ -3,13 +3,17 @@ import '@fontsource/della-respira';
 import '@fontsource/josefin-sans/400.css';
 import '@fontsource/josefin-sans/500.css';
 import '../styles/global.css';
+import LanguageSwitch from '../components/LanguageSwitch.astro';
+import I18nRuntime from '../components/I18nRuntime.astro';
+import type { Language } from '../i18n/translations';
 
 const base = import.meta.env.BASE_URL;
+const { lang = 'en' } = Astro.props as { lang?: Language };
 const video = `${base}showreel/salon-format-showreel.mp4?v=8`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -28,11 +32,12 @@ const video = `${base}showreel/salon-format-showreel.mp4?v=8`;
     -->
     <header class="reel-header">
       <a href={base} aria-label="Salon Format home"><img src={`${base}brand/salon-format-mark.png`} alt="" /></a>
-      <nav aria-label="Primary navigation">
+        <nav aria-label="Primary navigation">
         <a href={`${base}#projects`}>Projects</a>
         <a href={`${base}#about`}>About</a>
         <a href={`${base}#contact`}>Contact</a>
-      </nav>
+        </nav>
+        <LanguageSwitch lang={lang} />
     </header>
 
     <main class="reel-main">
@@ -54,6 +59,7 @@ const video = `${base}showreel/salon-format-showreel.mp4?v=8`;
       </div>
     </main>
     <footer class="reel-footer"><a href={base}>Salon Format</a><span>Learning through design, story and play.</span><a href="mailto:salonformat.studio@gmail.com">Get in touch</a></footer>
+    <I18nRuntime lang={lang} />
   </body>
 </html>
 
