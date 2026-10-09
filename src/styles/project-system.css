@@ -143,5 +143,31 @@
   .project-group--young .project-tile--elio { min-height: 32rem; }
 }
 
-.project-group--culture .project-tile--jardin{grid-column:1/-1;aspect-ratio:2.7/1;min-height:21rem}.project-group--culture .project-tile--jardin .tile-copy{max-width:48%}.project-group--culture .project-tile--jardin .tile-copy>p:last-child{max-width:28ch}.project-group--culture .project-tile--jardin h3{font-size:clamp(2.8rem,4vw,4rem)}
-@media(max-width:900px){.project-group--culture .project-tile--jardin{grid-column:1;aspect-ratio:auto;min-height:35rem}.project-group--culture .project-tile--jardin .tile-copy{max-width:100%}.project-group--culture .project-tile--jardin .tile-art{left:0;top:53%}}
+.project-group--culture .project-tile--jardin {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 2.7 / 1;
+  min-height: 0;
+  contain: layout paint;
+}
+.project-group--culture .project-tile--jardin .tile-copy { max-width: 48%; }
+.project-group--culture .project-tile--jardin .tile-copy > p:last-child { max-width: 28ch; }
+.project-group--culture .project-tile--jardin h3 { font-size: clamp(2.8rem, 4vw, 4rem); }
+
+@media (max-width: 900px) {
+  .project-group--culture .project-tile--jardin {
+    grid-column: 1;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+  .project-group--culture .project-tile--jardin .tile-copy { max-width: 100%; }
+  .project-group--culture .project-tile--jardin .tile-art { left: 0; top: 53%; }
+}
+
+@media (max-width: 520px) {
+  .project-group--culture .project-tile--jardin {
+    aspect-ratio: auto;
+    min-height: 34rem;
+  }
+}
