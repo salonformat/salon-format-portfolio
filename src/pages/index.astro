@@ -67,7 +67,7 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
         </header>
 
         <section class="project-group project-group--culture" aria-labelledby="culture-projects">
-          <header class="project-group-heading"><p>01</p><h3 id="culture-projects">Culture &amp; museums</h3><span>4 projects</span></header>
+          <header class="project-group-heading"><p>01</p><h3 id="culture-projects">Culture &amp; museums</h3><span>{lang === 'de' ? '5 Projekte' : lang === 'fr' ? '5 projets' : '5 projects'}</span></header>
           <div class="project-mosaic">
           <article class="project-tile project-tile--memory">
             <div class="tile-copy">
@@ -110,6 +110,15 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
             </div>
             <div class="tile-art" aria-hidden="true"><img src={`${base}images/formgefuehl/room.png`} alt="" width="1280" height="502" decoding="async" /></div>
             <a class="tile-experience" href="https://form.salonformat.com/?lang=en" target="_blank" rel="noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
+          </article>
+          <article class="project-tile project-tile--jardin">
+            <div class="tile-copy">
+              <p class="tile-number"><span>05</span><span>Culture</span><span>Interactive learning</span></p>
+              <h3><a class="tile-main-link" href={`${base}projects/jardin`}>Un jardin<br /><em>à soi.</em></a></h3>
+              <p>{lang === 'de' ? 'Entdecke Kunst auf Stoff und gestalte dein eigenes Muster.' : lang === 'fr' ? 'Découvrez l’art sur le tissu et créez votre propre motif.' : 'Discover art on fabric and create a pattern of your own.'}</p>
+            </div>
+            <div class="tile-art" aria-hidden="true"><img src={`${base}images/jardin/flowers.jpg`} alt="" loading="lazy" /></div>
+            <a class="tile-experience" href={`https://salonformat.github.io/jardin/#/${lang}/jardin`} target="_blank" rel="noopener noreferrer">Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
           </article>
           </div>
         </section>
