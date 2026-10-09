@@ -145,11 +145,3 @@
 
 .project-group--culture .project-tile--jardin{grid-column:1/-1;aspect-ratio:2.7/1;min-height:21rem}.project-group--culture .project-tile--jardin .tile-copy{max-width:48%}.project-group--culture .project-tile--jardin .tile-copy>p:last-child{max-width:28ch}.project-group--culture .project-tile--jardin h3{font-size:clamp(2.8rem,4vw,4rem)}
 @media(max-width:900px){.project-group--culture .project-tile--jardin{grid-column:1;aspect-ratio:auto;min-height:35rem}.project-group--culture .project-tile--jardin .tile-copy{max-width:100%}.project-group--culture .project-tile--jardin .tile-art{left:0;top:53%}}
-
-/* Keep Jardin at the same desktop size as the other standard project cards. */
-@media (min-width:901px) {
-  .project-group--culture .project-tile--jardin { grid-column:auto; grid-row:auto; aspect-ratio:4/3; min-height:0; }
-  .project-group--culture .project-tile--jardin .tile-copy { max-width:72%; }
-  .project-group--culture .project-tile--jardin h3 { font-size:clamp(1.9rem,2.7vw,3.25rem); }
-  .project-group--culture .project-tile--jardin .tile-art { inset:64% 0 0 28%; }
-}
