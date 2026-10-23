@@ -1,0 +1,141 @@
+---
+import '@fontsource/della-respira';
+import '@fontsource/josefin-sans/400.css';
+import '@fontsource/josefin-sans/500.css';
+import '../../styles/global.css';
+import '../../styles/project-system.css';
+import LanguageSwitch from '../../components/LanguageSwitch.astro';
+import type { Language } from '../../i18n/translations';
+
+const { lang = 'en' } = Astro.props as { lang?: Language };
+const prefix = lang === 'en' ? '' : `/${lang}`;
+const experience = 'https://salonformat.github.io/hotel/';
+const texts = {
+  de: {
+    all: 'Alle Projekte',
+    lead: 'Sechs Wiener Hotels erzählen, wie sich Reisen und Übernachten seit 1600 verändert haben.',
+    open: 'Experience starten',
+    status: 'Eigenständiger Prototyp · etwa 8 Minuten · Deutsch, Englisch, Französisch',
+    question: 'Was erzählt ein Hotel über seine Zeit?',
+    context: 'Hotels erklären nicht die ganze Geschichte einer Stadt. Aber in ihnen werden bestimmte Veränderungen sehr konkret: Wer konnte reisen? Was galt als Komfort? Was passierte dort außer Schlafen? Sechs Wiener Häuser sind der Ausgangspunkt für sechs gut belegte Geschichten.',
+    chapters: 'Sechs Fenster. Sechs konkrete Geschichten.',
+    steps: [
+      ['1600', 'Am Standort des Hotel Stefanie ist seit 1600 ein Beherbergungsbetrieb belegt.'],
+      ['1848–1866', 'Das Grand Hotel National war Hotel, Kaffeehaus, Veranstaltungssaal und Fotoatelier zugleich.'],
+      ['1873', 'Zur Weltausstellung öffneten neue Hotels für ein internationales Publikum – darunter das Imperial.'],
+      ['1938', 'Die nationalsozialistische Enteignung des Grand Hotel National zerstörte Besitz und öffentliches Leben im Haus.'],
+      ['1950er', 'Das Hotel Prinz Eugen zeigt, wie modern und international Wiener Hotels nach dem Krieg wirken wollten.'],
+      ['1991–heute', 'Im Altstadt Vienna werden Kunst, individuelle Zimmer und Hotelalltag miteinander verbunden.']
+    ],
+    interaction: 'Das Haus wird zum Zeitstrahl.',
+    interactionText: 'Am Anfang steht eine gezeichnete Wiener Hotelfassade. Jedes Fenster öffnet einen anderen Zeitraum. Im Zimmer lassen sich drei Details freiwillig genauer ansehen; Licht, Bewegung und leise Raumgeräusche reagieren auf die Entdeckungen.',
+    caption: 'Alle Räume folgen demselben unperfekten Tuschestrich und derselben Farbwelt.',
+    role: 'Konzept, Recherche, Illustration und Interaktion.',
+    roleText: 'Ein selbst initiiertes Projekt von Isabella Kohout / Salon Format. Die Experience verbindet historische Recherche, mehrsprachige Vermittlung, handgezeichnete Räume, Animation und zurückhaltendes Sounddesign.',
+    notice: 'Die Räume sind illustrative Interpretationen und keine dokumentarischen Rekonstruktionen. Historische Aussagen werden direkt in der Experience eingeordnet und mit ihren Originalquellen verlinkt.'
+  },
+  en: {
+    all: 'All projects',
+    lead: 'Six Viennese hotels reveal how travel and overnight stays have changed since 1600.',
+    open: 'Start the experience',
+    status: 'Independent prototype · about 8 minutes · English, German, French',
+    question: 'What can a hotel tell us about its time?',
+    context: 'Hotels do not explain the entire history of a city. But they make certain changes tangible: Who could travel? What counted as comfort? What happened there besides sleeping? Six Viennese hotels lead into six well-documented stories.',
+    chapters: 'Six windows. Six real stories.',
+    steps: [
+      ['1600', 'A lodging business has been documented on the site of today’s Hotel Stefanie since 1600.'],
+      ['1848–1866', 'Grand Hotel National combined a hotel, café, event hall and photographic studio.'],
+      ['1873', 'New hotels welcomed an international audience during the World’s Fair, including the Imperial.'],
+      ['1938', 'The Nazi expropriation of Grand Hotel National destroyed ownership and public life inside the building.'],
+      ['1950s', 'Hotel Prinz Eugen shows how modern and international Viennese hotels wanted to appear after the war.'],
+      ['1991–today', 'At Altstadt Vienna, art, individual rooms and everyday hotel life come together.']
+    ],
+    interaction: 'The building becomes a timeline.',
+    interactionText: 'The experience begins with an illustrated Viennese hotel façade. Each window opens a different period. Inside, visitors can choose to examine three details while light, movement and quiet room sounds respond to what they discover.',
+    caption: 'Every room shares the same imperfect ink line and colour world.',
+    role: 'Concept, research, illustration and interaction.',
+    roleText: 'A self-initiated project by Isabella Kohout / Salon Format, bringing together historical research, multilingual learning, hand-drawn rooms, animation and restrained sound design.',
+    notice: 'The rooms are illustrative interpretations rather than documentary reconstructions. Historical claims are placed in context and linked to their original sources inside the experience.'
+  },
+  fr: {
+    all: 'Tous les projets',
+    lead: 'Six hôtels viennois racontent l’évolution du voyage et de l’hébergement depuis 1600.',
+    open: 'Commencer l’expérience',
+    status: 'Prototype indépendant · environ 8 minutes · français, allemand, anglais',
+    question: 'Que raconte un hôtel sur son époque ?',
+    context: 'Les hôtels ne racontent pas toute l’histoire d’une ville. Mais certains changements y deviennent très concrets : qui pouvait voyager ? Que considérait-on comme du confort ? Que s’y passait-il en dehors du sommeil ? Six hôtels viennois ouvrent six histoires bien documentées.',
+    chapters: 'Six fenêtres. Six histoires concrètes.',
+    steps: [
+      ['1600', 'Un établissement d’hébergement est attesté à l’emplacement de l’actuel Hotel Stefanie depuis 1600.'],
+      ['1848–1866', 'Le Grand Hotel National réunissait hôtel, café, salle de réception et atelier photographique.'],
+      ['1873', 'De nouveaux hôtels accueillent une clientèle internationale pendant l’Exposition universelle, dont l’Imperial.'],
+      ['1938', 'La spoliation nazie du Grand Hotel National détruit la propriété et la vie publique dans l’immeuble.'],
+      ['Années 1950', 'L’Hotel Prinz Eugen montre l’image moderne et internationale recherchée après la guerre.'],
+      ['1991–aujourd’hui', 'À l’Altstadt Vienna, l’art, les chambres singulières et la vie quotidienne de l’hôtel se rencontrent.']
+    ],
+    interaction: 'L’immeuble devient une frise chronologique.',
+    interactionText: 'Le parcours commence devant la façade dessinée d’un hôtel viennois. Chaque fenêtre ouvre une autre époque. Dans les chambres, trois détails peuvent être observés librement ; la lumière, le mouvement et de discrets sons d’ambiance réagissent aux découvertes.',
+    caption: 'Toutes les chambres partagent le même trait d’encre imparfait et le même univers coloré.',
+    role: 'Concept, recherche, illustration et interaction.',
+    roleText: 'Un projet personnel d’Isabella Kohout / Salon Format, qui réunit recherche historique, médiation trilingue, espaces dessinés à la main, animation et création sonore discrète.',
+    notice: 'Les chambres sont des interprétations illustrées, pas des reconstitutions documentaires. Les informations historiques sont contextualisées et reliées à leurs sources originales dans le parcours.'
+  }
+};
+const t = texts[lang];
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Hotel Wien · Salon Format</title>
+  <meta name="description" content={t.lead} />
+  <link rel="canonical" href={`https://salonformat.com${prefix}/projects/hotel/`} />
+  <link rel="icon" href="/brand/salon-format-mark.png" />
+  <meta property="og:title" content="Hotel Wien · Salon Format" />
+  <meta property="og:description" content={t.lead} />
+  <meta property="og:image" content="https://salonformat.com/images/hotel/house.jpg" />
+</head>
+<body class="case-page hotel-case">
+  <header class="case-header">
+    <a class="case-home" href={`${prefix}/`} aria-label="Salon Format"><img src="/brand/salon-format-mark.png" alt="" /><span>Salon Format</span></a>
+    <a href={`${prefix}/#projects`}>{t.all}</a>
+    <LanguageSwitch lang={lang} />
+  </header>
+  <main>
+    <section class="case-hero hotel-hero">
+      <div class="case-hero-copy">
+        <h1>Hotel<br /><em>Wien.</em></h1>
+        <p class="case-deck">{t.lead}</p>
+        <div class="case-actions"><a class="case-button" href={experience}>{t.open}<span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a></div>
+        <p class="hotel-status">{t.status}</p>
+      </div>
+      <figure class="hotel-hero-image"><img src="/images/hotel/house.jpg" width="2048" height="1365" alt="Illustrated Viennese hotel façade with six open windows" /></figure>
+    </section>
+
+    <section class="case-intro hotel-intro"><h2>{t.question}</h2><p>{t.context}</p></section>
+
+    <section class="case-process hotel-process">
+      <div class="process-heading"><h2>{t.chapters}</h2></div>
+      <ol class="journey-list">{t.steps.map(([date, story]) => <li><span>{date}</span><p>{story}</p></li>)}</ol>
+    </section>
+
+    <section class="hotel-room-strip" aria-label={t.caption}>
+      <figure><img src="/images/hotel/room-1600.jpg" width="1536" height="1024" loading="lazy" alt="Illustrated early lodging room" /></figure>
+      <figure><img src="/images/hotel/room-1848.jpg" width="1536" height="1024" loading="lazy" alt="Illustrated hotel café, event hall and photographic studio" /></figure>
+      <figure><img src="/images/hotel/room-1991.jpg" width="1536" height="1024" loading="lazy" alt="Illustrated contemporary Viennese art hotel room" /></figure>
+      <p>{t.caption}</p>
+    </section>
+
+    <section class="case-image-section hotel-interaction">
+      <figure class="historical-figure"><img src="/images/hotel/house.jpg" width="2048" height="1365" loading="lazy" alt="The illustrated hotel façade used as an interactive timeline" /></figure>
+      <div class="case-image-copy"><h2>{t.interaction}</h2><p>{t.interactionText}</p></div>
+    </section>
+
+    <section class="case-role hotel-role">
+      <h2>{t.role}</h2>
+      <div><p>{t.roleText}</p><p>{t.notice}</p><a class="case-button" href={experience}>{t.open}<span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a></div>
+    </section>
+  </main>
+</body>
+</html>
