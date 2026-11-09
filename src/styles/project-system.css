@@ -17,6 +17,7 @@
   aspect-ratio: 4 / 3;
 }
 .project-group--culture .project-tile--memory,
+.project-group--culture .project-tile--advent,
 .project-group--culture .project-tile--form,
 .project-group--work .project-tile--hr,
 .project-group--young .project-tile--elio {
@@ -91,6 +92,32 @@
 .memory-image-section img { object-fit: contain; background: #29231e; }
 .memory-role { background: #29231e; color: #f4f0e7; }
 
+.project-tile--advent { background: #101d36; color: #f4f7f3; }
+.project-group--culture .project-tile--advent .tile-copy { max-width: 44%; }
+.project-group--culture .project-tile--advent h3 { max-width: 11ch; font-size: clamp(2.7rem, 4vw, 4.35rem); }
+.project-tile--advent h3 em { color: #efb8bf; }
+.project-group--culture .project-tile--advent .tile-copy > p:last-child { max-width: 29ch; color: #f4f7f3; }
+.project-tile--advent .tile-art { left: 44%; overflow: hidden; background: #101d36; }
+.project-tile--advent .tile-art img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+.advent-case .case-hero { background: #101d36; color: #f4f7f3; grid-template-columns: .8fr 1.2fr; gap: clamp(2.5rem, 5vw, 6rem); min-height: 82svh; }
+.advent-case .case-hero h1 { max-width: 12ch; font-size: clamp(3.4rem, 6vw, 6rem); line-height: .96; }
+.advent-case .case-hero h1 em { color: #efb8bf; }
+.advent-case .case-hero .case-button { background: #dfb856; color: #242827; }
+.advent-status { max-width: 42rem; margin-top: 1.5rem; color: #dce7df; font-size: .82rem; line-height: 1.55; }
+.advent-hero-image { margin: 0; border: 1px solid rgba(244,247,243,.28); }
+.advent-hero-image img { display: block; width: 100%; height: auto; }
+.advent-process { background: #173d38; color: #f4f7f3; }
+.advent-learning { min-height: 68svh; padding: clamp(5rem, 9vw, 9rem) var(--gutter); display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(3rem, 8vw, 9rem); align-items: center; background: #e6ede7; color: #173d38; }
+.advent-number { font-family: var(--display); font-size: clamp(10rem, 24vw, 24rem); line-height: .7; color: #a73a49; letter-spacing: -.04em; }
+.advent-learning h2 { max-width: 13ch; margin: 0 0 2rem; font-size: clamp(3rem, 5vw, 5.5rem); line-height: .98; }
+.advent-learning p { max-width: 43rem; margin: 0; font-size: clamp(1.05rem, 1.45vw, 1.3rem); line-height: 1.58; }
+.advent-decisions { background: #f4f7f3; color: #242827; }
+.advent-decisions > h2 { max-width: 11ch; margin: 0 0 clamp(2.5rem, 5vw, 5rem); font-size: clamp(3rem, 5vw, 5.2rem); line-height: .96; }
+.advent-role { background: #101d36; color: #f4f7f3; }
+.advent-role h2 { color: #efb8bf; }
+.advent-role .case-button { background: #dfb856; color: #242827; }
+
 @media (min-width: 901px) {
   .project-index {
     padding-left: max(var(--gutter), calc((100vw - 50rem) / 2));
@@ -111,6 +138,7 @@
   .project-group .project-mosaic, .project-group--culture .project-mosaic, .project-group--young .project-mosaic { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-rows: auto; }
   .project-group .project-tile,
   .project-group--culture .project-tile--memory,
+  .project-group--culture .project-tile--advent,
   .project-group--culture .project-tile--form,
   .project-group--work .project-tile--hr,
   .project-group--young .project-tile--elio { grid-column: 1; grid-row: auto; min-height: 0; aspect-ratio: 4 / 3; }
@@ -119,6 +147,7 @@
   .project-group .tile-copy > p:last-child { max-width: 30ch; font-size: 1rem; }
   .memory-tile-art { left: 0; top: 48%; }
   .project-group--culture .project-tile--memory .tile-copy,
+  .project-group--culture .project-tile--advent .tile-copy,
   .project-group--culture .project-tile--form .tile-copy,
   .project-group--work .project-tile--hr .tile-copy,
   .project-group--young .project-tile--elio .tile-copy { max-width: none; }
@@ -127,6 +156,10 @@
   .project-group--work .project-tile--hr .tile-copy { width: auto; }
   .project-group--work .project-tile--hr .tile-art { inset: 48% -8% 2% 12%; }
   .memory-case-art { min-height: 31rem; }
+  .project-tile--advent .tile-art { left: 0; top: 52%; }
+  .advent-case .case-hero, .advent-learning { grid-template-columns: 1fr; }
+  .advent-case .case-hero { gap: 2.5rem; }
+  .advent-number { font-size: min(46vw, 14rem); }
 }
 
 @media (max-width: 520px) {
@@ -134,10 +167,13 @@
   .project-group-heading { grid-template-columns: 2rem 1fr; }
   .project-group .project-tile,
   .project-group--culture .project-tile--memory,
+  .project-group--culture .project-tile--advent,
   .project-group--culture .project-tile--form,
   .project-group--work .project-tile--hr,
   .project-group--young .project-tile--elio { aspect-ratio: auto; min-height: 28rem; }
   .project-group--culture .project-tile--memory { min-height: 34rem; }
+  .project-group--culture .project-tile--advent { min-height: 35rem; }
+  .project-group--culture .project-tile--advent .tile-art { top: 57%; }
   .project-group--culture .project-tile--form { min-height: 34rem; }
   .project-group--culture .project-tile--form .tile-art { top: 59%; }
   .project-group--young .project-tile--elio { min-height: 32rem; }

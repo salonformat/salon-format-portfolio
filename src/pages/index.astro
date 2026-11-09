@@ -67,11 +67,21 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
         </header>
 
         <section class="project-group project-group--culture" aria-labelledby="culture-projects">
-          <header class="project-group-heading"><p>01</p><h3 id="culture-projects">Culture &amp; museums</h3><span>{lang === 'de' ? '6 Projekte' : lang === 'fr' ? '6 projets' : '6 projects'}</span></header>
+          <header class="project-group-heading"><p>01</p><h3 id="culture-projects">Culture &amp; museums</h3><span>{lang === 'de' ? '7 Projekte' : lang === 'fr' ? '7 projets' : '7 projects'}</span></header>
           <div class="project-mosaic">
+          <article class="project-tile project-tile--advent">
+            <div class="tile-copy">
+              <p class="tile-number"><span>01</span><span>{lang === 'de' ? 'Saisonales Projekt' : lang === 'fr' ? 'Projet saisonnier' : 'Seasonal project'}</span><span>{lang === 'de' ? 'Kunstvermittlung' : lang === 'fr' ? 'Médiation artistique' : 'Art learning'}</span></p>
+              <h3><a class="tile-main-link" href={`${base}projects/advent`}>Atelier des<br /><em>possibles</em></a></h3>
+              <p>{lang === 'de' ? '24 Künstlerinnen, kurze Geschichten und jeden Tag ein kleines Experiment.' : lang === 'fr' ? '24 artistes, de courtes histoires et une petite expérience à découvrir chaque jour.' : '24 women artists, short stories and a small creative experiment for every day.'}</p>
+            </div>
+            <div class="tile-art" aria-hidden="true"><img src={`${base}images/advent/cover.png`} alt="" width="1200" height="630" /></div>
+            <a class="tile-experience" href={`https://salonformat.github.io/ADVENT-web/?lang=${lang}`}>Experience <span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a>
+          </article>
+
           <article class="project-tile project-tile--memory">
             <div class="tile-copy">
-              <p class="tile-number"><span>01</span><span>Culture</span><span>Visual learning</span></p>
+              <p class="tile-number"><span>02</span><span>Culture</span><span>Visual learning</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/what-stays`}>What<br /><em>stays?</em></a></h3>
               <p>Look for 30 seconds, draw from memory, then discover what your eyes held on to.</p>
             </div>
@@ -84,7 +94,7 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
 
           <article class="project-tile project-tile--infinite">
             <div class="tile-copy">
-              <p class="tile-number"><span>02</span><span>Culture</span><span>Education</span></p>
+              <p class="tile-number"><span>03</span><span>Culture</span><span>Education</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/infinite`}>Into the <em>Infinite</em></a></h3>
               <p>An interactive introduction to repetition, perception and Yayoi Kusama’s artistic world.</p>
             </div>
@@ -94,7 +104,7 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
 
           <article class="project-tile project-tile--emilie">
             <div class="tile-copy">
-              <p class="tile-number"><span>03</span><span>Culture</span></p>
+              <p class="tile-number"><span>04</span><span>Culture</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/emilie`}>Emilie Flöge:<br /><em>Movement Through Fabric</em></a></h3>
               <p>A digital museum experience about clothing, movement and creative freedom.</p>
             </div>
@@ -104,7 +114,7 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
 
           <article class="project-tile project-tile--form">
             <div class="tile-copy">
-              <p class="tile-number"><span>04</span><span>Culture</span><span>Interactive learning</span></p>
+              <p class="tile-number"><span>05</span><span>Culture</span><span>Interactive learning</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/formgefuehl`}>Formgefühl.<br /><em>A Feel for Form.</em></a></h3>
               <p>Design a pattern and step inside it. Discover the Wiener Werkstätte through making.</p>
             </div>
@@ -113,7 +123,7 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
           </article>
           <article class="project-tile project-tile--jardin">
             <div class="tile-copy">
-              <p class="tile-number"><span>05</span><span>Culture</span><span>Interactive learning</span></p>
+              <p class="tile-number"><span>06</span><span>Culture</span><span>Interactive learning</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/jardin`}>Un jardin<br /><em>à soi.</em></a></h3>
               <p>{lang === 'de' ? 'Entdecke Kunst auf Stoff und gestalte dein eigenes Muster.' : lang === 'fr' ? 'Découvrez l’art sur le tissu et créez votre propre motif.' : 'Discover art on fabric and create a pattern of your own.'}</p>
             </div>
@@ -122,7 +132,7 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
           </article>
           <article class="project-tile project-tile--hotel">
             <div class="tile-copy">
-              <p class="tile-number"><span>06</span><span>Culture</span><span>Interactive history</span></p>
+              <p class="tile-number"><span>07</span><span>Culture</span><span>Interactive history</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/hotel`}>Hotel<br /><em>Wien.</em></a></h3>
               <p>{lang === 'de' ? 'Sechs Wiener Hotels erzählen, wie sich Reisen und Übernachten seit 1600 verändert haben.' : lang === 'fr' ? 'Six hôtels viennois racontent l’évolution du voyage et de l’hébergement depuis 1600.' : 'Six Viennese hotels reveal how travel and overnight stays have changed since 1600.'}</p>
             </div>
@@ -137,7 +147,7 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
           <div class="project-mosaic">
           <article class="project-tile project-tile--first-aid">
             <div class="tile-copy">
-              <p class="tile-number"><span>05</span><span>Professional learning</span><span>Education</span></p>
+              <p class="tile-number"><span>08</span><span>Professional learning</span><span>Education</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/first-aid`}>What if I <em>get it wrong?</em></a></h3>
               <p>A bilingual first-aid experience that makes room for uncertainty before practical training.</p>
             </div>
@@ -147,7 +157,7 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
 
           <article class="project-tile project-tile--learning">
             <div class="tile-copy">
-              <p class="tile-number"><span>06</span><span>Professional learning</span><span>Education</span></p>
+              <p class="tile-number"><span>09</span><span>Professional learning</span><span>Education</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/learning`}>Learning,<br /><em>Differently</em></a></h3>
               <p>A short course for designing around a learner’s real situation.</p>
             </div>
@@ -157,7 +167,7 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
 
           <article class="project-tile project-tile--hr">
             <div class="tile-copy">
-              <p class="tile-number"><span>07</span><span>Professional learning</span><span>Onboarding</span></p>
+              <p class="tile-number"><span>10</span><span>Professional learning</span><span>Onboarding</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/hr`}>First<br /><em>100 Days</em></a></h3>
               <p>An adaptable 100-day onboarding journey that connects short learning prompts with real work.</p>
             </div>
@@ -172,7 +182,7 @@ const { lang = 'en' } = Astro.props as { lang?: Language };
           <div class="project-mosaic">
           <article class="project-tile project-tile--elio">
             <div class="tile-copy">
-              <p class="tile-number"><span>08</span><span>Education</span><span>Young audiences</span></p>
+              <p class="tile-number"><span>11</span><span>Education</span><span>Young audiences</span></p>
               <h3><a class="tile-main-link" href={`${base}projects/elio`}>Elio’s Ocean<br /><em>Investigation</em></a></h3>
               <p>A child’s drawing becomes an ocean investigation.</p>
             </div>

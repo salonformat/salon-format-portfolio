@@ -1,0 +1,162 @@
+---
+import '@fontsource/della-respira';
+import '@fontsource/josefin-sans/400.css';
+import '@fontsource/josefin-sans/500.css';
+import '../../styles/global.css';
+import '../../styles/project-system.css';
+import LanguageSwitch from '../../components/LanguageSwitch.astro';
+import type { Language } from '../../i18n/translations';
+
+const base = import.meta.env.BASE_URL;
+const { lang = 'en' } = Astro.props as { lang?: Language };
+const prefix = lang === 'en' ? '' : `/${lang}`;
+const experience = `https://salonformat.github.io/ADVENT-web/?lang=${lang}`;
+const texts = {
+  de: {
+    all: 'Alle Projekte',
+    lead: '24 Künstlerinnen, kurze Geschichten und kleine Experimente mit Farbe, Form und Raum.',
+    open: 'Adventkalender öffnen',
+    status: 'Saisonales Lernprojekt · 1.–24. Dezember · Deutsch, Englisch und Französisch',
+    question: 'Ein Adventkalender zum Entdecken und Ausprobieren.',
+    context: 'Vom 1. bis 24. Dezember öffnet sich jeden Tag ein neues Fenster. Dahinter lernen Besucher:innen eine Künstlerin kennen und probieren eine Idee aus ihrer Arbeit selbst aus. Frühere Fenster bleiben geöffnet, damit der Kalender im eigenen Tempo genutzt werden kann.',
+    flow: 'Jeden Tag eine neue Begegnung.',
+    steps: [
+      ['Öffnen', 'Ein neues Fenster wird zugänglich; die bereits geöffneten Tage bleiben erhalten.'],
+      ['Kennenlernen', 'Eine kurze Geschichte stellt eine Künstlerin, ihr Werk und einen Gedanken daraus vor.'],
+      ['Ausprobieren', 'Ein kleines digitales Experiment macht Farbe, Form, Muster oder Raum direkt erfahrbar.'],
+      ['Mitnehmen', 'Eigene Ergebnisse können heruntergeladen oder geteilt werden – ohne Konto und ohne dauerhafte Speicherung.']
+    ],
+    learning: 'Kunstgeschichte wird zu einer eigenen Handlung.',
+    body: 'Die 24 Übungen reichen vom Ordnen geometrischer Formen bis zum Zeichnen aus der Erinnerung. Jede Aufgabe ist kurz, zugänglich und eng mit der vorgestellten Künstlerin verbunden. So entsteht aus einer täglichen Überraschung ein wachsendes Archiv von Ideen und eigenen Versuchen.',
+    choices: 'Entscheidungen im Design',
+    decisions: [
+      ['24 unterschiedliche Zugänge', 'Jede Künstlerin erhält eine eigene Geschichte, Zeichnung und Interaktion.'],
+      ['Kurze tägliche Einheiten', 'Ein Fenster kann in wenigen Minuten besucht werden, lädt aber auch zum längeren Ausprobieren ein.'],
+      ['Dreisprachig', 'Der gesamte Kalender ist auf Deutsch, Englisch und Französisch verfügbar.'],
+      ['Offen und kostenlos', 'Keine Anmeldung, kein Lernkonto und kein Sammeln persönlicher Ergebnisse.']
+    ],
+    role: 'Konzept · Recherche · Texte · Illustration · Learning Design · Interaction Design · Prototyping',
+    roleText: 'Ich entwickelte das Format, recherchierte und schrieb die Inhalte, zeichnete die visuellen Elemente und gestaltete alle 24 digitalen Experimente. Der Kalender verbindet Kunstvermittlung mit einem wiederkehrenden, niedrigschwelligen Lernrhythmus.',
+    notice: 'Atelier des possibles ist ein unabhängiges, selbst initiiertes Projekt von Salon Format. Museums- und Sammlungslinks führen zu den verwendeten Quellen. Die Zeichnungen und interaktiven Übungen wurden eigens für den Kalender entwickelt.',
+    next: 'Nächste Case Study'
+  },
+  fr: {
+    all: 'Tous les projets',
+    lead: '24 artistes, de courtes histoires et de petites expériences autour de la couleur, de la forme et de l’espace.',
+    open: 'Ouvrir le calendrier',
+    status: 'Projet d’apprentissage saisonnier · du 1er au 24 décembre · français, allemand et anglais',
+    question: 'Un calendrier de l’Avent à explorer et à expérimenter.',
+    context: 'Du 1er au 24 décembre, une nouvelle fenêtre s’ouvre chaque jour. Derrière chacune, le public découvre une artiste et expérimente une idée issue de son travail. Les fenêtres précédentes restent accessibles afin que chacun puisse avancer à son rythme.',
+    flow: 'Une nouvelle rencontre chaque jour.',
+    steps: [
+      ['Ouvrir', 'Une nouvelle fenêtre devient accessible, tandis que les jours précédents restent ouverts.'],
+      ['Découvrir', 'Une courte histoire présente une artiste, son travail et une idée qui le traverse.'],
+      ['Expérimenter', 'Une petite interaction permet d’explorer directement la couleur, la forme, le motif ou l’espace.'],
+      ['Conserver', 'Les créations peuvent être téléchargées ou partagées, sans compte ni stockage permanent.']
+    ],
+    learning: 'L’histoire de l’art devient une action personnelle.',
+    body: 'Les 24 propositions vont de l’organisation de formes géométriques au dessin de mémoire. Chaque exercice est court, accessible et directement lié à l’artiste présentée. La surprise quotidienne devient ainsi une collection grandissante d’idées et d’expériences personnelles.',
+    choices: 'Choix de conception',
+    decisions: [
+      ['24 approches différentes', 'Chaque artiste possède sa propre histoire, son dessin et son interaction.'],
+      ['Des rendez-vous courts', 'Une fenêtre se découvre en quelques minutes, tout en laissant la possibilité d’aller plus loin.'],
+      ['Trois langues', 'L’ensemble du calendrier est disponible en français, allemand et anglais.'],
+      ['Ouvert et gratuit', 'Sans inscription, sans compte et sans collecte des créations personnelles.']
+    ],
+    role: 'Concept · Recherche · Rédaction · Illustration · Learning Design · Design d’interaction · Prototypage',
+    roleText: 'J’ai développé le format, effectué les recherches, rédigé les contenus, dessiné les éléments visuels et conçu les 24 expériences numériques. Le calendrier associe médiation artistique et rythme d’apprentissage quotidien, simple et accessible.',
+    notice: 'Atelier des possibles est un projet indépendant et personnel de Salon Format. Les liens vers les musées et les collections renvoient aux sources utilisées. Les dessins et les expériences interactives ont été créés spécialement pour ce calendrier.',
+    next: 'Projet suivant'
+  },
+  en: {
+    all: 'All projects',
+    lead: '24 women artists, short stories and small experiments with colour, shape and space.',
+    open: 'Open the Advent calendar',
+    status: 'Seasonal learning project · 1–24 December · English, German and French',
+    question: 'An Advent calendar for exploring and making.',
+    context: 'A new window opens every day from 1 to 24 December. Behind each one, visitors meet a woman artist and try an idea connected to her work. Earlier windows stay open, so the calendar can be explored at an individual pace.',
+    flow: 'A new encounter every day.',
+    steps: [
+      ['Open', 'A new window becomes available while all previous days remain accessible.'],
+      ['Meet', 'A short story introduces an artist, her work and one idea within it.'],
+      ['Try', 'A small digital experiment makes colour, shape, pattern or space tangible.'],
+      ['Keep', 'Personal results can be downloaded or shared, without an account or permanent storage.']
+    ],
+    learning: 'Art history becomes something you do.',
+    body: 'The 24 activities range from arranging geometric forms to drawing a room from memory. Each task is brief, approachable and closely connected to the featured artist. A daily surprise gradually becomes an archive of ideas and personal experiments.',
+    choices: 'Design choices',
+    decisions: [
+      ['24 distinct encounters', 'Each artist has her own story, original drawing and interaction.'],
+      ['Short daily visits', 'A window can take only a few minutes, while leaving room for longer exploration.'],
+      ['Three languages', 'The entire calendar is available in English, German and French.'],
+      ['Open and free', 'No registration, learner account or collection of personal results.']
+    ],
+    role: 'Concept · Research · Writing · Illustration · Learning Design · Interaction Design · Prototyping',
+    roleText: 'I developed the format, researched and wrote the content, drew the visual elements and designed all 24 digital experiments. The calendar combines art learning with a gentle, recurring daily rhythm.',
+    notice: 'Atelier des possibles is an independent, self-initiated Salon Format project. Museum and collection links lead to the sources used. All drawings and interactive activities were created specifically for the calendar.',
+    next: 'Next case study'
+  }
+} as const;
+const t = texts[lang];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={t.lead} />
+    <link rel="canonical" href={`https://salonformat.com${prefix}/projects/advent/`} />
+    <link rel="icon" type="image/png" href={`${base}brand/salon-format-mark.png`} />
+    <meta property="og:title" content="Atelier des possibles · Salon Format" />
+    <meta property="og:description" content={t.lead} />
+    <meta property="og:image" content="https://salonformat.com/images/advent/cover.png" />
+    <title>Atelier des possibles · Salon Format</title>
+  </head>
+  <body class="case-page advent-case">
+    <header class="case-header">
+      <a class="case-home" href={`${prefix}/`} aria-label="Salon Format"><img src={`${base}brand/salon-format-mark.png`} alt="" /><span>Salon Format</span></a>
+      <a href={`${prefix}/#projects`}>{t.all}</a>
+      <LanguageSwitch lang={lang} />
+    </header>
+
+    <main>
+      <section class="case-hero">
+        <div class="case-hero-copy">
+          <h1>Atelier des<br /><em>possibles</em></h1>
+          <p class="case-deck">{t.lead}</p>
+          <div class="case-actions"><a class="case-button" href={experience}>{t.open}<span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a></div>
+          <p class="advent-status">{t.status}</p>
+        </div>
+        <figure class="advent-hero-image"><img src={`${base}images/advent/cover.png`} width="1200" height="630" alt="Atelier des possibles: a drawn house with 24 numbered windows" /></figure>
+      </section>
+
+      <section class="case-intro">
+        <h2>{t.question}</h2>
+        <p>{t.context}</p>
+      </section>
+
+      <section class="case-process advent-process">
+        <div class="process-heading"><h2>{t.flow}</h2></div>
+        <ol class="journey-list">{t.steps.map(([title, body]) => <li><span>{title}</span><p>{body}</p></li>)}</ol>
+      </section>
+
+      <section class="advent-learning">
+        <div class="advent-number" aria-hidden="true">24</div>
+        <div><h2>{t.learning}</h2><p>{t.body}</p></div>
+      </section>
+
+      <section class="decision-section advent-decisions">
+        <h2>{t.choices}</h2>
+        <div class="decision-grid">{t.decisions.map(([title, body]) => <article><h3>{title}</h3><p>{body}</p></article>)}</div>
+      </section>
+
+      <section class="case-role advent-role">
+        <h2>{t.role}</h2>
+        <div><p>{t.roleText}</p><p>{t.notice}</p><a class="case-button" href={experience}>{t.open}<span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a></div>
+      </section>
+
+      <nav class="case-next" aria-label="Project navigation"><p>{t.next}</p><a href={`${prefix}/projects/what-stays`}>What stays? <span class="ui-arrow" aria-hidden="true"></span></a></nav>
+    </main>
+  </body>
+</html>
