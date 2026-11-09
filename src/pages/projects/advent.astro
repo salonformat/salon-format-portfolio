@@ -14,6 +14,7 @@ const experience = `https://salonformat.github.io/ADVENT-web/?lang=${lang}`;
 const texts = {
   de: {
     all: 'Alle Projekte',
+    eyebrow: 'Interaktiver Adventkalender · 24 Tage Kunst entdecken',
     lead: '24 Künstlerinnen, kurze Geschichten und kleine Experimente mit Farbe, Form und Raum.',
     open: 'Adventkalender öffnen',
     status: 'Saisonales Lernprojekt · 1.–24. Dezember · Deutsch, Englisch und Französisch',
@@ -42,6 +43,7 @@ const texts = {
   },
   fr: {
     all: 'Tous les projets',
+    eyebrow: 'Calendrier de l’Avent interactif · 24 jours pour découvrir l’art',
     lead: '24 artistes, de courtes histoires et de petites expériences autour de la couleur, de la forme et de l’espace.',
     open: 'Ouvrir le calendrier',
     status: 'Projet d’apprentissage saisonnier · du 1er au 24 décembre · français, allemand et anglais',
@@ -70,6 +72,7 @@ const texts = {
   },
   en: {
     all: 'All projects',
+    eyebrow: 'Interactive Advent calendar · 24 days of discovering art',
     lead: '24 women artists, short stories and small experiments with colour, shape and space.',
     open: 'Open the Advent calendar',
     status: 'Seasonal learning project · 1–24 December · English, German and French',
@@ -123,12 +126,13 @@ const t = texts[lang];
     <main>
       <section class="case-hero">
         <div class="case-hero-copy">
+          <p class="advent-eyebrow">{t.eyebrow}</p>
           <h1>Atelier des<br /><em>possibles</em></h1>
           <p class="case-deck">{t.lead}</p>
           <div class="case-actions"><a class="case-button" href={experience}>{t.open}<span class="ui-arrow ui-arrow-external" aria-hidden="true"></span></a></div>
           <p class="advent-status">{t.status}</p>
         </div>
-        <figure class="advent-hero-image"><img src={`${base}images/advent/cover.png`} width="1200" height="630" alt="Atelier des possibles: a drawn house with 24 numbered windows" /></figure>
+        <figure class="advent-hero-image advent-sky"><img src={`${base}images/advent/current-house.svg`} width="1200" height="760" alt="Atelier des possibles: a drawn house with 24 numbered windows" /><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i></figure>
       </section>
 
       <section class="case-intro">

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Atelier des possibles Advent house</title>
+  <desc id="desc">A hand-drawn dark blue Advent house with 24 colourful numbered windows, a mauve roof and a glowing star above the entrance.</desc>
+  <defs>
+    <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence baseFrequency=".015 .08" numOctaves="2" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4"/>
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#53657c"/><stop offset=".55" stop-color="#334e72"/><stop offset="1" stop-color="#4f3c75"/>
+    </linearGradient>
+    <pattern id="grain" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M-3 17L17-3M3 23L23 3" stroke="#fff" stroke-opacity=".045" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="#101d36"/>
+  <g fill="#f4f7f3" opacity=".8">
+    <circle cx="82" cy="92" r="3"/><circle cx="190" cy="177" r="2"/><circle cx="1085" cy="132" r="3"/><circle cx="1140" cy="286" r="2"/><circle cx="1020" cy="70" r="2"/><circle cx="128" cy="604" r="2"/>
+  </g>
+  <path d="M81 293q71-25 148 4M1005 228q67-29 132-6" fill="none" stroke="#dfb856" stroke-opacity=".65" stroke-width="5" stroke-linecap="round"/>
+  <g filter="url(#rough)">
+    <path d="M281 150L439 68 596 126 765 54 934 143 919 670 279 683Z" fill="url(#wall)" stroke="#e6d9c7" stroke-width="7"/>
+    <path d="M271 156L436 58 596 118 768 43 946 145 900 168 763 92 598 162 439 103 300 180Z" fill="#79547d" stroke="#b98ba0" stroke-width="7"/>
+    <path d="M295 195q156 47 305 0t310 2" fill="none" stroke="#dfb856" stroke-width="8" stroke-linecap="round"/>
+    <g fill="#efb8bf"><circle cx="337" cy="204" r="9"/><circle cx="409" cy="214" r="9"/><circle cx="484" cy="215" r="9"/><circle cx="558" cy="207" r="9"/><circle cx="635" cy="197" r="9"/><circle cx="712" cy="190" r="9"/><circle cx="790" cy="192" r="9"/><circle cx="864" cy="205" r="9"/></g>
+    <path d="M311 233Q470 169 610 246T902 214V657H305Z" fill="url(#grain)"/>
+    <path d="M319 278q85-57 184-1t191-9 195 7" fill="none" stroke="#d15b52" stroke-width="42" stroke-linecap="round" opacity=".66"/>
+    <path d="M321 455q116-42 225 10t196-16 147 11" fill="none" stroke="#345fc0" stroke-width="48" stroke-linecap="round" opacity=".66"/>
+    <path d="M338 594q102-59 204-3t170 2 154-31" fill="none" stroke="#8c4c87" stroke-width="45" stroke-linecap="round" opacity=".7"/>
+    <g font-family="Josefin Sans, Arial, sans-serif" font-size="24" text-anchor="middle" dominant-baseline="middle" fill="#14213d" stroke="#f5efe6" stroke-width="4" paint-order="stroke">
+      <g fill="#dfb856"><rect x="332" y="252" width="72" height="68" rx="5"/><rect x="426" y="250" width="72" height="70" rx="5"/><rect x="520" y="248" width="72" height="72" rx="5"/><rect x="614" y="247" width="72" height="73" rx="5"/><rect x="708" y="249" width="72" height="71" rx="5"/><rect x="802" y="253" width="72" height="67" rx="5"/></g>
+      <g fill="#efb8bf"><rect x="329" y="346" width="76" height="69" rx="5"/><rect x="424" y="345" width="76" height="70" rx="5"/><rect x="519" y="344" width="76" height="71" rx="5"/><rect x="614" y="344" width="76" height="71" rx="5"/><rect x="709" y="345" width="76" height="70" rx="5"/><rect x="804" y="347" width="76" height="68" rx="5"/></g>
+      <g fill="#91b4a4"><rect x="327" y="441" width="78" height="70" rx="5"/><rect x="423" y="440" width="78" height="71" rx="5"/><rect x="519" y="439" width="78" height="72" rx="5"/><rect x="615" y="439" width="78" height="72" rx="5"/><rect x="711" y="440" width="78" height="71" rx="5"/><rect x="807" y="442" width="78" height="69" rx="5"/></g>
+      <g fill="#c4879e"><rect x="325" y="536" width="80" height="70" rx="5"/><rect x="422" y="535" width="80" height="71" rx="5"/><rect x="519" y="534" width="80" height="72" rx="5"/><rect x="616" y="534" width="80" height="72" rx="5"/><rect x="713" y="535" width="80" height="71" rx="5"/><rect x="810" y="537" width="80" height="69" rx="5"/></g>
+      <g stroke="none" fill="#14213d">
+        <text x="368" y="286">7</text><text x="462" y="286">1</text><text x="556" y="286">15</text><text x="650" y="286">3</text><text x="744" y="286">21</text><text x="838" y="286">9</text>
+        <text x="367" y="380">11</text><text x="462" y="380">19</text><text x="557" y="380">4</text><text x="652" y="380">17</text><text x="747" y="380">6</text><text x="842" y="380">23</text>
+        <text x="366" y="476">20</text><text x="462" y="476">8</text><text x="558" y="476">16</text><text x="654" y="476">10</text><text x="750" y="476">13</text><text x="846" y="476">22</text>
+        <text x="365" y="571">12</text><text x="462" y="571">5</text><text x="559" y="571">2</text><text x="656" y="571">14</text><text x="753" y="571">18</text><text x="850" y="571">24</text>
+      </g>
+    </g>
+    <path d="M552 684V608Q552 579 581 579H648Q677 579 677 608V681Z" fill="#ce5b53" stroke="#f0c8aa" stroke-width="6"/>
+    <path d="M614 603l11 22 24 3-18 17 5 24-22-12-22 12 5-24-18-17 24-3Z" fill="#f7d767" filter="url(#glow)"/>
+    <path d="M279 683q154-18 318 1t323-14" fill="none" stroke="#f4f7f3" stroke-width="16" stroke-linecap="round"/>
+  </g>
+</svg>

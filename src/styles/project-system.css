@@ -99,14 +99,23 @@
 .project-group--culture .project-tile--advent .tile-copy > p:last-child { max-width: 29ch; color: #f4f7f3; }
 .project-tile--advent .tile-art { left: 44%; overflow: hidden; background: #101d36; }
 .project-tile--advent .tile-art img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.advent-sky { overflow: hidden; }
+.advent-sky > img { position: relative; z-index: 1; }
+.advent-sky > i { position: absolute; z-index: 2; top: 15%; left: 78%; width: clamp(3.5rem, 8vw, 7rem); height: 2px; border-radius: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.95)); transform: rotate(-28deg); opacity: 0; animation: advent-shoot 8s ease-in-out infinite; pointer-events: none; }
+.advent-sky > i::after { content: ''; position: absolute; right: -2px; top: -2px; width: 6px; height: 6px; border-radius: 50%; background: #fff6c7; box-shadow: 0 0 12px 4px rgba(255,246,199,.7); }
+.advent-sky > i:nth-of-type(2) { top: 31%; left: 91%; animation-delay: 2.8s; animation-duration: 9.5s; transform: rotate(-36deg) scale(.72); }
+.advent-sky > i:nth-of-type(3) { top: 8%; left: 55%; animation-delay: 5.4s; animation-duration: 10.5s; transform: rotate(-22deg) scale(.55); }
+@keyframes advent-shoot { 0%, 70%, 100% { opacity: 0; translate: 0 0; } 73% { opacity: .95; } 83% { opacity: 0; translate: -20rem 10rem; } }
+@media (prefers-reduced-motion: reduce) { .advent-sky > i { animation: none; } }
 
 .advent-case .case-hero { background: #101d36; color: #f4f7f3; grid-template-columns: .8fr 1.2fr; gap: clamp(2.5rem, 5vw, 6rem); min-height: 82svh; }
 .advent-case .case-hero h1 { max-width: 12ch; font-size: clamp(3.4rem, 6vw, 6rem); line-height: .96; }
 .advent-case .case-hero h1 em { color: #efb8bf; }
 .advent-case .case-hero .case-button { background: #dfb856; color: #242827; }
+.advent-eyebrow { margin: 0 0 1.35rem; color: #dfb856; font-size: clamp(.76rem, 1vw, .92rem); font-weight: 500; line-height: 1.4; letter-spacing: .13em; text-transform: uppercase; }
 .advent-status { max-width: 42rem; margin-top: 1.5rem; color: #dce7df; font-size: .82rem; line-height: 1.55; }
-.advent-hero-image { margin: 0; border: 1px solid rgba(244,247,243,.28); }
-.advent-hero-image img { display: block; width: 100%; height: auto; }
+.advent-hero-image { position: relative; margin: 0; border: 1px solid rgba(244,247,243,.28); background: #101d36; }
+.advent-hero-image img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: cover; }
 .advent-process { background: #173d38; color: #f4f7f3; }
 .advent-learning { min-height: 68svh; padding: clamp(5rem, 9vw, 9rem) var(--gutter); display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(3rem, 8vw, 9rem); align-items: center; background: #e6ede7; color: #173d38; }
 .advent-number { font-family: var(--display); font-size: clamp(10rem, 24vw, 24rem); line-height: .7; color: #a73a49; letter-spacing: -.04em; }
@@ -159,6 +168,8 @@
   .project-tile--advent .tile-art { left: 0; top: 52%; }
   .advent-case .case-hero, .advent-learning { grid-template-columns: 1fr; }
   .advent-case .case-hero { gap: 2.5rem; }
+  .advent-case .case-hero-copy { max-width: 42rem; }
+  .advent-hero-image { aspect-ratio: 6 / 4; }
   .advent-number { font-size: min(46vw, 14rem); }
 }
 
@@ -172,8 +183,8 @@
   .project-group--work .project-tile--hr,
   .project-group--young .project-tile--elio { aspect-ratio: auto; min-height: 28rem; }
   .project-group--culture .project-tile--memory { min-height: 34rem; }
-  .project-group--culture .project-tile--advent { min-height: 35rem; }
-  .project-group--culture .project-tile--advent .tile-art { top: 57%; }
+  .project-group--culture .project-tile--advent { min-height: 39rem; }
+  .project-group--culture .project-tile--advent .tile-art { top: 61%; }
   .project-group--culture .project-tile--form { min-height: 34rem; }
   .project-group--culture .project-tile--form .tile-art { top: 59%; }
   .project-group--young .project-tile--elio { min-height: 32rem; }
