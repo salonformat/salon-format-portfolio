@@ -11,11 +11,11 @@ import type { Language } from '../i18n/translations';
 const base = import.meta.env.BASE_URL;
 const { lang = 'en' } = Astro.props as { lang?: Language };
 const shellCopy = {
-  en: { group: 'Nature & discovery', count: '2 projects', body: 'Go beneath the surface and see how mussels and sea snails make their shells.', action: 'Dive in' },
-  de: { group: 'Natur entdecken', count: '2 Projekte', body: 'Eine Reise unter Wasser: So bilden Muscheln und Meeresschnecken ihre Schalen.', action: 'Eintauchen' },
-  fr: { group: 'Découvrir la nature', count: '2 projets', body: 'Sous la mer, découvre comment les moules et les escargots de mer fabriquent leur coquille.', action: 'Plonger' }
+  en: { group: 'Nature & discovery', count: '2 projects', body: 'How do mussels and sea snails grow their shells?', action: 'Dive in' },
+  de: { group: 'Natur entdecken', count: '2 Projekte', body: 'Wie wachsen Muscheln und Meeresschnecken?', action: 'Eintauchen' },
+  fr: { group: 'Découvrir la nature', count: '2 projets', body: 'Comment se forment leurs coquilles ?', action: 'Plonger' }
 }[lang];
-const shellsUrl = `https://salonformat.github.io/coquillages/?lang=${lang}&v=atelier-20#start`;
+const shellsUrl = `https://salonformat.github.io/coquillages/?lang=${lang}&v=living-22#start`;
 ---
 
 <!doctype html>
