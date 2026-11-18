@@ -270,3 +270,20 @@
   .project-tile--hotel .tile-art { top: 56%; }
   .hotel-hero-image, .hotel-hero-image img { min-height: 26rem; }
 }
+
+/* Coquillages joins the existing ocean projects. */
+.project-group .project-tile--coquillages{grid-column:1/-1;aspect-ratio:2.7/1;background:#123f88;color:#f6f1de}
+.project-group .project-tile--coquillages .tile-copy{max-width:43%;padding-bottom:5rem}
+.project-group .project-tile--coquillages h3{font-size:clamp(2.7rem,4.4vw,5rem);line-height:1.05;max-width:none}
+.project-tile--coquillages .tile-art{inset:0 0 0 43%;overflow:hidden}
+.project-tile--coquillages .tile-art img{width:100%;height:100%;object-fit:cover;object-position:74% 52%}
+@media(max-width:900px){
+ .project-group .project-tile--coquillages{aspect-ratio:auto;min-height:34rem}
+ .project-group .project-tile--coquillages .tile-copy{max-width:none;padding-bottom:1rem}
+ .project-group .project-tile--coquillages h3{font-size:clamp(2.5rem,8vw,4.4rem)}
+ .project-tile--coquillages .tile-art{inset:43% 0 0}
+ .project-tile--coquillages .tile-art img{object-position:100% 60%}
+}
+@media(max-width:440px){.project-group .project-tile--coquillages{min-height:36rem}.project-tile--coquillages .tile-art{top:45%}}
+
+@media(max-width:800px){.site-header{flex-wrap:wrap}}
